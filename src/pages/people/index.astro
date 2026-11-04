@@ -2,7 +2,26 @@
 import Base from "../../layouts/Base.astro";
 import WorkCard from "../../components/WorkCard.astro";
 import SearchMeta from "../../components/SearchMeta.astro";
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
 import { members, team, closeCollaborators, initials } from "../../lib/data";
+
+/* TEST — a second version of the team grid that uses only the transparent cut-outs in
+   public/assets/people/transparent/ on the sky backdrop. Files are matched to people by first and
+   last name (gabriela-leon.png → Gabriela Molina León); anyone without a cut-out gets initials.
+   Set to false (or delete this block and the section below) once a version is chosen. */
+const SHOW_TRANSPARENT_TEST = true;
+const fold = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const cutouts = readdirSync(join(process.cwd(), "public/assets/people/transparent")).filter((f) => /\.(png|webp)$/i.test(f));
+const cutoutOf = (m: any) => {
+  const words = fold(m.name).split(/[^a-z]+/).filter(Boolean);
+  const file = cutouts.find((f) => {
+    const parts = fold(f.replace(/\.\w+$/, "")).split("-");
+    return parts[0] === words[0] && (parts.length === 1 || words.length === 1 || words.includes(parts[parts.length - 1]));
+  });
+  return file ? "/assets/people/transparent/" + file : null;
+};
+const testPeople = [...team, ...closeCollaborators].map((m: any) => ({ ...m, cutout: cutoutOf(m) }));
 
 /* the current team gets portrait cards; alumni and collaborators a quiet text list.
    Under those headings a role of just "Alumna" or "External Collaborator" says nothing, so it is dropped. */
@@ -36,7 +55,7 @@ const detail = (m: any) => [redundant.test(m.role || "") ? "" : m.role, m.org].f
       ))}
     </div>
     {closeCollaborators.length > 0 && (
-      <section class="close" id="close-collaborators">
+    <section class="close" id="close-collaborators">
         <h2>Close collaborators</h2>
         <div class="team compact">
           {closeCollaborators.map((m: any) => (

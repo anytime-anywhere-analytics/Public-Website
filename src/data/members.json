@@ -7,7 +7,7 @@
     "group": "faculty",
     "bio": "Niklas Elmqvist is a Villum Investigator and Professor of Computer Science at Aarhus University, where he directs the Center for Anytime Anywhere Analytics. His work asks how data analysis can leave the desktop: how visual representations behave when they are carried, worn, projected, and shared. Before Aarhus he was a professor at the University of Maryland, College Park, and at Purdue University.",
     "links": [["Personal site", "https://cs.au.dk/~elm/"]],
-    "photo": "/assets/people/niklas.jpg"
+    "photo": "/assets/people/niklas-elmqvist.jpg"
   },
   {
     "id": "gabriela-molina-leon",
@@ -58,7 +58,8 @@
     "org": "Aarhus University",
     "group": "current",
     "bio": "Arvind studies how head-mounted analytics change the way small teams reason about shared data, with a focus on hand and gaze input as analytic instruments.",
-    "links": [["Personal site", "https://arvind.one/"]]
+    "links": [["Personal site", "https://arvind.one/"]],
+    "photo": "/assets/people/arvind-srinivasan.jpg"
   },
   {
     "id": "johannes-ellemose",
@@ -274,7 +275,7 @@
     "org": "Aarhus University",
     "group": "current",
     "links": [["Personal site", "https://www.antonwolter.de"]],
-    "photo": "/assets/people/anton.jpg"
+    "photo": "/assets/people/anton-wolter.jpg"
   },
   {
     "id": "caroline-berger",
