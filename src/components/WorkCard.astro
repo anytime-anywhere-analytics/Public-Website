@@ -1,0 +1,18 @@
+---
+/* closing card on most pages; the detail lives on /work-with-us/ */
+import { site } from "../lib/data";
+const email = site.contact.find((l: string) => /@/.test(l));
+---
+<div class="wrap" data-pagefind-ignore>
+  <div class="workcard">
+    <div>
+      <h2>Work with us</h2>
+      <p class="lead" style="margin-top:16px;max-width:36ch">Whether you want to do a Ph.D. here, bring us a problem from industry, or write the next paper together: We would like to hear from you.</p>
+      <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap">
+        <a class="btn dark" href="/work-with-us/">Ways to work with us</a>
+        {email && <a class="btn ghost" href={"mailto:" + email}>Email us</a>}
+      </div>
+    </div>
+    <div class="art"><div class="ph has" style="position:absolute;inset:0" data-parallax="30"><img src="/assets/img/joinus.png" alt="" loading="lazy" /></div></div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+---
+/* Google Analytics 4 (gtag.js, no Tag Manager) behind an opt-in cookie banner.
+   Nothing from Google loads until the visitor accepts: Consent Mode v2 starts with
+   everything denied, and gtag.js is only injected after "Accept" (now or on an earlier
+   visit). Declining later deletes the _ga cookies. The choice is kept for 12 months.
+   Rendered only when PUBLIC_GA_ID is set at build time. */
+const gaId = import.meta.env.PUBLIC_GA_ID;
+const privacyUrl = import.meta.env.PUBLIC_PRIVACY_URL;
+---
+{gaId && (
+  <>
+    <div class="consent" data-consent hidden role="region" aria-label="Cookie consent">
+      <p><strong>Can we count your visit?</strong> We'd like to use Google Analytics to see how many people visit and which pages they read. If you accept, Google sets cookies and receives information about your visit — pages viewed, device and approximate location. Nothing is loaded unless you accept, and you can change your mind any time under “Cookie settings” at the bottom of the page.{privacyUrl && <> <a href={privacyUrl}>Privacy policy</a>.</>}</p>
+      <div class="acts">
+        <button class="btn sm dark" type="button" data-consent-accept>Accept</button>
+        <button class="btn sm dark" type="button" data-consent-decline>Decline</button>
+      </div>
+    </div>
+    <script is:inline define:vars={{ gaId }}>
+      (() => {
+        const KEY = "ca3-consent", VERSION = 1, MAX_AGE = 365 * 864e5;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        gtag("consent", "default", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied", analytics_storage: "denied" });
+
+        const read = () => {
+          try { const c = JSON.parse(localStorage.getItem(KEY)); return c && c.v === VERSION && Date.now() - c.t < MAX_AGE ? c.choice : null; }
+          catch { return null; }
+        };
+        const save = (choice) => { try { localStorage.setItem(KEY, JSON.stringify({ choice, v: VERSION, t: Date.now() })); } catch {} };
+
+        let loaded = false;
+        const load = () => {
+          if (loaded) return;
+          loaded = true;
+          gtag("consent", "update", { analytics_storage: "granted" });
+          gtag("js", new Date());
+          /* content_group is GA4's built-in "section" dimension: home, people, publications, yearbook… */
+          gtag("config", gaId, { content_group: location.pathname.split("/")[1] || "home", allow_google_signals: false, allow_ad_personalization_signals: false });
+          const s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gaId);
+          document.head.appendChild(s);
+        };
+        /* _ga and _ga_<id> live on the site's registrable domain; clear them on every level of the host */
+        const forget = () => {
+          gtag("consent", "update", { analytics_storage: "denied" });
+          const names = document.cookie.split(";").map((c) => c.split("=")[0].trim()).filter((n) => /^_ga(_|$)/.test(n));
+          const parts = location.hostname.split(".");
+          names.forEach((n) => {
+            document.cookie = `${n}=; Max-Age=0; path=/`;
+            for (let i = 0; i < parts.length - 1; i++) document.cookie = `${n}=; Max-Age=0; path=/; domain=.${parts.slice(i).join(".")}`;
+          });
+        };
+        /* site.js reports searches through this; it only reaches Google after consent */
+        window.ca3Track = (name, params) => { if (loaded) gtag("event", name, params); };
+
+        const banner = document.querySelector("[data-consent]");
+        const show = () => { banner.hidden = false; };
+        const hide = () => { banner.hidden = true; };
+        banner.querySelector("[data-consent-accept]").addEventListener("click", () => { save("granted"); hide(); load(); });
+        banner.querySelector("[data-consent-decline]").addEventListener("click", () => { save("denied"); hide(); forget(); });
+        document.querySelectorAll("[data-consent-open]").forEach((b) => b.addEventListener("click", show));
+
+        const choice = read();
+        if (choice === "granted") load();
+        else if (choice === null) show();
+      })();
+    </script>
+  </>
+)}

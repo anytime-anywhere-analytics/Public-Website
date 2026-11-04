@@ -1,0 +1,9 @@
+---
+const { label, caption, parallax, src } = Astro.props;
+---
+<div class="cover">
+  <div class={"ph" + (src ? " has" : "")} data-parallax={parallax}>
+    {src ? <img src={src} alt="" loading="lazy" /> : <span>{label}</span>}
+  </div>
+</div>
+{caption && <div class="cap">{caption}</div>}

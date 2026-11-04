@@ -1,0 +1,86 @@
+---
+import Base from "../../layouts/Base.astro";
+import WorkCard from "../../components/WorkCard.astro";
+import SearchMeta from "../../components/SearchMeta.astro";
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
+import { members, team, closeCollaborators, initials } from "../../lib/data";
+
+/* TEST — a second version of the team grid that uses only the transparent cut-outs in
+   public/assets/people/transparent/ on the sky backdrop. Files are matched to people by first and
+   last name (gabriela-leon.png → Gabriela Molina León); anyone without a cut-out gets initials.
+   Set to false (or delete this block and the section below) once a version is chosen. */
+const SHOW_TRANSPARENT_TEST = true;
+const fold = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const cutouts = readdirSync(join(process.cwd(), "public/assets/people/transparent")).filter((f) => /\.(png|webp)$/i.test(f));
+const cutoutOf = (m: any) => {
+  const words = fold(m.name).split(/[^a-z]+/).filter(Boolean);
+  const file = cutouts.find((f) => {
+    const parts = fold(f.replace(/\.\w+$/, "")).split("-");
+    return parts[0] === words[0] && (parts.length === 1 || words.length === 1 || words.includes(parts[parts.length - 1]));
+  });
+  return file ? "/assets/people/transparent/" + file : null;
+};
+const testPeople = [...team, ...closeCollaborators].map((m: any) => ({ ...m, cutout: cutoutOf(m) }));
+
+/* the current team gets portrait cards; alumni and collaborators a quiet text list.
+   Under those headings a role of just "Alumna" or "External Collaborator" says nothing, so it is dropped. */
+/* alumni read as a directory: by surname, then full name */
+const surname = (name: string) => name.trim().split(/\s+/).pop() || name;
+const bySurname = (a: any, b: any) => surname(a.name).localeCompare(surname(b.name), "en") || a.name.localeCompare(b.name, "en");
+const past = [
+  { id: "alumni", title: "Alumni", people: members.filter((m: any) => m.group === "alumni").sort(bySurname) },
+  { id: "collaborators", title: "External collaborators", people: members.filter((m: any) => m.group === "external") },
+];
+const redundant = /^(alumn(a|us|i)|external collaborator)$/i;
+const detail = (m: any) => [redundant.test(m.role || "") ? "" : m.role, m.org].filter(Boolean).join(" · ");
+---
+<Base title="People · CA³" description="The faculty, postdocs and Ph.D. students of the Center for Anytime Anywhere Analytics at Aarhus University, with its alumni and collaborators." current="/people/">
+  <SearchMeta kind="Page" />
+  <div class="wrap">
+    <div class="pagehero">
+      <div>
+        <h1>People</h1>
+        <p class="lead" style="margin-top:20px;max-width:44ch">The centre is its people: faculty, postdocs and Ph.D. students working on analytics that leaves the desk.</p>
+      </div>
+    </div>
+    <div class="team">
+      {team.map((m: any) => (
+        <a class="tcard" href={"/people/" + m.id + "/"}>
+          <div class="portrait">{m.photo ? <img src={m.photo} alt="" loading="lazy" /> : <span class="ini">{initials(m.name)}</span>}</div>
+          <h3>{m.name}</h3>
+          <div class="small">{m.role}</div>
+          <div class="small">{m.org}</div>
+        </a>
+      ))}
+    </div>
+    {closeCollaborators.length > 0 && (
+    <section class="close" id="close-collaborators">
+        <h2>Close collaborators</h2>
+        <div class="team compact">
+          {closeCollaborators.map((m: any) => (
+            <a class="tcard" href={"/people/" + m.id + "/"}>
+              <div class="portrait">{m.photo ? <img src={m.photo} alt="" loading="lazy" /> : <span class="ini">{initials(m.name)}</span>}</div>
+              <h3>{m.name}</h3>
+              <div class="small">{m.role}</div>
+              <div class="small">{m.org}</div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+    <div class="past">
+      {past.filter((g) => g.people.length).map((g) => (
+        <section id={g.id}>
+          <h2 class="eyebrow">{g.title} <span class="ct">{g.people.length}</span></h2>
+          <ul class="plist">
+            {g.people.map((m: any) => (
+              <li><a href={"/people/" + m.id + "/"}>{m.name}</a>{detail(m) && <span>{detail(m)}</span>}</li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+  <WorkCard />
+</Base>
