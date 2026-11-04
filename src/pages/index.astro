@@ -53,7 +53,8 @@ const [big, ...rest] = feat;
     <div class="wrap" style="margin-top:48px">
       <div class="film">
         <media-player class="film-player" title="CA³ — the film" src={"vimeo/" + site.film.vimeoId} poster={site.film.still} load="play" playsinline>
-          <media-provider></media-provider>
+          {/* the poster attribute alone renders nothing; <media-poster> draws it until playback starts */}
+          <media-provider><media-poster class="vds-poster" alt="Niklas Elmqvist in the CA³ film"></media-poster></media-provider>
           <media-video-layout></media-video-layout>
         </media-player>
       </div>
