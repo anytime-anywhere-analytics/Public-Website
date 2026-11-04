@@ -16,14 +16,14 @@
 </head>
 <body>
   <p>Pick the site's <code>src/data/*.json</code> files (any subset). Each file fills the tab of the same name:
-    <code>site</code> → Site, <code>pillars</code> → Pillars, … <code>publications</code> → Publications.</p>
+    <code>site</code> → Site, <code>members</code> → Members, <code>publications</code> → Publications.</p>
   <input type="file" id="files" multiple accept=".json,application/json">
   <label><input type="radio" name="mode" value="replace" checked> Replace the whole tab</label>
   <label><input type="radio" name="mode" value="merge"> Merge — update rows with the same id, append new ones</label>
   <button id="go" disabled>Import</button>
   <div class="msg" id="msg"></div>
 <script>
-  const TAB = { site: "Site", pillars: "Pillars", testbeds: "Testbeds", members: "Members", posts: "Posts", publications: "Publications", stats: "Stats" };
+  const TAB = { site: "Site", members: "Members", publications: "Publications" };
   const files = document.getElementById("files"), go = document.getElementById("go"), msg = document.getElementById("msg");
   let payload = null;
   files.addEventListener("change", async () => {

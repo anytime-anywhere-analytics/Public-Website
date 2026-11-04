@@ -5,7 +5,7 @@
  * and with --replace to seed the sheet from the checked-in files.
  *
  *   node scripts/push-sheets.mjs publications
- *   node scripts/push-sheets.mjs members posts --if-configured
+ *   node scripts/push-sheets.mjs members publications --if-configured
  *   node scripts/push-sheets.mjs --all --replace     # overwrite every tab with the local files
  */
 import { readFile } from "node:fs/promises";
@@ -13,7 +13,7 @@ import { join } from "node:path";
 import { ROOT, configured, explainUnconfigured, callCms, TAB_OF } from "./cms-env.mjs";
 
 /* sheet cells in these columns win over the incoming value when they are non-empty */
-const PRESERVE = { publications: ["pillar", "testbed", "featured", "hook", "image", "video", "pdf"] };
+const PRESERVE = { publications: ["featured", "hook", "image", "video", "pdf"] };
 const CHUNK = 40;
 
 const ifConfigured = process.argv.includes("--if-configured");

@@ -68,7 +68,6 @@
       const r = Math.min(Math.max(Math.min(basis * 0.62, h * 1.5), 440), 780);
       dome.style.setProperty("--radius", Math.round(r) + "px");
       dome.style.setProperty("--segx", segments);
-      dome.style.setProperty("--segy", segments);
       apply();
     }).observe(dome);
     const step = () => {

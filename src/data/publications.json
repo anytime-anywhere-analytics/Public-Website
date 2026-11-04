@@ -13,8 +13,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2026,
-    "pillar": "Immersive Analytics",
-    "testbed": "Scientific Inquiry",
     "pdf": "https://pure.au.dk/portal/files/452643284/TVCG_2026_DashSpace_Study_Draft.pdf",
     "doi": "https://doi.org/10.1109/TVCG.2026.3672314",
     "portal": "https://pure.au.dk/portal/en/publications/i-feel-like-iron-man-authoring-exploring-and-presenting-data-visu/",
@@ -42,8 +40,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2026,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "pdf": "https://pure.au.dk/portal/files/458009570/2602.09631v1.pdf",
     "doi": "https://doi.org/10.1145/3772318.3793423",
     "portal": "https://pure.au.dk/portal/en/publications/a-multiliteracy-model-for-interactive-visualization-literacy-defi/",
@@ -70,8 +66,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2026,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "pdf": "https://pure.au.dk/portal/files/466179463/hubenschmid2026ambient.pdf",
     "doi": "https://doi.org/10.1109/MCG.2026.3667291",
     "portal": "https://pure.au.dk/portal/en/publications/ambient-analytics-calm-technology-for-immersive-visualization-and/",
@@ -92,8 +86,6 @@
     ],
     "venue": "PACM HCI",
     "year": 2026,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/3812772",
     "portal": "https://pure.au.dk/portal/en/publications/context-mediated-domain-adaptation-in-multi-agent-sensemaking-sys/",
     "abstract": [
@@ -120,8 +112,6 @@
     ],
     "venue": "IEEE PacificVis",
     "year": 2026,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/PacificVis68791.2026.00037",
     "portal": "https://pure.au.dk/portal/en/publications/data-visualization-in-high-school-education-a-participatory-and-c/",
     "abstract": [
@@ -143,8 +133,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2026,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2025.3634789",
     "portal": "https://pure.au.dk/portal/en/publications/eye-of-the-beholder-towards-measuring-visualization-complexity/",
     "abstract": [
@@ -178,8 +166,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2026,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2026.3683941",
     "portal": "https://pure.au.dk/portal/en/publications/hybrid-user-interfaces-past-present-and-future-of-complementary-c/",
     "abstract": [
@@ -209,8 +195,6 @@
     ],
     "venue": "ACM UIST",
     "year": 2026,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "pdf": "https://pure.au.dk/portal/files/472319208/StundUIST2026AuthorsCopy.pdf",
     "portal": "https://pure.au.dk/portal/en/publications/stund-activity-enriched-collaborative-workspaces-mediated-by-arti/",
     "abstract": [],
@@ -229,8 +213,6 @@
     ],
     "venue": "ACM Computing Surveys",
     "year": 2026,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/3788869",
     "portal": "https://pure.au.dk/portal/en/publications/systemization-of-knowledge-sok-visualization-insight-two-decades-/",
     "abstract": [
@@ -255,8 +237,6 @@
     ],
     "venue": "CEUR Workshop Proceedings",
     "year": 2026,
-    "pillar": "Immersive Analytics",
-    "testbed": "Higher Education",
     "portal": "https://pure.au.dk/portal/en/publications/the-attention-aware-pipeline-design-tensions-from-making-attentio/",
     "abstract": [
       "Where people look during shared activity carries coordination cues that speech and gesture cannot replace, but these patterns remain invisible to participants. XR headsets make gaze available as real-time input, yet few systems feed it back visually. We frame our work using the Attention-Aware Pipeline (Capture, Record, Revisualize), whose feedback loop means the system’s visual response alters what users attend to next, triggering further responses. This generates design tensions whose form depends on each stage’s configuration. We trace the pipeline through three systems casting attention as a mirror (reflecting gaze history), a medium (sharing it across collaborators), and a mediator (intervening through diminished reality). Each encountered a tension the loop predicted, motivating the next. A formative eye-tracking study of four musicians surfaced attentional tunneling and near-total disconnection, confirming the need for intervention. We present these tensions and a next step: testing whether subtractive intervention reduces tunneling for a single sight-reader."
@@ -281,8 +261,6 @@
     ],
     "venue": "Preprint",
     "year": 2026,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "pdf": "https://pure.au.dk/portal/files/456081518/preprint_Towards_Measuring_Interactive_Visualization_Abilities.pdf",
     "portal": "https://pure.au.dk/portal/en/publications/towards-measuring-interactive-visualization-abilities-connecting-/",
     "abstract": [
@@ -308,8 +286,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2025,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "pdf": "https://arxiv.org/pdf/2505.19101",
     "doi": "https://doi.org/10.1109/MCG.2025.3607741",
     "portal": "https://pure.au.dk/portal/en/publications/agentic-visualization-extracting-agent-based-design-patterns-from/",
@@ -331,8 +307,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2025,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2024.3456300",
     "portal": "https://pure.au.dk/portal/en/publications/attention-aware-visualization-tracking-and-responding-to-user-per/",
     "abstract": [
@@ -356,8 +330,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2025,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/MCG.2025.3559374",
     "portal": "https://pure.au.dk/portal/en/publications/automating-the-path-an-rampd-agenda-for-human-centered-ai-and-vis/",
     "abstract": [
@@ -379,8 +351,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2025,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "pdf": "https://pure.au.dk/portal/files/470115673/D-Tour.pdf",
     "doi": "https://doi.org/10.1109/TVCG.2024.3456347",
     "portal": "https://pure.au.dk/portal/en/publications/d-tour-semi-automatic-generation-of-interactive-guided-tours-for-/",
@@ -411,8 +381,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2025,
-    "pillar": "Immersive Analytics",
-    "testbed": "Scientific Inquiry",
     "pdf": "https://pure.au.dk/portal/files/418542389/TVCG_2025_DashSpace_Draft.pdf",
     "doi": "https://doi.org/10.1109/TVCG.2025.3537679",
     "portal": "https://pure.au.dk/portal/en/publications/dashspace-a-live-collaborative-platform-for-immersive-and-ubiquit/",
@@ -442,8 +410,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2025,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "pdf": "https://pure.au.dk/portal/files/422304189/CHI_2025_Datamancer_Draft.pdf",
     "doi": "https://doi.org/10.1145/3706598.3713123",
     "portal": "https://pure.au.dk/portal/en/publications/datamancer-bimanual-gesture-interaction-in-multi-display-ubiquito/",
@@ -474,8 +440,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2025,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2024.3456340",
     "portal": "https://pure.au.dk/portal/en/publications/dg-comics-semi-automatically-authoring-graph-comics-for-dynamic-g/",
     "abstract": [
@@ -499,8 +463,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2025,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2025.3542606",
     "portal": "https://pure.au.dk/portal/en/publications/drillboards-adaptive-visualization-dashboards-for-dynamic-persona/",
     "abstract": [
@@ -543,8 +505,6 @@
     ],
     "venue": "arXiv",
     "year": 2025,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "pdf": "https://pure.au.dk/portal/files/436895484/2509.12752v1.pdf",
     "portal": "https://pure.au.dk/portal/en/publications/participatory-ai-a-scandinavian-approach-to-human-centered-ai/",
     "abstract": [
@@ -568,8 +528,6 @@
     ],
     "venue": "IEEE HFIA",
     "year": 2025,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/HFIA68651.2025.00011",
     "portal": "https://pure.au.dk/portal/en/publications/revisiting-hybrid-input-devices-for-immersive-analytics/",
     "abstract": [
@@ -598,8 +556,6 @@
     ],
     "venue": "ACM UIST",
     "year": 2025,
-    "pillar": "Immersive Analytics",
-    "testbed": "Higher Education",
     "pdf": "https://pure.au.dk/portal/files/433037467/UIST_2025_Spatialstrates_Draft.pdf",
     "doi": "https://doi.org/10.1145/3746059.3747708",
     "portal": "https://pure.au.dk/portal/en/publications/spatialstrates-cross-reality-collaboration-through-spatial-hyperm/",
@@ -629,8 +585,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2025,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2025.3579700",
     "portal": "https://pure.au.dk/portal/en/publications/visualizationary-automating-design-feedback-for-visualization-des/",
     "abstract": [
@@ -657,8 +611,6 @@
     ],
     "venue": "PACM HCI",
     "year": 2025,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "pdf": "https://pure.au.dk/portal/files/470325723/WindowSpace.pdf",
     "doi": "https://doi.org/10.1145/3773063",
     "portal": "https://pure.au.dk/portal/en/publications/windowspace-a-web-based-xr-window-manager-for-interacting-with-2d/",
@@ -683,8 +635,6 @@
     ],
     "venue": "PACM HCI",
     "year": 2024,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "pdf": "https://pure.au.dk/portal/files/451670029/3677114.pdf",
     "doi": "https://doi.org/10.1145/3677114",
     "portal": "https://pure.au.dk/portal/en/publications/wichita-1-1-fox-three-the-role-of-3d-telemetry-analysis-in-combat/",
@@ -709,8 +659,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2023.3326594",
     "portal": "https://pure.au.dk/portal/en/publications/dataopsy-scalable-and-fluid-visual-exploration-using-aggregate-qu/",
     "abstract": [
@@ -734,8 +682,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2024.3373233",
     "portal": "https://pure.au.dk/portal/en/publications/editorial-guest-editors-introduction/",
     "abstract": [],
@@ -755,8 +701,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2024,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/MCG.2024.3367422",
     "portal": "https://pure.au.dk/portal/en/publications/is-native-na%C3%AFve-comparing-native-game-engines-and-webxr-as-immers/",
     "abstract": [
@@ -780,8 +724,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2024,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "hook": "An interactive notebook that recommends analysis steps drawn from 6,000 Jupyter notebooks.",
     "image": "/assets/img/lodestar.jpg",
     "pdf": "https://users.umiacs.umd.edu/~elm/projects/lodestar/lodestar.pdf",
@@ -808,8 +750,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2024,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1177/14738716231189220",
     "portal": "https://pure.au.dk/portal/en/publications/riverside-a-design-study-on-visualization-for-situation-awareness/",
     "abstract": [
@@ -834,8 +774,6 @@
     ],
     "venue": "PLATEAU",
     "year": 2024,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "portal": "https://pure.au.dk/portal/en/publications/scientists-and-code-programming-as-a-tool/",
     "abstract": [
       "Many scientists use programming to analyze their data. In this paper, we explore the computational ecosystem of scientists and their socio-technical system of computing through a human-centered approach. By employing contextual inquiry techniques with nine scientists drawn from fields such as theoretical physics, biomedical science, and entomology, we learned that programming is a tool for scientists, and as such the output is more important than the code itself. We found that during analysis, scientists often write code to create plots, and then compare these plots to assess the match of output to their expectation. Participants used ChatGPT while coding. We also found that scientists’ programming tools and practices often limit their analysis. Finally, based on a combined human-computer interaction and programming language analysis, we identify drivers and blockers of scientists’ work. Our findings uncover opportunities for the design of programming tools and languages."
@@ -860,8 +798,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2023.3326937",
     "portal": "https://pure.au.dk/portal/en/publications/tactualplot-spatializing-data-as-sound-using-sensory-substitution/",
     "abstract": [
@@ -890,8 +826,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2024,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/3613904.3641895",
     "portal": "https://pure.au.dk/portal/en/publications/the-hallmark-effect-supporting-provenance-and-transparent-use-of-/",
     "abstract": [
@@ -918,8 +852,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "featured": 4,
     "hook": "Mapping the emerging field where AR-embedded visualizations meet the physical world.",
     "image": "/assets/img/sota.jpg",
@@ -954,8 +886,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2023.3278304",
     "portal": "https://pure.au.dk/portal/en/publications/towards-visualization-thumbnail-designs-that-entice-reading-data-/",
     "abstract": [
@@ -984,8 +914,6 @@
     ],
     "venue": "ACM ASSETS",
     "year": 2024,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/3663548.3688496",
     "portal": "https://pure.au.dk/portal/en/publications/understanding-the-visualization-and-analytics-needs-of-blind-and-/",
     "abstract": [
@@ -1010,8 +938,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "pdf": "https://arxiv.org/pdf/2310.07300",
     "doi": "https://doi.org/10.1109/TVCG.2023.3241581",
     "portal": "https://pure.au.dk/portal/en/publications/uxsense-supporting-user-experience-analysis-with-visualization-an/",
@@ -1039,8 +965,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2024,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/3613904.3642857",
     "portal": "https://pure.au.dk/portal/en/publications/vistorch-interacting-with-situated-visualizations-using-handheld-/",
     "abstract": [
@@ -1063,8 +987,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2023.3326521",
     "portal": "https://pure.au.dk/portal/en/publications/visualization-according-to-statisticians-an-interview-study-on-th/",
     "abstract": [
@@ -1093,8 +1015,6 @@
     ],
     "venue": "JAMIA",
     "year": 2024,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "pdf": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11491657/pdf/ocae234.pdf",
     "doi": "https://doi.org/10.1093/jamia/ocae234",
     "portal": "https://pure.au.dk/portal/en/publications/visualizing-multilayer-spatiotemporal-epidemiological-data-with-a/",
@@ -1120,8 +1040,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2024,
-    "pillar": "Immersive Analytics",
-    "testbed": "Scientific Inquiry",
     "featured": 1,
     "hook": "What if magic could be used as an effective metaphor to perform data visualization while mobile and on-the-go?",
     "image": "/assets/img/wizualization.jpg",
@@ -1152,8 +1070,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2023,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2022.3209472",
     "portal": "https://pure.au.dk/portal/en/publications/a-scanner-deeply-predicting-gaze-heatmaps-on-visualizations-using/",
     "abstract": [
@@ -1179,8 +1095,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2023,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/3544548.3581087",
     "portal": "https://pure.au.dk/portal/en/publications/accessible-data-representation-with-natural-sound/",
     "abstract": [
@@ -1206,8 +1120,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2023,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/3544548.3580997",
     "portal": "https://pure.au.dk/portal/en/publications/code-code-evolution-understanding-how-people-change-data-science-/",
     "abstract": [
@@ -1232,8 +1144,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2023,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1177/14738716231173731",
     "portal": "https://pure.au.dk/portal/en/publications/comparing-overlapping-data-distributions-using-visualization/",
     "abstract": [
@@ -1261,8 +1171,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2023,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1177/14738716221120064",
     "portal": "https://pure.au.dk/portal/en/publications/contextual-in-situ-help-for-visual-data-interfaces/",
     "abstract": [
@@ -1285,8 +1193,6 @@
     ],
     "venue": "Communications of the ACM",
     "year": 2023,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/3584858",
     "portal": "https://pure.au.dk/portal/en/publications/data-analytics-anywhere-and-everywhere/",
     "abstract": [],
@@ -1305,8 +1211,6 @@
     ],
     "venue": "JRST",
     "year": 2023,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1002/tea.21842",
     "portal": "https://pure.au.dk/portal/en/publications/data-everyday-as-community-driven-science-athletes-critical-data-/",
     "abstract": [
@@ -1332,8 +1236,6 @@
     ],
     "venue": "IEEE VL/HCC",
     "year": 2023,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/VL-HCC57772.2023.00023",
     "portal": "https://pure.au.dk/portal/en/publications/docdancer-authoring-ultra-responsive-documents-with-layout-genera/",
     "abstract": [
@@ -1358,8 +1260,6 @@
     ],
     "venue": "IEEE ISMAR",
     "year": 2023,
-    "pillar": "Immersive Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00054",
     "portal": "https://pure.au.dk/portal/en/publications/dont-pull-the-balrog-lessons-learned-from-designing-wizualization/",
     "abstract": [
@@ -1390,8 +1290,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2023,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1111/cgf.14835",
     "portal": "https://pure.au.dk/portal/en/publications/evaluating-view-management-for-situated-visualization-in-web-base/",
     "abstract": [
@@ -1415,8 +1313,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2023,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2022.3210763",
     "portal": "https://pure.au.dk/portal/en/publications/fitting-bell-curves-to-data-distributions-using-visualization/",
     "abstract": [
@@ -1442,8 +1338,6 @@
     ],
     "venue": "IEEE VL/HCC",
     "year": 2023,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/VL-HCC57772.2023.00032",
     "portal": "https://pure.au.dk/portal/en/publications/how-i-met-your-data-science-team-a-tale-of-effective-communicatio/",
     "abstract": [
@@ -1470,8 +1364,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2023,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/3544548.3580974",
     "portal": "https://pure.au.dk/portal/en/publications/perceptual-pat-a-virtual-human-visual-system-for-iterative-visual/",
     "abstract": [
@@ -1503,8 +1395,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2023,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2022.3146329",
     "portal": "https://pure.au.dk/portal/en/publications/roslingifier-semi-automated-storytelling-for-animated-scatterplot/",
     "abstract": [
@@ -1529,8 +1419,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2023,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2022.3209631",
     "portal": "https://pure.au.dk/portal/en/publications/sensemaking-sans-power-interactive-data-visualization-using-color/",
     "abstract": [
@@ -1554,8 +1442,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2023,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/MCG.2023.3269850",
     "portal": "https://pure.au.dk/portal/en/publications/the-stories-we-tell-about-data-surveying-data-driven-storytelling/",
     "abstract": [
@@ -1575,8 +1461,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2023,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "featured": 3,
     "hook": "Maintaining group awareness when collaborators use radically different devices.",
     "image": "/assets/img/eyes-and-shoes.jpg",
@@ -1609,8 +1493,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2023,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1177/14738716231157081",
     "portal": "https://pure.au.dk/portal/en/publications/timbersleuth-visual-anomaly-detection-with-human-feedback-for-mit/",
     "abstract": [
@@ -1634,8 +1516,6 @@
     ],
     "venue": "ACM DIS",
     "year": 2022,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/3532106.3533526",
     "portal": "https://pure.au.dk/portal/en/publications/dramatvis-personae-visual-text-analytics-for-identifying-social-b/",
     "abstract": [
@@ -1659,8 +1539,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2022,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1177/14738716221079591",
     "portal": "https://pure.au.dk/portal/en/publications/integrating-annotations-into-multidimensional-visual-dashboards/",
     "abstract": [
@@ -1687,8 +1565,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2022,
-    "pillar": "Immersive Analytics",
-    "testbed": "Higher Education",
     "featured": 2,
     "hook": "Bridging immersive in-situ analysis with traditional desktop visual analytics for evaluating mixed reality.",
     "image": "/assets/img/relive.jpg",
@@ -1720,8 +1596,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2022,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1177/14738716211032653",
     "portal": "https://pure.au.dk/portal/en/publications/storyfacets-a-design-study-on-storytelling-with-visualizations-fo/",
     "abstract": [
@@ -1748,8 +1622,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2022,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1177/14738716211053579",
     "portal": "https://pure.au.dk/portal/en/publications/topology-aware-space-distortion-for-structured-visualization-spac/",
     "abstract": [
@@ -1777,8 +1649,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2022,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2021.3114829",
     "portal": "https://pure.au.dk/portal/en/publications/towards-understanding-sensory-substitution-for-accessible-visuali/",
     "abstract": [
@@ -1809,8 +1679,6 @@
     ],
     "venue": "ACM AVI",
     "year": 2022,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/3531073.3535252",
     "portal": "https://pure.au.dk/portal/en/publications/workshop-on-audio-visual-analytics/",
     "abstract": [
@@ -1832,8 +1700,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2021,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1177/14738716211038614",
     "portal": "https://pure.au.dk/portal/en/publications/effects-of-screen-responsive-visualization-on-data-comprehension/",
     "abstract": [
@@ -1861,8 +1727,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2021,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2020.3030358",
     "portal": "https://pure.au.dk/portal/en/publications/once-upon-a-time-in-visualization-understanding-the-use-of-textua/",
     "abstract": [
@@ -1889,8 +1753,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2021,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2020.3030429",
     "portal": "https://pure.au.dk/portal/en/publications/revealing-perceptual-proxies-with-adversarial-examples/",
     "abstract": [
@@ -1917,8 +1779,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2020,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2019.2934288",
     "portal": "https://pure.au.dk/portal/en/publications/common-fate-for-animated-transitions-in-visualization/",
     "abstract": [
@@ -1945,8 +1805,6 @@
     ],
     "venue": "Bioinformatics",
     "year": 2020,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1093/bioinformatics/btz883",
     "portal": "https://pure.au.dk/portal/en/publications/proactive-visual-and-statistical-analysis-of-genomic-data-in-epiv/",
     "abstract": [
@@ -1970,8 +1828,6 @@
     ],
     "venue": "HICSS",
     "year": 2020,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "portal": "https://pure.au.dk/portal/en/publications/route-packing-geospatially-accurate-visualization-of-route-networ/",
     "abstract": [
       "We present route packing, a novel (geo)visualization technique for displaying several routes simultaneously on a geographic map while preserving the geospatial layout, identity, directionality, and volume of individual routes. The technique collects variable-width route lines side by side while minimizing crossings, encodes them with categorical colors, and decorates them with glyphs to show their directions. Furthermore, nodes representing sources and sinks use glyphs to indicate whether routes stop at the node or merely pass through it. We conducted a crowd-sourced user study investigating route tracing performance with road networks visualized using our route packing technique. Our findings highlight the visual parameters under which the technique yields optimal performance."
@@ -1990,8 +1846,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2020,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/3313831.3376733",
     "portal": "https://pure.au.dk/portal/en/publications/scents-and-sensibility-evaluating-information-olfactation/",
     "abstract": [
@@ -2018,8 +1872,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2020,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2019.2934786",
     "portal": "https://pure.au.dk/portal/en/publications/the-perceptual-proxies-of-visual-comparison/",
     "abstract": [
@@ -2047,8 +1899,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2020,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2019.2934803",
     "portal": "https://pure.au.dk/portal/en/publications/there-is-no-spoon-evaluating-performance-space-use-and-presence-w/",
     "abstract": [
@@ -2075,8 +1925,6 @@
     ],
     "venue": "IJHCS",
     "year": 2020,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1016/j.ijhcs.2019.102378",
     "portal": "https://pure.au.dk/portal/en/publications/using-social-interaction-trace-data-and-context-to-predict-collab/",
     "abstract": [
@@ -2101,8 +1949,6 @@
     ],
     "venue": "IEEE MLUI",
     "year": 2019,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/MLUI52769.2019.10075557",
     "portal": "https://pure.au.dk/portal/en/publications/all-right-mr-demille-im-ready-for-my-closeup-adding-meaning-to-us/",
     "abstract": [
@@ -2131,8 +1977,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2019,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1111/cgf.13696",
     "portal": "https://pure.au.dk/portal/en/publications/bridging-the-data-analysis-communication-gap-utilizing-a-three-co/",
     "abstract": [
@@ -2155,8 +1999,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2019,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "hook": "A visual analytics system that takes the burden of selecting computations off the analyst.",
     "image": "/assets/img/datasite.jpg",
     "video": "https://www.youtube.com/watch?v=EsK5uOOPO7o",
@@ -2184,8 +2026,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2019,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2018.2865119",
     "portal": "https://pure.au.dk/portal/en/publications/elastic-documents-coupling-text-and-tables-through-contextual-vis/",
     "abstract": [
@@ -2211,8 +2051,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2019,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2018.2864884",
     "portal": "https://pure.au.dk/portal/en/publications/face-to-face-evaluating-visual-comparison/",
     "abstract": [
@@ -2236,8 +2074,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2019,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2018.2865237",
     "portal": "https://pure.au.dk/portal/en/publications/information-olfactation-harnessing-scent-to-convey-data/",
     "abstract": [
@@ -2264,8 +2100,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2019,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/3290605.3300422",
     "portal": "https://pure.au.dk/portal/en/publications/ranked-list-visualization-a-graphical-perception-study/",
     "abstract": [
@@ -2286,8 +2120,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2019,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/3290605.3300893",
     "portal": "https://pure.au.dk/portal/en/publications/shape-structuralizer-design-fabrication-and-user-driven-iterative/",
     "abstract": [
@@ -2312,8 +2144,6 @@
     ],
     "venue": "IEEE VDS",
     "year": 2019,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/VDS48975.2019.8973384",
     "portal": "https://pure.au.dk/portal/en/publications/sherpa-leveraging-user-attention-for-computational-steering-in-vi/",
     "abstract": [
@@ -2333,8 +2163,6 @@
     ],
     "venue": "iConference",
     "year": 2019,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1007/978-3-030-15742-5_32",
     "portal": "https://pure.au.dk/portal/en/publications/understanding-partitioning-and-sequence-in-data-driven-storytelli/",
     "abstract": [
@@ -2357,8 +2185,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2019,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1177/1473871617725907",
     "portal": "https://pure.au.dk/portal/en/publications/visfer-camera-based-visual-data-transfer-for-cross-device-visuali/",
     "abstract": [
@@ -2384,8 +2210,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2019,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1177/1473871617752910",
     "portal": "https://pure.au.dk/portal/en/publications/vishive-supporting-web-based-visualization-through-ad-hoc-computa/",
     "abstract": [
@@ -2411,8 +2235,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2019,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1111/cgf.13686",
     "portal": "https://pure.au.dk/portal/en/publications/visualizing-for-the-non-visual-enabling-the-visually-impaired-to-/",
     "abstract": [
@@ -2435,8 +2257,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2018,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2017.2785807",
     "portal": "https://pure.au.dk/portal/en/publications/atom-a-grammar-for-unit-visualizations/",
     "abstract": [
@@ -2468,8 +2288,6 @@
     ],
     "venue": "AMIA Annual Symposium",
     "year": 2018,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "portal": "https://pure.au.dk/portal/en/publications/clinical-concept-value-sets-and-interoperability-in-health-data-a/",
     "abstract": [
       "This paper focuses on value sets as an essential component in the health analytics ecosystem. We discuss shared repositories of reusable value sets and offer recommendations for their further development and adoption. In order to motivate these contributions, we explain how value sets fit into specific analytic tasks and the health analytics landscape more broadly; their growing importance and ubiquity with the advent of Common Data Models, Distributed Research Networks, and the availability of higher order, reusable analytic resources like electronic phenotypes and electronic clinical quality measures; the formidable barriers to value set reuse; and our introduction of a concept-agnostic orientation to vocabulary collections. The costs of ad hoc value set management and the benefits of value set reuse are described or implied throughout. Our standards, infrastructure, and design recommendations are not systematic or comprehensive but invite further work to support value set reuse for health analytics. The views represented in the paper do not necessarily represent the views of the institutions or of all the co-authors."
@@ -2490,8 +2308,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2018,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2017.2744478",
     "portal": "https://pure.au.dk/portal/en/publications/conceptvector-text-visual-analytics-via-interactive-lexicon-build/",
     "abstract": [
@@ -2518,8 +2334,6 @@
     ],
     "venue": "ACM CHI EA",
     "year": 2018,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/3170427.3186497",
     "portal": "https://pure.au.dk/portal/en/publications/demonstrating-david-meets-goliath-combining-smartwatches-with-a-l/",
     "abstract": [
@@ -2546,8 +2360,6 @@
     ],
     "venue": "IEEE AIVR",
     "year": 2018,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/AIVR.2018.00009",
     "portal": "https://pure.au.dk/portal/en/publications/gesture-and-action-discovery-for-evaluating-virtual-environments-/",
     "abstract": [
@@ -2572,8 +2384,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2018,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2017.2723393",
     "portal": "https://pure.au.dk/portal/en/publications/keshif-rapid-and-expressive-tabular-data-exploration-for-novices/",
     "abstract": [
@@ -2606,8 +2416,6 @@
     ],
     "venue": "Nucleic Acids Research",
     "year": 2018,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1093/nar/gky136",
     "portal": "https://pure.au.dk/portal/en/publications/metaviz-interactive-statistical-and-visual-analysis-of-metagenomi/",
     "abstract": [
@@ -2629,8 +2437,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2018,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/MCG.2018.032421650",
     "portal": "https://pure.au.dk/portal/en/publications/observations-and-reflections-on-visualization-literacy-in-element/",
     "abstract": [
@@ -2663,8 +2469,6 @@
     ],
     "venue": "Springer LNCS",
     "year": 2018,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1007/978-3-030-01388-2_7",
     "portal": "https://pure.au.dk/portal/en/publications/situated-analytics/",
     "abstract": [
@@ -2689,8 +2493,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2018,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2017.2743990",
     "portal": "https://pure.au.dk/portal/en/publications/the-interactive-visualization-gap-in-initial-exploratory-data-ana/",
     "abstract": [
@@ -2718,8 +2520,6 @@
     ],
     "venue": "ACM CHI EA",
     "year": 2018,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/3173574.3173611",
     "portal": "https://pure.au.dk/portal/en/publications/topotext-context-preserving-text-data-exploration-across-multiple/",
     "abstract": [
@@ -2744,8 +2544,6 @@
     ],
     "venue": "BELIV",
     "year": 2018,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/BELIV.2018.8634026",
     "portal": "https://pure.au.dk/portal/en/publications/towards-characterizing-domain-experts-as-a-user-group/",
     "abstract": [
@@ -2769,8 +2567,6 @@
     ],
     "venue": "ACM CHI EA",
     "year": 2018,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/3173574.3173593",
     "portal": "https://pure.au.dk/portal/en/publications/when-david-meets-goliath-combining-smartwatches-with-a-large-vert/",
     "abstract": [
@@ -2798,8 +2594,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2017,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/3025453.3025825",
     "portal": "https://pure.au.dk/portal/en/publications/co-3deator-a-team-first-collaborative-3d-design-ideation-tool/",
     "abstract": [
@@ -2825,8 +2619,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2017,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1111/cgf.13180",
     "portal": "https://pure.au.dk/portal/en/publications/integrating-visual-analytics-support-for-grounded-theory-practice/",
     "abstract": [
@@ -2853,8 +2645,6 @@
     ],
     "venue": "Graphics Interface",
     "year": 2017,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "portal": "https://pure.au.dk/portal/en/publications/merging-sketches-for-creative-design-exploration-an-evaluation-of/",
     "abstract": [
       "Despite its grounding in creativity techniques, merging multiple source sketches to create new ideas has received scant attention in design literature. In this paper, we identify the physical operations that in merging sketch components. We also introduce cognitive operations of reuse, repurpose, refactor, and reinterpret, and explore their relevance to creative design. To examine the relationship of cognitive operations, physical techniques, and creative sketch outcomes, we conducted a qualitative user study where student designers merged existing sketches to generate either an alternative design, or an unrelated new design. We compared two digital selection techniques: freeform selection, and a stroke-cluster-based \"object select\" technique. The resulting merge sketches were subjected to crowdsourced evaluation of these sketches, and manual coding for the use of cognitive operations. Our findings establish a firm connection between the proposed cognitive operations and the context and outcome of creative tasks. Key findings indicate that reinterpret cognitive operations correlate strongly with creativity in merged sketches, while reuse operations correlate negatively with creativity. Furthermore, freeform selection techniques are preferred significantly by designers. We discuss the empirical contributions of understanding the use of cognitive operations during design exploration, and the practical implications for designing interfaces in digital tools that facilitate creativity in merging sketches."
@@ -2878,8 +2668,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2017,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2016.2599300",
     "portal": "https://pure.au.dk/portal/en/publications/preface-120/",
     "abstract": [],
@@ -2896,8 +2684,6 @@
     ],
     "venue": "Graphics Interface",
     "year": 2017,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "portal": "https://pure.au.dk/portal/en/publications/raising-the-bars-evaluating-treemaps-vs-wrapped-bars-for-dense-vi/",
     "abstract": [
       "A standard (single-column) bar chart can effectively visualize a sorted list of numeric records. However, the chart height limits the number of visible records. To show more records, the bars could be made thinner (which could hinder identifying records individually), and scrolling requires interaction to see the overview. Treemaps have been used in practice in non-hierarchical settings for dense visualization of numeric data. Alternatively, we consider wrapped bars, a multi-column bar chart that uses length instead of area to encode numeric values. We compare treemaps and wrapped bars based on their design characteristics, and graphical perception performance for comparison, ranking, and overview tasks using crowdsourced experiments. Our analysis found that wrapped bars perceptually outperform treemaps in all three tasks for dense visualization of non-hierarchical, sorted numeric data."
@@ -2920,8 +2706,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2017,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1111/cgf.13205",
     "portal": "https://pure.au.dk/portal/en/publications/steering-the-craft-ui-elements-and-visualizations-for-supporting-/",
     "abstract": [
@@ -2945,8 +2729,6 @@
     ],
     "venue": "Graphics Interface",
     "year": 2017,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "portal": "https://pure.au.dk/portal/en/publications/supporting-team-first-visual-analytics-through-group-activity-rep/",
     "abstract": [
       "Collaborative visual analytics (CVA) involves sensemaking activities within teams of analysts based on coordination of work across team members, awareness of team activity, and communication of hypotheses, observations, and insights. We introduce a new type of CVA tools based on the notion of \"team-first\" visual analytics, where supporting the analytical process and needs of the entire team is the primary focus of the graphical user interface before that of the individual analysts. To this end, we present the design space and guidelines for team-first tools in terms of conveying analyst presence, focus, and activity within the interface. We then introduce InsightsDrive, a CVA tool for multidimensional data, that contains team-first features into the interface through group activity visualizations. This includes (1) in-situ representations that show the focus regions of all users integrated in the data visualizations themselves using color-coded selection shadows, as well as (2) ex-situ representations showing the data coverage of each analyst using multidimensional visual representations. We conducted two user studies, one with individual analysts to identify the affordances of different visual representations to inform data coverage, and the other to evaluate the performance of our team-first design with exsitu and in-situ awareness for visual analytic tasks. Our results give an understanding of the performance of our team-first features and unravel their advantages for team coordination."
@@ -2965,8 +2747,6 @@
     ],
     "venue": "IEEE VAST",
     "year": 2017,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/VAST.2016.7883506",
     "portal": "https://pure.au.dk/portal/en/publications/supporting-visual-exploration-for-multiple-users-in-large-display/",
     "abstract": [
@@ -2997,8 +2777,6 @@
     ],
     "venue": "IJHCS",
     "year": 2017,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1016/j.ijhcs.2017.03.007",
     "portal": "https://pure.au.dk/portal/en/publications/the-human-touch-how-non-expert-users-perceive-interpret-and-fix-t/",
     "abstract": [
@@ -3023,8 +2801,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2017,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2016.2598445",
     "portal": "https://pure.au.dk/portal/en/publications/topiclens-efficient-multi-level-visual-topic-exploration-of-large/",
     "abstract": [
@@ -3052,8 +2828,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2017,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/3025453.3025801",
     "portal": "https://pure.au.dk/portal/en/publications/topogroups-context-preserving-visual-illustration-of-multi-scale-/",
     "abstract": [
@@ -3080,8 +2854,6 @@
     ],
     "venue": "IJHCS",
     "year": 2017,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1016/j.ijhcs.2016.12.007",
     "portal": "https://pure.au.dk/portal/en/publications/vizscribe-a-visual-analytics-approach-to-understand-designer-beha/",
     "abstract": [
@@ -3107,8 +2879,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2016,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2015.2467051",
     "portal": "https://pure.au.dk/portal/en/publications/aggreset-rich-and-scalable-set-exploration-using-visualizations-o/",
     "abstract": [
@@ -3135,8 +2905,6 @@
     ],
     "venue": "BELIV",
     "year": 2016,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/2993901.2993902",
     "portal": "https://pure.au.dk/portal/en/publications/cognitive-stages-in-visual-data-exploration/",
     "abstract": [
@@ -3163,8 +2931,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2016,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2015.2468292",
     "portal": "https://pure.au.dk/portal/en/publications/motionflow-visual-abstraction-and-aggregation-of-sequential-patte/",
     "abstract": [
@@ -3190,8 +2956,6 @@
     ],
     "venue": "IJHCI",
     "year": 2016,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1080/10447318.2016.1164935",
     "portal": "https://pure.au.dk/portal/en/publications/mushaca-a-3-degrees-of-freedom-mouse-supporting-rotation/",
     "abstract": [
@@ -3210,8 +2974,6 @@
     ],
     "venue": "HICSS",
     "year": 2016,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/HICSS.2016.182",
     "portal": "https://pure.au.dk/portal/en/publications/parallelspaces-simultaneous-exploration-of-feature-and-data-for-h/",
     "abstract": [
@@ -3236,8 +2998,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2016,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/2858036.2858389",
     "portal": "https://pure.au.dk/portal/en/publications/supporting-comment-moderators-in-identifying-high-quality-online-/",
     "abstract": [
@@ -3262,8 +3022,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2016,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/2858036.2858150",
     "portal": "https://pure.au.dk/portal/en/publications/timefork-interactive-prediction-of-time-series/",
     "abstract": [
@@ -3292,8 +3050,6 @@
     ],
     "venue": "CSCL",
     "year": 2015,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "portal": "https://pure.au.dk/portal/en/publications/creative-collaboration-and-flow-validating-the-use-of-trace-data-/",
     "abstract": [
       "We use sociometric trace data to create an index of dynamic group flow in collaborative design teams. Sixteen students in four teams worked on a collaborative engineering design task, while wearing sociometric devices to collect real-time data on team interaction. Results indicate that group flow as measured by dynamic trace data is partially correlated with self-reported flow. This finding implies the potential to use trace data to provide reliable and dynamic measures of task engagement during collaborative learning."
@@ -3316,8 +3072,6 @@
     ],
     "venue": "IJHCI",
     "year": 2015,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1080/10447318.2014.959106",
     "portal": "https://pure.au.dk/portal/en/publications/evaluating-social-navigation-visualization-in-online-geographic-m/",
     "abstract": [
@@ -3338,8 +3092,6 @@
     ],
     "venue": "ACM MobileHCI",
     "year": 2015,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/2785830.2785876",
     "portal": "https://pure.au.dk/portal/en/publications/map-navigation-using-a-wearable-mid-air-display/",
     "abstract": [
@@ -3363,8 +3115,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2015,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2014.2337337",
     "portal": "https://pure.au.dk/portal/en/publications/munin-a-peer-to-peer-middleware-for-ubiquitous-analytics-and-visu/",
     "abstract": [
@@ -3388,8 +3138,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2015,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1177/1473871613513228",
     "portal": "https://pure.au.dk/portal/en/publications/patterns-for-visualization-evaluation/",
     "abstract": [
@@ -3416,8 +3164,6 @@
     ],
     "venue": "IJHCS",
     "year": 2015,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1016/j.ijhcs.2015.04.003",
     "portal": "https://pure.au.dk/portal/en/publications/sketcholution-interaction-histories-for-sketching/",
     "abstract": [
@@ -3446,8 +3192,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2015,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2014.2388208",
     "portal": "https://pure.au.dk/portal/en/publications/themedelta-dynamic-segmentations-over-temporal-topic-models/",
     "abstract": [
@@ -3472,8 +3216,6 @@
     ],
     "venue": "IEEE VAST",
     "year": 2015,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/VAST.2014.7042501",
     "portal": "https://pure.au.dk/portal/en/publications/timefork-mixed-initiative-time-series-prediction/",
     "abstract": [
@@ -3496,8 +3238,6 @@
     ],
     "venue": "CSCL",
     "year": 2015,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "portal": "https://pure.au.dk/portal/en/publications/using-real-time-trace-data-to-predict-collaboration-quality-and-c/",
     "abstract": [
       "In this study, sixteen Engineering students were assigned to small groups (n=4) to work collaboratively on engineering design tasks. Using wearable sociometric devices, we collected real-time non-linguistic speech data on team interaction including turn-taking, successful interrupts and overlaps. Results from 2-stage regression models indicate that speech and conversational dynamics such as turn-taking and successful interrupts are significant in predicting the perceived collaboration quality and creative fluency of design teams."
@@ -3522,8 +3262,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2015,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2015.2414454",
     "portal": "https://pure.au.dk/portal/en/publications/visdock-a-toolkit-for-cross-cutting-interactions-in-visualization/",
     "abstract": [
@@ -3552,8 +3290,6 @@
     ],
     "venue": "IEEE PacificVis",
     "year": 2014,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/PacificVis.2014.54",
     "portal": "https://pure.au.dk/portal/en/publications/a-mobile-visual-analytics-approach-for-law-enforcement-situation-/",
     "abstract": [
@@ -3581,8 +3317,6 @@
     ],
     "venue": "ASME IDETC",
     "year": 2014,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1115/DETC201435159",
     "portal": "https://pure.au.dk/portal/en/publications/collaborative-sketching-with-skwiki-a-case-study/",
     "abstract": [
@@ -3600,8 +3334,6 @@
     ],
     "venue": "BELIV",
     "year": 2014,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/2669557.2669567",
     "portal": "https://pure.au.dk/portal/en/publications/crowdster-enabling-social-navigation-in-web-based-visualization-u/",
     "abstract": [
@@ -3624,8 +3356,6 @@
     ],
     "venue": "IJHCS",
     "year": 2014,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1016/j.ijhcs.2013.08.011",
     "portal": "https://pure.au.dk/portal/en/publications/designing-peer-to-peer-distributed-user-interfaces-case-studies-o/",
     "abstract": [
@@ -3656,8 +3386,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2014,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2014.2346747",
     "portal": "https://pure.au.dk/portal/en/publications/dia2-web-based-cyberinfrastructure-for-visual-analysis-of-funding/",
     "abstract": [
@@ -3682,8 +3410,6 @@
     ],
     "venue": "ACM SUI",
     "year": 2014,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/2659766.2659772",
     "portal": "https://pure.au.dk/portal/en/publications/gestureanalyzer-visual-analytics-for-pattern-analysis-of-mid-air-/",
     "abstract": [
@@ -3711,8 +3437,6 @@
     ],
     "venue": "Dagstuhl Seminar",
     "year": 2014,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1007/978-3-319-06793-3_6",
     "portal": "https://pure.au.dk/portal/en/publications/interaction-in-the-visualization-of-multivariate-networks/",
     "abstract": [
@@ -3731,8 +3455,6 @@
     ],
     "venue": "BELIV",
     "year": 2014,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/2669557.2669576",
     "portal": "https://pure.au.dk/portal/en/publications/oopsy-daisy-failure-stories-in-quantitative-evaluation-studies-fo/",
     "abstract": [
@@ -3755,8 +3477,6 @@
     ],
     "venue": "ACM ITS",
     "year": 2014,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/2669485.2669518",
     "portal": "https://pure.au.dk/portal/en/publications/polychrome-a-cross-device-framework-for-collaborative-web-visuali/",
     "abstract": [
@@ -3784,8 +3504,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2014,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/2556288.2557394",
     "portal": "https://pure.au.dk/portal/en/publications/skwiki-a-multimedia-sketching-system-for-collaborative-creativity/",
     "abstract": [
@@ -3810,8 +3528,6 @@
     ],
     "venue": "ACM AVI",
     "year": 2014,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/2598153.2598182",
     "portal": "https://pure.au.dk/portal/en/publications/tracing-and-sketching-performance-using-blunt-tipped-styli-on-dir/",
     "abstract": [
@@ -3847,8 +3563,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2014,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2014.2346911",
     "portal": "https://pure.au.dk/portal/en/publications/vasa-interactive-computational-steering-of-large-asynchronous-sim/",
     "abstract": [
@@ -3875,8 +3589,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2014,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/MCG.2014.82",
     "portal": "https://pure.au.dk/portal/en/publications/visualization-beyond-the-desktop-the-next-big-thing/",
     "abstract": [
@@ -3920,8 +3632,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2013,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1111/cgf.12131",
     "portal": "https://pure.au.dk/portal/en/publications/explates-spatializing-interactive-analysis-to-scaffold-visual-exp/",
     "abstract": [
@@ -3939,8 +3649,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2013,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2012.323",
     "portal": "https://pure.au.dk/portal/en/publications/stack-zooming-for-multifocus-interaction-in-skewed-aspect-visual-/",
     "abstract": [
@@ -3968,8 +3676,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2013,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2013.223",
     "portal": "https://pure.au.dk/portal/en/publications/visual-analytics-for-multimodal-social-network-analysis-a-design-/",
     "abstract": [
@@ -3994,8 +3700,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2013,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1111/cgf.12013",
     "portal": "https://pure.au.dk/portal/en/publications/visualization-mosaics-for-multivariate-visual-exploration/",
     "abstract": [
@@ -4025,8 +3729,6 @@
     ],
     "venue": "IEEE VAST",
     "year": 2012,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/VAST.2012.6400491",
     "portal": "https://pure.au.dk/portal/en/publications/a-correlative-analysis-process-in-a-visual-analytics-environment/",
     "abstract": [
@@ -4051,8 +3753,6 @@
     ],
     "venue": "ACM ITS",
     "year": 2012,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/2396636.2396673",
     "portal": "https://pure.au.dk/portal/en/publications/branch-explore-merge-facilitating-real-time-revision-control-in-c/",
     "abstract": [
@@ -4076,8 +3776,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2012,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1177/1473871612441874",
     "portal": "https://pure.au.dk/portal/en/publications/embodied-lenses-for-collaborative-visual-queries-on-tabletop-disp/",
     "abstract": [
@@ -4104,8 +3802,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2012,
-    "pillar": "Human-Centered AI",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2012.89",
     "portal": "https://pure.au.dk/portal/en/publications/evaluating-the-role-of-time-in-investigative-analysis-of-document/",
     "abstract": [
@@ -4128,8 +3824,6 @@
     ],
     "venue": "IEEE PacificVis",
     "year": 2012,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/PacificVis.2012.6183556",
     "portal": "https://pure.au.dk/portal/en/publications/exploring-the-design-space-of-composite-visualization/",
     "abstract": [
@@ -4149,8 +3843,6 @@
     ],
     "venue": "ACM UIST",
     "year": 2012,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "portal": "https://pure.au.dk/portal/en/publications/extended-multitouch-recovering-touch-posture-and-differentiating-/",
     "abstract": [
       "Multitouch surfaces are becoming prevalent, but most existing technologies are only capable of detecting the user's actual points of contact on the surface and not the identity, posture, and handedness of the user. In this paper, we define the concept of extended multitouch interaction as a richer input modality that includes all of this information. We further present a practical solution to achieve this on tabletop displays based on mounting a single commodity depth camera above a horizontal surface. This will enable us to not only detect when the surface is being touched, but also recover the user's exact finger and hand posture, as well as distinguish between different users and their handedness. We validate our approach using two user studies, and deploy the technique in a scratchpad tool and in a pen + touch sketch tool."
@@ -4174,8 +3866,6 @@
     ],
     "venue": "ACM AVI",
     "year": 2012,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/2254556.2254597",
     "portal": "https://pure.au.dk/portal/en/publications/gravnav-using-a-gravity-model-for-multi-scale-navigation/",
     "abstract": [
@@ -4200,8 +3890,6 @@
     ],
     "venue": "IEEE CG&A",
     "year": 2012,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/MCG.2012.55",
     "portal": "https://pure.au.dk/portal/en/publications/leveraging-multidisciplinarity-in-a-visual-analytics-graduate-cou/",
     "abstract": [
@@ -4227,8 +3915,6 @@
     ],
     "venue": "EuroVA",
     "year": 2012,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.2312/PE/EuroVAST/EuroVA12/067-071",
     "portal": "https://pure.au.dk/portal/en/publications/multinode-explorer-a-visual-analytics-framework-for-generatingweb/",
     "abstract": [
@@ -4247,8 +3933,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2012,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1111/j.1467-8659.2012.03113.x",
     "portal": "https://pure.au.dk/portal/en/publications/perception-of-animated-node-link-diagrams-for-dynamic-graphs/",
     "abstract": [
@@ -4267,8 +3951,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2012,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/2207676.2207716",
     "portal": "https://pure.au.dk/portal/en/publications/polyzoom-multiscale-and-multifocus-exploration-in-2d-visual-space/",
     "abstract": [
@@ -4297,8 +3979,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2012,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2012.264",
     "portal": "https://pure.au.dk/portal/en/publications/spatial-text-visualization-using-automatic-typographic-maps/",
     "abstract": [
@@ -4322,8 +4002,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2012,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/TVCG.2012.77",
     "portal": "https://pure.au.dk/portal/en/publications/toward-visualization-for-games-theory-design-space-and-patterns/",
     "abstract": [
@@ -4350,8 +4028,6 @@
     ],
     "venue": "ACM ITS",
     "year": 2011,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/2076354.2076379",
     "portal": "https://pure.au.dk/portal/en/publications/applying-mobile-device-soft-keyboards-to-collaborative-multitouch/",
     "abstract": [
@@ -4378,8 +4054,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2011,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1177/1473871611412817",
     "portal": "https://pure.au.dk/portal/en/publications/collaborative-visualization-definition-challenges-and-research-ag/",
     "abstract": [
@@ -4403,8 +4077,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2011,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2010.94",
     "portal": "https://pure.au.dk/portal/en/publications/color-lens-adaptive-color-scale-optimization-for-visual-explorati/",
     "abstract": [
@@ -4429,8 +4101,6 @@
     ],
     "venue": "ACM CHI EA",
     "year": 2011,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/1978942.1979033",
     "portal": "https://pure.au.dk/portal/en/publications/direct-manipulation-through-surrogate-objects/",
     "abstract": [
@@ -4453,8 +4123,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2011,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1111/j.1467-8659.2011.01935.x",
     "portal": "https://pure.au.dk/portal/en/publications/dynamic-insets-for-context-aware-graph-navigation/",
     "abstract": [
@@ -4479,8 +4147,6 @@
     ],
     "venue": "IFIP INTERACT",
     "year": 2011,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1007/978-3-642-23765-2_27",
     "portal": "https://pure.au.dk/portal/en/publications/evaluating-physicalvirtual-occlusion-management-techniques-for-ho/",
     "abstract": [
@@ -4502,8 +4168,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2011,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1177/1473871611413180",
     "portal": "https://pure.au.dk/portal/en/publications/fluid-interaction-for-information-visualization/",
     "abstract": [
@@ -4528,8 +4192,6 @@
     ],
     "venue": "Graphics Interface",
     "year": 2011,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "portal": "https://pure.au.dk/portal/en/publications/improving-revisitation-in-graphs-through-static-spatial-features/",
     "abstract": [
       "People generally remember locations in visual spaces with respect to spatial features and landmarks. Geographical maps provide many spatial features and hence are easy to remember. However, graphs are often visualized as node-link diagrams with few spatial features. We evaluate whether adding static spatial features to node-link diagrams will help in graph revisitation. We discuss three strategies for embellishing a graph and evaluate each in a user study. In our first study, we evaluate how to best add background features to a graph. In the second, we encode position using node size and color. In the third and final study, we take the best techniques from the first and second study, as well as shapes added to the graph as virtual landmarks, to find the best combination of spatial features for graph revisitation. We discuss the user study results and give our recommendations for design of graph visualization software. Copyright held by authors."
@@ -4554,8 +4216,6 @@
     ],
     "venue": "HICSS",
     "year": 2011,
-    "pillar": "Human-Centered AI",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1109/HICSS.2011.499",
     "portal": "https://pure.au.dk/portal/en/publications/wordbridge-using-composite-tag-clouds-in-node-link-diagrams-for-v/",
     "abstract": [
@@ -4578,8 +4238,6 @@
     ],
     "venue": "Computer Graphics Forum",
     "year": 2010,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1111/j.1467-8659.2009.01687.x",
     "portal": "https://pure.au.dk/portal/en/publications/graphdice-a-system-for-exploring-multivariate-social-networks/",
     "abstract": [
@@ -4601,8 +4259,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2010,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2010.162",
     "portal": "https://pure.au.dk/portal/en/publications/graphical-perception-of-multiple-time-series/",
     "abstract": [
@@ -4628,8 +4284,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2010,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2009.84",
     "portal": "https://pure.au.dk/portal/en/publications/hierarchical-aggregation-for-information-visualization-overview-t/",
     "abstract": [
@@ -4657,8 +4311,6 @@
     ],
     "venue": "ACM ITS",
     "year": 2010,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/1936652.1936694",
     "portal": "https://pure.au.dk/portal/en/publications/hugin-a-framework-for-awareness-and-coordination-in-mixed-presenc/",
     "abstract": [
@@ -4682,8 +4334,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2010,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2009.86",
     "portal": "https://pure.au.dk/portal/en/publications/mlange-space-folding-for-visual-exploration/",
     "abstract": [
@@ -4710,8 +4360,6 @@
     ],
     "venue": "IEEE PacificVis",
     "year": 2010,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/PACIFICVIS.2010.5429613",
     "portal": "https://pure.au.dk/portal/en/publications/stack-zooming-for-multi-focus-interaction-in-time-series-data-vis/",
     "abstract": [
@@ -4733,8 +4381,6 @@
     ],
     "venue": "IJHCI",
     "year": 2010,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1080/10447318.2010.516722",
     "portal": "https://pure.au.dk/portal/en/publications/timematrix-analyzing-temporal-social-networks-using-interactive-m/",
     "abstract": [
@@ -4753,8 +4399,6 @@
     ],
     "venue": "ACM CHI EA",
     "year": 2009,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/1518701.1518748",
     "portal": "https://pure.au.dk/portal/en/publications/motion-pointing-target-selection-using-elliptical-motions/",
     "abstract": [
@@ -4776,8 +4420,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2009,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2009.191",
     "portal": "https://pure.au.dk/portal/en/publications/towards-utilizing-gpus-in-information-visualization-a-model-and-i/",
     "abstract": [
@@ -4800,8 +4442,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2008,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/TVCG.2008.59",
     "portal": "https://pure.au.dk/portal/en/publications/a-taxonomy-of-3d-occlusion-management-for-visualization/",
     "abstract": [
@@ -4827,8 +4467,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2008,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1057/palgrave.ivs.9500170",
     "portal": "https://pure.au.dk/portal/en/publications/datameadow-a-visual-canvas-for-analysis-of-large-scale-multivaria/",
     "abstract": [
@@ -4854,8 +4492,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2008,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/1357054.1357330",
     "portal": "https://pure.au.dk/portal/en/publications/evaluating-motion-constraints-for-3d-wayfinding-in-immersive-and-/",
     "abstract": [
@@ -4881,8 +4517,6 @@
     ],
     "venue": "ACM CHI",
     "year": 2008,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1145/1357054.1357263",
     "portal": "https://pure.au.dk/portal/en/publications/melange-space-folding-for-multi-focus-interaction/",
     "abstract": [
@@ -4910,8 +4544,6 @@
     ],
     "venue": "IEEE TVCG",
     "year": 2008,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/TVCG.2008.153",
     "portal": "https://pure.au.dk/portal/en/publications/rolling-the-dice-multidimensional-visual-exploration-using-scatte/",
     "abstract": [
@@ -4936,8 +4568,6 @@
     ],
     "venue": "Graphics Interface",
     "year": 2008,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "portal": "https://pure.au.dk/portal/en/publications/semantic-pointing-for-object-picking-in-complex-3d-environments/",
     "abstract": [
       "Today's large and high-resolution displays coupled with powerful graphics hardware offer the potential for highly realistic 3D virtual environments, but also cause increased target acquisition difficulty for users interacting with these environment;. We present an adaptation of semantic pointing to object picking in 3D environments. Essentially, semantic picking shrinks empty space and expands potential targets on the screen by dynamically adjusting the ratio between movement in visual space and motor space for relative input devices such as the mouse. Our implementation operates in the image-space using a hierarchical representation of the standard stencil buffer to allow for real-time calculation of the closest targets for all positions on the screen. An informal user study indicates that subjects perform more accurate pointing with semantic 3D pointing than without."
@@ -4963,8 +4593,6 @@
     ],
     "venue": "IEEE PacificVis",
     "year": 2008,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/PACIFICVIS.2008.4475479",
     "portal": "https://pure.au.dk/portal/en/publications/zame-interactive-large-scale-graph-visualization/",
     "abstract": [
@@ -4988,8 +4616,6 @@
     ],
     "venue": "IJHCI",
     "year": 2007,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1080/10447310701702402",
     "portal": "https://pure.au.dk/portal/en/publications/20-years-of-four-hci-conferences-a-visual-exploration/",
     "abstract": [
@@ -5007,8 +4633,6 @@
     ],
     "venue": "IEEE VR",
     "year": 2007,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1109/VR.2007.352463",
     "portal": "https://pure.au.dk/portal/en/publications/a-taxonomy-of-3d-occlusion-management-techniques/",
     "abstract": [
@@ -5033,8 +4657,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2007,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1057/palgrave.ivs.9500156",
     "portal": "https://pure.au.dk/portal/en/publications/citewiz-a-tool-for-the-visualization-of-scientific-citation-netwo/",
     "abstract": [
@@ -5058,8 +4680,6 @@
     ],
     "venue": "IFIP INTERACT",
     "year": 2007,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1007/978-3-540-74796-3_54",
     "portal": "https://pure.au.dk/portal/en/publications/employing-dynamic-transparency-for-3d-occlusion-management-design/",
     "abstract": [
@@ -5078,8 +4698,6 @@
     ],
     "venue": "ACM VRST",
     "year": 2007,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/1315184.1315224",
     "portal": "https://pure.au.dk/portal/en/publications/tour-generation-for-exploration-of-3d-virtual-environments/",
     "abstract": [
@@ -5101,8 +4719,6 @@
     ],
     "venue": "Computers & Graphics",
     "year": 2007,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1016/j.cag.2007.09.006",
     "portal": "https://pure.au.dk/portal/en/publications/view-projection-animation-for-3d-occlusion-management/",
     "abstract": [
@@ -5123,8 +4739,6 @@
     ],
     "venue": "ACM VRST",
     "year": 2006,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "portal": "https://pure.au.dk/portal/en/publications/balloonprobe-reducing-occlusion-in-3d-using-interactive-space-dis/",
     "abstract": [
       "Using a 3D virtual environment for information visualization is a promising approach, but can in many cases be plagued by a phenomenon of literally not being able to see the forest for the trees. Some parts of the 3D visualization will inevitably occlude other parts, leading both to loss of efficiency and, more seriously, correctness; users may have to change their viewpoint in a non-trivial way to be able to access hidden objects, and, worse, they may not even discover some of the objects in the visualization due to this inter-object occlusion. In this paper, we present a space distortion interaction technique called the BalloonProbe which, on the user's command, inflates a spherical force field that repels objects around the 3D cursor to the surface of the sphere, separating occluding objects from each other. Inflating and deflating the sphere is performed through smooth animation, ghosted traces showing the displacement of each repelled object. Our prototype implementation uses a 3D cursor for positioning as well as for inflating and deflating the force field \"balloon\". Informal testing suggests that the BalloonProbe is a powerful way of giving users interactive control over occlusion in 3D visualizations."
@@ -5145,8 +4759,6 @@
     ],
     "venue": "ACM VRST",
     "year": 2006,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/1180495.1180500",
     "portal": "https://pure.au.dk/portal/en/publications/evaluating-the-effectiveness-of-occlusion-reduction-techniques-fo/",
     "abstract": [
@@ -5170,8 +4782,6 @@
     ],
     "venue": "ACM SoftVis",
     "year": 2006,
-    "pillar": "Ubiquitous Analytics",
-    "testbed": "Higher Education",
     "doi": "https://doi.org/10.1145/1148493.1148538",
     "portal": "https://pure.au.dk/portal/en/publications/trustneighborhoods-in-a-nutshell/",
     "abstract": [
@@ -5195,8 +4805,6 @@
     ],
     "venue": "HFES",
     "year": 2006,
-    "pillar": "Sensing & Interaction",
-    "testbed": "Manufacturing",
     "portal": "https://pure.au.dk/portal/en/publications/using-3d-audio-guidance-to-locate-indoor-static-objects/",
     "abstract": [
       "Is 3D audio an interesting technology for displaying navigational information in an indoor environment? This study found no significant differences between map- and 3D audio navigation. The user tasks tested involved finding objects in a real office environment. In order to conduct the study, a custom-made 3D audio system was built based on a public-domain HRTF-library to playback 3D sound beacons through a pair of earphones. Our results indicate that 3D audio is indeed a qualified candidate for navigation systems, and may be especially suitable for environments or individuals where vision is obstructed, insufficient, or unavailable. The study also suggests that special cues should be added to the pure spatial information to emphasize important information."
@@ -5224,8 +4832,6 @@
     ],
     "venue": "ACM AVI",
     "year": 2006,
-    "pillar": "Immersive Analytics",
-    "testbed": "Manufacturing",
     "doi": "https://doi.org/10.1145/1133265.1133361",
     "portal": "https://pure.au.dk/portal/en/publications/view-projection-animation-for-occlusion-reduction/",
     "abstract": [
@@ -5247,8 +4853,6 @@
     ],
     "venue": "Information Visualization",
     "year": 2004,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1057/palgrave.ivs.9500074",
     "portal": "https://pure.au.dk/portal/en/publications/animated-visualization-of-causal-relations-through-growing-2d-geo/",
     "abstract": [
@@ -5269,8 +4873,6 @@
     ],
     "venue": "IEEE InfoVis",
     "year": 2003,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "doi": "https://doi.org/10.1109/INFVIS.2003.1249025",
     "portal": "https://pure.au.dk/portal/en/publications/causality-visualization-using-animated-growing-polygons/",
     "abstract": [
@@ -5292,8 +4894,6 @@
     ],
     "venue": "ACM SoftVis",
     "year": 2003,
-    "pillar": "Human-Centered AI",
-    "testbed": "Scientific Inquiry",
     "portal": "https://pure.au.dk/portal/en/publications/growing-squares-animated-visualization-of-causal-relations/",
     "abstract": [
       "We present a novel information visualization technique for the graphical representation of causal relations, that is based on the metaphor of color pools spreading over time on a piece of paper. Messages between processes in the system affect the colors of their respective pool, making it possible to quickly see the influences each process has received. This technique, called Growing Squares, has been evaluated in a comparative user study and shown to be significantly faster and more efficient for sparse data sets than the traditional Hasse diagram visualization. Growing Squares were also more efficient for large data sets, but not significantly so. Test subjects clearly favored Growing Squares over old methods, naming the new technique easier, more efficient, and much more enjoyable to use."

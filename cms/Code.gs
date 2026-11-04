@@ -23,7 +23,7 @@
  *        Import JSON files… / Set up tabs / Set API token…
  *
  * The site pulls everything through doGet (deploy as web app, "Anyone"):
- *   GET  <exec-url>?token=…            → { ok, generatedAt, data:{site,pillars,…}, issues }
+ *   GET  <exec-url>?token=…            → { ok, generatedAt, data:{site,members,publications}, issues }
  *   GET  <exec-url>?token=…&assets=1   → { ok, folder, assets:[{path,id,size,modified}] }
  *                                        (the "assets" Drive folder next to the sheet, mirrored
  *                                         into public/assets/ by scripts/fetch-drive-assets.mjs)
@@ -36,20 +36,11 @@
 /* ============================== PURE ============================== */
 
 /** bumped whenever Code.gs changes; fetch-sheets.mjs prints it so a stale deployment is obvious */
-const CMS_VERSION = 4;
+const CMS_VERSION = 5;
 
-const TABS = ["Site", "Pillars", "Testbeds", "Members", "Posts", "Publications", "Stats"];
+const TABS = ["Site", "Members", "Publications"];
 
-const FILE_OF = { Site: "site", Pillars: "pillars", Testbeds: "testbeds", Members: "members", Posts: "posts", Publications: "publications", Stats: "stats" };
-
-const AREA_FIELDS = [
-  { key: "id", type: "text", required: true, help: "URL slug, e.g. ubiquitous. Auto-filled from the title." },
-  { key: "num", type: "text", required: true, help: "Label shown on the card, e.g. 01 or T1" },
-  { key: "title", type: "text", required: true },
-  { key: "body", type: "long", required: true, help: "One-sentence card copy" },
-  { key: "long", type: "long", required: true, help: "Modal copy" },
-  { key: "image", type: "text", help: "/assets/img/…" },
-];
+const FILE_OF = { Site: "site", Members: "members", Publications: "publications" };
 
 const SCHEMA = {
   Site: {
@@ -69,41 +60,18 @@ const SCHEMA = {
       { key: "film.vimeoId", type: "text" },
     ],
   },
-  Pillars: { kind: "list", key: "id", idFrom: "title", fields: AREA_FIELDS },
-  Testbeds: { kind: "list", key: "id", idFrom: "title", fields: AREA_FIELDS },
   Members: {
     kind: "list", key: "id", idFrom: "name",
     fields: [
       { key: "id", type: "text", required: true, help: "URL slug. Auto-filled from the name." },
-      { key: "name", type: "text", required: true, help: "Must match the spelling used in publication author lists and post bylines" },
+      { key: "name", type: "text", required: true, help: "Must match the spelling used in publication author lists" },
       { key: "role", type: "text", required: true },
       { key: "org", type: "text", required: true },
       { key: "group", type: "select", required: true, options: ["faculty", "current", "alumni", "external"] },
       { key: "since", type: "text", help: "e.g. Jan 2024" },
-      { key: "areas", type: "list", help: "Pillar titles, one per line" },
       { key: "bio", type: "long" },
       { key: "links", type: "pairs", help: "Label | URL — one per line" },
       { key: "photo", type: "text", help: "/assets/people/…" },
-    ],
-  },
-  Posts: {
-    kind: "list", key: "id", idFrom: "date+title",
-    fields: [
-      { key: "id", type: "text", required: true, help: "Auto-filled as YYYY-MM-DD-slug-of-title" },
-      { key: "date", type: "date", required: true },
-      { key: "tag", type: "select", required: true, options: ["Team", "Hiring", "Blog", "Event", "Paper", "Update", "Grant", "Award", "Talk", "Press"], allowOther: true },
-      { key: "kind", type: "select", required: true, options: ["short", "long"], help: "short opens in a dialog; long gets its own page" },
-      { key: "title", type: "text", required: true },
-      { key: "dek", type: "long", help: "Teaser shown in the list" },
-      { key: "body", type: "paras", always: true, help: "Paragraphs separated by a blank line. Bare URLs become links." },
-      { key: "by", type: "select", from: { tab: "Members", field: "name" }, allowOther: true, help: "Byline — pick a member to link it" },
-      { key: "source", type: "text", help: "e.g. linkedin" },
-      { key: "link", type: "text", help: "Original post URL" },
-      { key: "article.href", type: "text", help: "Linked article URL" },
-      { key: "article.title", type: "text", help: "Linked article title" },
-      { key: "image", type: "text", help: "Lead image, /assets/img/news/…" },
-      { key: "images", type: "list", help: "Extra images, one per line" },
-      { key: "video", type: "bool", help: "Post contains a video" },
     ],
   },
   Publications: {
@@ -115,8 +83,6 @@ const SCHEMA = {
       { key: "authors", type: "list", required: true, always: true, help: "One per line, spelled as in Members" },
       { key: "venue", type: "text", required: true },
       { key: "year", type: "number", required: true },
-      { key: "pillar", type: "select", nullable: true, from: { tab: "Pillars", field: "title" } },
-      { key: "testbed", type: "select", nullable: true, from: { tab: "Testbeds", field: "title" } },
       { key: "featured", type: "number", help: "Rank on the home page (1 = first). Blank = not featured." },
       { key: "hook", type: "long", help: "One-line pitch for featured papers" },
       { key: "image", type: "text", help: "Figure, /assets/img/…" },
@@ -126,13 +92,6 @@ const SCHEMA = {
       { key: "portal", type: "text", help: "pure.au.dk URL — how a Pure sync matches this row" },
       { key: "abstract", type: "paras", always: true },
       { key: "keywords", type: "list", always: true },
-    ],
-  },
-  Stats: {
-    kind: "list", key: "l",
-    fields: [
-      { key: "n", type: "text", required: true, help: "The number (kept as text so 100+ works)" },
-      { key: "l", type: "text", required: true, help: "Label" },
     ],
   },
 };
@@ -324,19 +283,12 @@ function validateAll(data) {
       }
     });
   }
-  const members = new Set((data.Members || []).map((m) => m.name));
-  (data.Posts || []).forEach((p, i) => {
-    if (p.by && !members.has(p.by)) push("Posts", i + 2, "by", `"${p.by}" is not a member name — byline will not link`);
-    if (p.kind === "long" && !(p.body || []).length) push("Posts", i + 2, "body", "long posts need a body");
-  });
-  const pillars = new Set((data.Pillars || []).map((p) => p.title));
-  (data.Members || []).forEach((m, i) => (m.areas || []).forEach((a) => { if (!pillars.has(a)) push("Members", i + 2, "areas", `"${a}" is not a pillar title`); }));
   const ranks = (data.Publications || []).filter((p) => p.featured).map((p) => p.featured).sort((a, b) => a - b);
   ranks.forEach((r, i) => { if (ranks.indexOf(r) !== i) push("Publications", null, "featured", `rank ${r} used more than once`); });
   return issues;
 }
 
-/** {Tab: rows|object} → {site, pillars, …} keyed like the files */
+/** {Tab: rows|object} → {site, members, publications} keyed like the files */
 function toSiteData(byTab) {
   const out = {};
   for (const tab of TABS) out[FILE_OF[tab]] = byTab[tab];

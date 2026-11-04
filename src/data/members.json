@@ -5,13 +5,13 @@
     "role": "Director · Villum Investigator",
     "org": "Aarhus University",
     "group": "faculty",
-    "areas": [
-      "Immersive Analytics",
-      "Ubiquitous Analytics",
-      "Human-Centered AI"
-    ],
     "bio": "Niklas Elmqvist is a Villum Investigator and Professor of Computer Science at Aarhus University, where he directs the Center for Anytime Anywhere Analytics. His work asks how data analysis can leave the desktop: how visual representations behave when they are carried, worn, projected, and shared. Before Aarhus he was a professor at the University of Maryland, College Park, and at Purdue University.",
-    "links": [["Personal site", "https://cs.au.dk/~elm/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://cs.au.dk/~elm/"
+      ]
+    ],
     "photo": "/assets/people/niklas.jpg"
   },
   {
@@ -21,7 +21,12 @@
     "org": "Aarhus University",
     "group": "current",
     "since": "Oct 2024",
-    "links": [["Personal site", "https://gmleon.github.io/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://gmleon.github.io/"
+      ]
+    ],
     "photo": "/assets/people/gaby.jpg"
   },
   {
@@ -50,7 +55,12 @@
     "org": "Aarhus University",
     "group": "current",
     "since": "Jun 2025",
-    "links": [["Personal site", "https://sebi.sh/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://sebi.sh/"
+      ]
+    ],
     "photo": "/assets/people/sebastian.jpg"
   },
   {
@@ -68,9 +78,13 @@
     "org": "Aarhus University",
     "group": "current",
     "since": "Jan 2024",
-    "areas": ["Immersive Analytics", "Sensing & Interaction"],
     "bio": "Arvind studies how head-mounted analytics change the way small teams reason about shared data, with a focus on hand and gaze input as analytic instruments.",
-    "links": [["Personal site", "https://arvind.one/"]]
+    "links": [
+      [
+        "Personal site",
+        "https://arvind.one/"
+      ]
+    ]
   },
   {
     "id": "johannes-ellemose",
@@ -88,9 +102,13 @@
     "org": "Aarhus University",
     "group": "alumni",
     "since": "Sep 2023",
-    "areas": ["Ubiquitous Analytics", "Human-Centered AI"],
     "bio": "Marcel works on malleable software — computational notebooks and end-user tooling that analysts can reshape while they are using them.",
-    "links": [["Personal site", "https://www.marcelborowski.de/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.marcelborowski.de/"
+      ]
+    ],
     "photo": "/assets/people/marcel.jpg"
   },
   {
@@ -99,9 +117,13 @@
     "role": "Ph.D. Student",
     "org": "University of Maryland",
     "group": "alumni",
-    "areas": ["Sensing & Interaction"],
     "bio": "Biswaksen builds low-power and material-based displays, including data visualizations rendered in color-changing ink.",
-    "links": [["Personal site", "https://www.biswaksenpatnaik.design/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.biswaksenpatnaik.design/"
+      ]
+    ],
     "photo": "/assets/people/biswaksen.jpg"
   },
   {
@@ -110,9 +132,13 @@
     "role": "Ph.D. Student",
     "org": "University of Maryland",
     "group": "alumni",
-    "areas": ["Human-Centered AI"],
     "bio": "Sungbok models the perceptual behaviour of visualization readers, using crowdsourced eye-movement data to predict what a chart will actually communicate.",
-    "links": [["Personal site", "https://sites.google.com/view/sungbokshin"]],
+    "links": [
+      [
+        "Personal site",
+        "https://sites.google.com/view/sungbokshin"
+      ]
+    ],
     "photo": "/assets/people/sungbok.jpg"
   },
   {
@@ -121,7 +147,6 @@
     "role": "Ph.D. Student",
     "org": "University of Maryland",
     "group": "alumni",
-    "areas": ["Ubiquitous Analytics"],
     "bio": "Pramod researches accessible visualization and in-situ help for data interfaces, working closely with blind and low-vision analysts.",
     "links": [
       [
@@ -137,9 +162,13 @@
     "role": "Ph.D. Student",
     "org": "University of Maryland",
     "group": "alumni",
-    "areas": ["Human-Centered AI"],
     "bio": "Naimul studies visual text analytics and sonification — how narrative data can be examined for bias, and heard as well as seen.",
-    "links": [["Personal site", "https://naimulh0que.github.io"]],
+    "links": [
+      [
+        "Personal site",
+        "https://naimulh0que.github.io"
+      ]
+    ],
     "photo": "/assets/people/naimul.jpg"
   },
   {
@@ -149,7 +178,12 @@
     "org": "Aarhus University",
     "group": "alumni",
     "bio": "Researches educational data visualization and classroom analytics.",
-    "links": [["Personal site", "https://carolineberger.github.io/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://carolineberger.github.io/"
+      ]
+    ],
     "photo": "/assets/people/caroline.jpg"
   },
   {
@@ -189,7 +223,12 @@
     "org": "University of Maryland",
     "group": "alumni",
     "bio": "Studied perceptual proxies in visualization and bioinformatics visualization at scale.",
-    "links": [["Personal site", "https://ondovb.github.io"]],
+    "links": [
+      [
+        "Personal site",
+        "https://ondovb.github.io"
+      ]
+    ],
     "photo": "/assets/people/brian.jpg"
   },
   {
@@ -199,7 +238,12 @@
     "org": "University of Maryland",
     "group": "alumni",
     "bio": "Worked on multi-display and collaborative visual analytics environments.",
-    "links": [["Personal site", "https://karthikbadam.github.io"]],
+    "links": [
+      [
+        "Personal site",
+        "https://karthikbadam.github.io"
+      ]
+    ],
     "photo": "/assets/people/karthik.jpg"
   },
   {
@@ -209,7 +253,12 @@
     "org": "University of Maryland",
     "group": "alumni",
     "bio": "Now at TU Delft, researching design analytics and qualitative data visualization.",
-    "links": [["Personal site", "https://senthilchandrasegaran.github.io"]],
+    "links": [
+      [
+        "Personal site",
+        "https://senthilchandrasegaran.github.io"
+      ]
+    ],
     "photo": "/assets/people/senthil.jpg"
   },
   {
@@ -219,7 +268,12 @@
     "org": "Université Paris-Saclay",
     "group": "external",
     "bio": "Researches collaborative and large-display visualization.",
-    "links": [["Personal site", "https://www.lri.fr/~anab/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.lri.fr/~anab/"
+      ]
+    ],
     "photo": "/assets/people/anastasia.jpg"
   },
   {
@@ -229,7 +283,12 @@
     "org": "Inria, France",
     "group": "external",
     "bio": "Works on interaction, statistical communication, and transparent research practice.",
-    "links": [["Personal site", "http://dragice.fr"]],
+    "links": [
+      [
+        "Personal site",
+        "http://dragice.fr"
+      ]
+    ],
     "photo": "/assets/people/pierre.jpg"
   },
   {
@@ -239,7 +298,12 @@
     "org": "Inria, France",
     "group": "external",
     "bio": "Researches visual analytics at scale and progressive data analysis.",
-    "links": [["Personal site", "https://www.linkedin.com/in/jfekete/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/jfekete/"
+      ]
+    ],
     "photo": "/assets/people/jean.jpg"
   },
   {
@@ -250,7 +314,10 @@
     "group": "external",
     "bio": "Researches data-driven storytelling and augmented-reality visualization.",
     "links": [
-      ["Personal site", "https://www.microsoft.com/en-us/research/people/nath/"]
+      [
+        "Personal site",
+        "https://www.microsoft.com/en-us/research/people/nath/"
+      ]
     ],
     "photo": "/assets/people/nathalie.jpg"
   },
@@ -261,7 +328,12 @@
     "org": "Arizona State University",
     "group": "external",
     "bio": "Researches visual analytics for public health, geospatial, and social media data.",
-    "links": [["Personal site", "http://rmaciejewski.faculty.asu.edu"]]
+    "links": [
+      [
+        "Personal site",
+        "http://rmaciejewski.faculty.asu.edu"
+      ]
+    ]
   },
   {
     "id": "david-ebert",
@@ -271,7 +343,10 @@
     "group": "external",
     "bio": "Researches visual analytics for public safety and decision support.",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/david-ebert-1885235/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/david-ebert-1885235/"
+      ]
     ],
     "photo": "/assets/people/david.jpg"
   },
@@ -317,7 +392,12 @@
     "org": "Aarhus University",
     "group": "current",
     "since": "Oct 2024",
-    "links": [["Personal site", "https://www.antonwolter.de"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.antonwolter.de"
+      ]
+    ],
     "photo": "/assets/people/anton.jpg"
   },
   {
@@ -326,7 +406,12 @@
     "role": "Alumna · Ph.D. 2023",
     "org": "University of Maryland College Park",
     "group": "alumni",
-    "links": [["Personal site", "https://www.cs.umd.edu/~draghun1/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.cs.umd.edu/~draghun1/"
+      ]
+    ],
     "photo": "/assets/people/deepthi.jpg"
   },
   {
@@ -335,7 +420,12 @@
     "role": "Data Research Analyst in Biomedical Informatics",
     "org": "Johns Hopkins University School of Medicine",
     "group": "alumni",
-    "links": [["Personal site", "http://sigfried.org"]],
+    "links": [
+      [
+        "Personal site",
+        "http://sigfried.org"
+      ]
+    ],
     "photo": "/assets/people/sigfried.jpg"
   },
   {
@@ -344,7 +434,12 @@
     "role": "Senior Product Designer",
     "org": "Adobe",
     "group": "alumni",
-    "links": [["Personal site", "https://www.pranathimylavarapu.com"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.pranathimylavarapu.com"
+      ]
+    ],
     "photo": "/assets/people/pranathi.jpg"
   },
   {
@@ -354,7 +449,10 @@
     "org": "Apple",
     "group": "alumni",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/jameszhenpengzhao/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/jameszhenpengzhao/"
+      ]
     ],
     "photo": "/assets/people/zhenpeng.jpg"
   },
@@ -372,7 +470,12 @@
     "role": "Founder and CEO",
     "org": "Keshif",
     "group": "alumni",
-    "links": [["Personal site", "http://adilyalcin.me"]],
+    "links": [
+      [
+        "Personal site",
+        "http://adilyalcin.me"
+      ]
+    ],
     "photo": "/assets/people/adil.jpg"
   },
   {
@@ -381,7 +484,12 @@
     "role": "Founder and CEO",
     "org": "Volta Labs Inc.",
     "group": "alumni",
-    "links": [["Personal site", "https://www.linkedin.com/in/udayanu/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/udayanu/"
+      ]
+    ],
     "photo": "/assets/people/udayan.jpg"
   },
   {
@@ -399,7 +507,10 @@
     "org": "Google",
     "group": "alumni",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/ankurchakraborty/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/ankurchakraborty/"
+      ]
     ],
     "photo": "/assets/people/ankur.jpg"
   },
@@ -410,7 +521,10 @@
     "org": "Amazon Web Services",
     "group": "alumni",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/eli-fisher-21a9885b/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/eli-fisher-21a9885b/"
+      ]
     ],
     "photo": "/assets/people/eli.jpg"
   },
@@ -420,7 +534,12 @@
     "role": "Lead Research Scientist, Visualization Core Lab",
     "org": "KAUST",
     "group": "alumni",
-    "links": [["Personal site", "https://www.linkedin.com/in/sohaibghani/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/sohaibghani/"
+      ]
+    ],
     "photo": "/assets/people/sohaib.jpg"
   },
   {
@@ -429,7 +548,12 @@
     "role": "Senior Vice President",
     "org": "The Bank of Punjab, Lahore",
     "group": "alumni",
-    "links": [["Personal site", "https://www.linkedin.com/in/wajaved/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/wajaved/"
+      ]
+    ],
     "photo": "/assets/people/waqas.jpg"
   },
   {
@@ -439,7 +563,10 @@
     "org": "Treasurer, South Korea",
     "group": "alumni",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/kyungtae-ted-kim/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/kyungtae-ted-kim/"
+      ]
     ],
     "photo": "/assets/people/kyungtae.jpg"
   },
@@ -449,7 +576,12 @@
     "role": "Associate Professor of Computer Science and Engineering",
     "org": "UNIST, South Korea",
     "group": "alumni",
-    "links": [["Personal site", "https://www.linkedin.com/in/sungahn/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/sungahn/"
+      ]
+    ],
     "photo": "/assets/people/sungahn.jpg"
   },
   {
@@ -459,7 +591,10 @@
     "org": "Common Sense Machines",
     "group": "alumni",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/tejas-kulkarni-56042214/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/tejas-kulkarni-56042214/"
+      ]
     ],
     "photo": "/assets/people/tejas.jpg"
   },
@@ -470,7 +605,10 @@
     "org": "SpaceX",
     "group": "alumni",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/bryan-mcdonnel-58675535/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/bryan-mcdonnel-58675535/"
+      ]
     ],
     "photo": "/assets/people/bryan.jpg"
   },
@@ -480,7 +618,12 @@
     "role": "Software Engineer",
     "org": "Google",
     "group": "alumni",
-    "links": [["Personal site", "https://www.linkedin.com/in/will-mcgrath/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/will-mcgrath/"
+      ]
+    ],
     "photo": "/assets/people/will.jpg"
   },
   {
@@ -489,7 +632,12 @@
     "role": "Assistant Professor",
     "org": "Temple University",
     "group": "alumni",
-    "links": [["Personal site", "https://www.linkedin.com/in/stevemacn1/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/stevemacn1/"
+      ]
+    ],
     "photo": "/assets/people/stephen.jpg"
   },
   {
@@ -499,7 +647,10 @@
     "org": "University of Texas at Arlington",
     "group": "alumni",
     "links": [
-      ["Personal site", "https://www.linkedin.com/in/deokgun-park-42a1a756/"]
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/deokgun-park-42a1a756/"
+      ]
     ],
     "photo": "/assets/people/deokgun.jpg"
   },
@@ -509,7 +660,12 @@
     "role": "Software Engineer",
     "org": "Apple",
     "group": "alumni",
-    "links": [["Personal site", "https://www.linkedin.com/in/yuetling-wong/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://www.linkedin.com/in/yuetling-wong/"
+      ]
+    ],
     "photo": "/assets/people/yuetling.jpg"
   },
   {
@@ -519,7 +675,10 @@
     "org": "University of Manitoba, Canada",
     "group": "external",
     "links": [
-      ["Personal site", "https://hci.cs.umanitoba.ca/people/bio/pourang-irani"]
+      [
+        "Personal site",
+        "https://hci.cs.umanitoba.ca/people/bio/pourang-irani"
+      ]
     ],
     "photo": "/assets/people/pourang.jpg"
   },
@@ -529,7 +688,12 @@
     "role": "Research Scientist",
     "org": "IBM Research",
     "group": "external",
-    "links": [["Personal site", "https://bckwon.com"]],
+    "links": [
+      [
+        "Personal site",
+        "https://bckwon.com"
+      ]
+    ],
     "photo": "/assets/people/bum.jpg"
   },
   {
@@ -538,7 +702,12 @@
     "role": "Vice President, CX Insight Group",
     "org": "Samsung Electronics",
     "group": "external",
-    "links": [["Personal site", "https://yijisoo.github.io/about/"]],
+    "links": [
+      [
+        "Personal site",
+        "https://yijisoo.github.io/about/"
+      ]
+    ],
     "photo": "/assets/people/yijisoo.jpg"
   }
 ]

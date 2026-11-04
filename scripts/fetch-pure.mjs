@@ -3,9 +3,7 @@
  * Pull Niklas Elmqvist's complete publication list out of the Aarhus University
  * research portal (Pure) — every list page, then every publication's own page —
  * and rewrite src/data/publications.json. Hand-curated fields already in that
- * file (id, pillar, testbed, featured, hook, image, pdf, video) are kept, matched
- * by portal URL; new records come out with pillar/testbed set to null for you
- * to fill in.
+ * file (id, featured, hook, image, pdf, video) are kept, matched by portal URL.
  *
  *   node scripts/fetch-pure.mjs              # everything (≈200 records, ~5 min)
  *   node scripts/fetch-pure.mjs --pages 1    # first list page only
@@ -260,9 +258,7 @@ let existing = [];
 try { existing = JSON.parse(await readFile(OUT, "utf8")); } catch {}
 const pubs = merge(records, existing);
 await writeFile(OUT, JSON.stringify(pubs, null, 2) + "\n");
-const untagged = pubs.filter((p) => !p.pillar || !p.testbed);
 console.log(`wrote ${pubs.length} publications → ${OUT}`);
-if (untagged.length) console.log(`${untagged.length} need a pillar/testbed: ${untagged.map((p) => p.id).join(", ")}`);
 tab.close();
 if (chrome) chrome.kill();
 process.exit(0);

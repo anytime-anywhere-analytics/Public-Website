@@ -27,9 +27,8 @@ reflects the content of that build; with no build yet, the overlay says the inde
 | `src/data/publications.json` | generated — see below |
 | `src/data/yearbook.json` | the Yearbook: one entry per moment — the yearly retreat, a conference… — with `year`, `kind` ("Retreat", "Conference"), `title`, `place`, `when`, an optional `link` (e.g. the venue), two or three sentences of `text`, a main `photo`, and up to three more `photos`. Entries are grouped by year on the page and keep the file's order within a year (newest first). `draft: true` marks a placeholder. Not in the Sheets CMS yet — edit the file. Photos go in `public/assets/img/yearbook/`. |
 
-`pillars.json`, `testbeds.json`, `posts.json` and `stats.json` are still pulled from the
-sheet but the site no longer shows them (news and research areas were removed to keep the
-focus on people). Members' `areas` and publications' `pillar` / `testbed` are likewise unused.
+Images the site no longer uses are kept in [`archive/`](archive/) rather than deleted; that folder
+is not built or deployed.
 
 ### Publications come from the AU research portal
 
@@ -40,11 +39,11 @@ node scripts/fetch-pure.mjs --pages 2
 
 The script walks `pure.au.dk/portal/en/persons/elm@cs.au.dk/publications/?page=N`,
 opens every publication's own portal page for the abstract / venue / DOI / authors,
-carries the hand-curated fields (`id`, `pillar`, `testbed`, `featured`, `hook`, `image`,
-`pdf`, `video`) over from the existing `publications.json`, and rewrites it. When the
+carries the hand-curated fields (`id`, `featured`, `hook`, `image`, `pdf`, `video`) over
+from the existing `publications.json`, and rewrites it. When the
 Sheets CMS is configured, `npm run sync:pure` ends by pushing the result into the
 **Publications** tab (upsert by `id`; non-empty curated cells in the sheet win), so the
-next rebuild does not undo it. Papers with no pillar assigned are listed at the end of the run.
+next rebuild does not undo it.
 
 Pure is rate-limited and occasionally blocks datacentre IPs — run the sync from a
 machine that can reach the portal.
@@ -52,7 +51,7 @@ machine that can reach the portal.
 ## Google Sheets CMS
 
 Day-to-day content lives in one Google Sheet — **CA³ Site Content** — with a tab per
-data file: `Site`, `Pillars`, `Testbeds`, `Members`, `Posts`, `Publications`, `Stats`.
+data file: `Site`, `Members`, `Publications`. (The Yearbook is a file in the repo for now.)
 Column headers are the JSON keys; a note on each header says the format. Every build
 (`prebuild`) pulls the sheet and rewrites `src/data/*.json`, so a daily rebuild picks
 up whatever was edited. `src/data/*.json` stays checked in as the fallback and the
@@ -62,15 +61,13 @@ Cell conventions — the form in the sheet enforces them, and header notes repea
 
 | Type | In the cell |
 |---|---|
-| list (`authors`, `areas`, `keywords`, `images`, `contact`) | one item per line |
-| paragraphs (`body`, `abstract`) | paragraphs separated by a blank line |
+| list (`authors`, `keywords`, `contact`) | one item per line |
+| paragraphs (`abstract`) | paragraphs separated by a blank line |
 | pairs (`links`, `social`, `funders`) | `Label \| URL`, one per line |
-| dates | `YYYY-MM-DD` (the column is text-formatted so Sheets does not "help") |
-| checkboxes (`Posts.video`) | tick = `true`; unticked = key omitted |
-| `pillar` / `testbed` / `group` / `kind` / `tag` / `type` / `by` | dropdowns; `tag` and `by` accept a typed value |
-| empty cell | key omitted (`pillar`/`testbed` become `null`; list fields become `[]`) |
+| `group` / `type` | dropdowns |
+| empty cell | key omitted (list fields become `[]`) |
 
-Nested keys use dots (`article.href`, `film.still`). A column whose header starts with
+Nested keys use dots (`film.still`). A column whose header starts with
 `_` is ignored, so notes can live there.
 
 ### One-time setup
@@ -81,7 +78,7 @@ Nested keys use dots (`article.href`, `film.still`). A column whose header start
    [`cms/appsscript.json`](cms/appsscript.json). Save.
 2. Reload the sheet. A **CA³ CMS** menu appears. Run **Set up tabs** (authorise when asked)
    — it creates the tabs, headers, dropdowns and formatting without touching data.
-3. **CA³ CMS → Import JSON files…** and pick `src/data/*.json` (all seven at once). This
+3. **CA³ CMS → Import JSON files…** and pick `site.json`, `members.json` and `publications.json`. This
    seeds the tabs with the current site content.
 4. **CA³ CMS → Set API token…** — leave blank to generate one. Keep it; the site needs it.
 5. **Deploy → New deployment → Web app**, *Execute as: Me*, *Who has access: Anyone*.
@@ -100,10 +97,9 @@ URL stays the same. Data edits never need a redeploy.
 ### Editing
 
 - Type straight into the cells, or use **CA³ CMS → Add row…** / **Edit selected row…**
-  for a form with the right control per field (dropdowns, checkbox, multi-line boxes) and
+  for a form with the right control per field (dropdowns, multi-line boxes) and
   an auto-filled `id`. Ids are the URL slugs — keep them stable once published.
-- **Validate** reports missing required fields, duplicate ids, unknown pillar titles,
-  bylines that do not match a member, and duplicate `featured` ranks.
+- **Validate** reports missing required fields, duplicate ids, and duplicate `featured` ranks.
 - **Preview JSON for this tab** shows exactly what the site will receive.
 - The `Site` tab is key/value; everything else is one row per record.
 
@@ -120,7 +116,7 @@ npm run test:cms        # round-trip every record through the sheet encoding, of
 `fetch-sheets.mjs` checks every tab before writing anything: a list that came back empty
 or lost more than half its rows (`--force` overrides), or any row missing a required
 field, fails the build with nothing written, so the last good deploy stays up. Other
-validation issues (unknown byline, duplicate featured rank…) are printed as warnings.
+validation issues (duplicate featured rank…) are printed as warnings.
 
 ### Images in Google Drive
 
@@ -128,8 +124,8 @@ Next to the sheet in Drive is a folder called **assets**. Its tree mirrors `publ
 on the site, so a file dropped at `assets/people/niklas.jpg` is served as
 `/assets/people/niklas.jpg` — which is exactly what goes in a `photo` / `image` cell.
 
-- `assets/people/` — portraits · `assets/img/` — pillar, testbed and publication figures ·
-  `assets/img/news/` — post images. Lowercase names, no spaces.
+- `assets/people/` — portraits · `assets/img/` — publication figures, the home-page group
+  photo (`group.jpg`) · `assets/img/yearbook/` — Yearbook photos. Lowercase names, no spaces.
 - `npm run sync:assets` (also part of `prebuild`) asks the script for the folder listing,
   makes each file link-viewable, and downloads new or changed files into `public/assets/`.
   A Drive file wins over a checked-in file with the same path; files that exist only in the
@@ -213,7 +209,7 @@ script and no banner.
   overlay groups results by `kind`. Blocks repeated across pages (the work card, the dome,
   "Related" papers) carry `data-pagefind-ignore` so they do not make every page match.
 - Images sit in a `.ph` frame; with no image the frame shows a label saying what belongs
-  there (today only the publications hero, for papers without a figure).
+  there (e.g. a Yearbook placeholder's group photo).
 - **Heavy images are shrunk at build time.** `scripts/optimize-images.mjs` re-encodes any
   `.png`/`.jpg` over 300 KB in `dist/assets/` as a ≤1600px WebP and repoints the built pages
   at it, so a 5 MB PNG dropped into Drive costs ~200 KB on the page. Sources stay untouched;

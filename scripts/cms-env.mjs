@@ -11,7 +11,7 @@ export const CMS_TOKEN = (process.env.CMS_TOKEN || "").trim();
 export const configured = Boolean(CMS_URL && CMS_TOKEN);
 
 /** file name (src/data/<name>.json) → sheet tab */
-export const TAB_OF = { site: "Site", pillars: "Pillars", testbeds: "Testbeds", members: "Members", posts: "Posts", publications: "Publications", stats: "Stats" };
+export const TAB_OF = { site: "Site", members: "Members", publications: "Publications" };
 export const FILES = Object.keys(TAB_OF);
 
 export function explainUnconfigured() {

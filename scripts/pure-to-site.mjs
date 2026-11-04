@@ -2,9 +2,9 @@
  * Turn raw Pure research-portal records (as scraped by fetch-pure.mjs) into
  * the flat shape src/data/publications.json uses on the site.
  *
- * Hand-curated fields — id, pillar, testbed, featured, hook, image, pdf,
- * video — live only in publications.json, so `merge` carries them over from
- * the previous file (matched by portal URL) rather than regenerating them.
+ * Hand-curated fields — id, featured, hook, image, pdf, video — live only in
+ * publications.json, so `merge` carries them over from the previous file
+ * (matched by portal URL) rather than regenerating them.
  */
 
 const JOURNALS = {
@@ -135,8 +135,6 @@ export function toSite(rec, prev = {}) {
     authors: rec.authors.map((a) => AUTHORS[a.name] || a.name),
     venue: venueOf(rec),
     year: rec.year,
-    pillar: prev.pillar ?? null,
-    testbed: prev.testbed ?? null,
   };
   if (prev.featured) out.featured = prev.featured;
   if (prev.hook) out.hook = prev.hook;
