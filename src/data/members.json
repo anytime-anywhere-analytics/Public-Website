@@ -33,6 +33,7 @@
     "role": "Postdoctoral Researcher",
     "org": "Aarhus University",
     "group": "current",
+    "links": [["Personal site", "https://hyeonjeon.com/"]],
     "photo": "/assets/people/hyeon.jpg"
   },
   {
@@ -246,7 +247,7 @@
   },
   {
     "id": "dieinison",
-    "name": "Dieinison",
+    "name": "Dieinison Braga",
     "role": "Visiting Ph.D. Student from Brazil",
     "org": "Aarhus University",
     "group": "current",
@@ -254,7 +255,7 @@
   },
   {
     "id": "emeric",
-    "name": "Emeric",
+    "name": "Emeric Marguet",
     "role": "Ph.D. Student",
     "org": "Aarhus University",
     "group": "current",
