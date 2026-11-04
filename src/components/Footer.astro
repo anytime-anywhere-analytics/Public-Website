@@ -1,6 +1,8 @@
 ---
 import Logo from "./Logo.astro";
 import { site } from "../lib/data";
+/* only links that go somewhere: the sheet has held "#/…" placeholders here */
+const social = site.social.filter(([, href]: [string, string]) => /^https?:\/\//.test(href));
 ---
 <footer class="sitefoot">
   <ca3-grainient class="fbg" color1="#000000" color2="#3B82F6" color3="#001f52" time-speed="0.25" grain-amount="0.1" grain-scale="2" grain-animated contrast="1.5" zoom="0.9"></ca3-grainient>
@@ -15,7 +17,7 @@ import { site } from "../lib/data";
         <div>
           <h4>Contact</h4>
           <address>{site.contact.map((l: string) => (<>{/@/.test(l) ? <a href={"mailto:" + l} style="display:inline">{l}</a> : l}<br /></>))}</address>
-          <div class="social">{site.social.map(([l, h]: [string, string]) => <a href={h}>{l}</a>)}</div>
+          {social.length > 0 && <div class="social">{social.map(([l, h]: [string, string]) => <a href={h} target="_blank" rel="noreferrer">{l} ↗</a>)}</div>}
         </div>
         <div>
           <h4>Centre</h4>
@@ -26,7 +28,6 @@ import { site } from "../lib/data";
       </div>
       <div class="footlegal">
         <span>{site.domain}</span><span>{site.grant}</span>
-        <a href="/">Privacy</a><a href="/">Accessibility</a>
       </div>
     </div>
   </div>

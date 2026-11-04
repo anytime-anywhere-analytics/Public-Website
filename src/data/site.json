@@ -23,20 +23,8 @@
   ],
   "social": [
     [
-      "X",
-      "#/news"
-    ],
-    [
-      "LinkedIn",
-      "#/news"
-    ],
-    [
       "GitHub",
-      "#/news"
-    ],
-    [
-      "RSS",
-      "#/news"
+      "https://github.com/anytime-anywhere-analytics"
     ]
   ],
   "film": {
