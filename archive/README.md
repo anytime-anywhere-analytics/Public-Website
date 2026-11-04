@@ -9,3 +9,4 @@ Nothing in this folder is built or deployed — move a file back under `public/`
 - `assets/logo.png`, `assets/icon.png` — logo and icon of the previous (Eleventy) site
 - `assets/people/dhanoa.jpg` — an earlier portrait, replaced by `vaishali.jpg`
 - `assets/people/marcel.jpg` — Marcel's earlier portrait, replaced by the hoodie portrait at the same path
+- `assets/img/hero-image.jpg` — the earlier poster for the home-page film, replaced by the interview still with Niklas at the same path
