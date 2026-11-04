@@ -16,12 +16,17 @@ export const memberIdByName: Record<string, string> = Object.fromEntries(members
 /* faculty and current members get the stage; alumni and external collaborators are listed quietly */
 export const isActive = (m: any) => m.group === "faculty" || m.group === "current";
 export const team = [...members.filter((m: any) => m.group === "faculty"), ...members.filter((m: any) => m.group === "current")];
+/* close collaborators sit between the two: small portrait cards right under the team */
+export const closeCollaborators = members.filter((m: any) => m.group === "close");
 
 export const featured = () => publications.filter((p: any) => p.featured).sort((a: any, b: any) => a.featured - b.featured);
 export const pubsByAuthor = (name: string) => publications.filter((p: any) => p.authors.includes(name));
 
-export const initials = (n: string) =>
-  n.split(/\s+/).filter((w) => /^[A-Za-zÀ-ÿ]/.test(w)).slice(0, 2).map((w) => w[0]).join("");
+/* first and last name: "Clemens Nylandsted Klokmose" → CK, "Sriram K. Badam" → SB */
+export const initials = (n: string) => {
+  const w = n.split(/\s+/).filter((x) => /^[A-Za-zÀ-ÿ]/.test(x));
+  return (w.length > 1 ? [w[0], w[w.length - 1]] : w).map((x) => x[0]).join("").toUpperCase();
+};
 
 export const counts = <T>(arr: T[], f: (x: T) => any) => {
   const m: Record<string, number> = {};

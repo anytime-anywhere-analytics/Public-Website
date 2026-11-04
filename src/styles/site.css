@@ -299,6 +299,8 @@ img{max-width:100%;display:block}
 .tcard .portrait{margin-bottom:12px;box-shadow:var(--shadow-product)}
 .tcard:hover .portrait img{transform:scale(1.04)}
 .tcard h3{font-size:clamp(17px,1.4vw,21px)}
+.close{padding-bottom:clamp(56px,7vw,96px);scroll-margin-top:calc(var(--hdr-h) + 24px)}
+.close h2{font-size:clamp(24px,2.2vw,30px);margin-bottom:24px}
 .past{display:grid;gap:clamp(40px,5vw,56px);padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--divider)}
 .past section{scroll-margin-top:calc(var(--hdr-h) + 24px)}
 .past .ct{font-weight:400;margin-left:4px}

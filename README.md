@@ -23,7 +23,7 @@ reflects the content of that build; with no build yet, the overlay says the inde
 | File | What it holds |
 |---|---|
 | `src/data/site.json` | name, tagline, contact lines, funder logos, socials, grant |
-| `src/data/members.json` | people; `group` is `faculty` / `current` / `alumni` / `external` — faculty and current members get portrait cards and the home-page dome, alumni and external collaborators a quiet text list |
+| `src/data/members.json` | people; `group` is `faculty` / `current` / `close` / `alumni` / `external` — faculty and current members get portrait cards and the home-page dome, close collaborators smaller portrait cards right under them, alumni and external collaborators a quiet text list |
 | `src/data/publications.json` | generated — see below |
 | `src/data/yearbook.json` | the Yearbook: one entry per moment — the yearly retreat, a conference… — with `year`, `kind` ("Retreat", "Conference"), `title`, `place`, `when`, an optional `link` (e.g. the venue), two or three sentences of `text`, a main `photo`, and up to three more `photos`. Entries are grouped by year on the page and keep the file's order within a year (newest first). `draft: true` marks a placeholder. Not in the Sheets CMS yet — edit the file. Photos go in `public/assets/img/yearbook/`. |
 

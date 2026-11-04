@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import WorkCard from "../../components/WorkCard.astro";
 import SearchMeta from "../../components/SearchMeta.astro";
-import { members, team, initials } from "../../lib/data";
+import { members, team, closeCollaborators, initials } from "../../lib/data";
 
 /* the current team gets portrait cards; alumni and collaborators a quiet text list.
    Under those headings a role of just "Alumna" or "External Collaborator" says nothing, so it is dropped. */
@@ -35,6 +35,21 @@ const detail = (m: any) => [redundant.test(m.role || "") ? "" : m.role, m.org].f
         </a>
       ))}
     </div>
+    {closeCollaborators.length > 0 && (
+      <section class="close" id="close-collaborators">
+        <h2>Close collaborators</h2>
+        <div class="team compact">
+          {closeCollaborators.map((m: any) => (
+            <a class="tcard" href={"/people/" + m.id + "/"}>
+              <div class="portrait">{m.photo ? <img src={m.photo} alt="" loading="lazy" /> : <span class="ini">{initials(m.name)}</span>}</div>
+              <h3>{m.name}</h3>
+              <div class="small">{m.role}</div>
+              <div class="small">{m.org}</div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
     <div class="past">
       {past.filter((g) => g.people.length).map((g) => (
         <section id={g.id}>

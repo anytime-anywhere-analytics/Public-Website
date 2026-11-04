@@ -8,3 +8,4 @@ Nothing in this folder is built or deployed — move a file back under `public/`
 - `assets/img/rp*.png`, `assets/img/tb*.png` — illustrations for the former research pillars and testbeds
 - `assets/logo.png`, `assets/icon.png` — logo and icon of the previous (Eleventy) site
 - `assets/people/dhanoa.jpg` — an earlier portrait, replaced by `vaishali.jpg`
+- `assets/people/marcel.jpg` — Marcel's earlier portrait, replaced by the hoodie portrait at the same path

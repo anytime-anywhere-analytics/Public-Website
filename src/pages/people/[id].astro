@@ -9,9 +9,9 @@ export function getStaticPaths() {
 }
 const { m } = Astro.props;
 const pubs = pubsByAuthor(m.name);
-/* current members get a large portrait; alumni and collaborators keep the small round avatar */
-const active = isActive(m);
-const label = ({ faculty: "Faculty", current: "Current member", alumni: "Alumni", external: "External collaborator" } as Record<string, string>)[m.group];
+/* the team and close collaborators get a large portrait; alumni and external collaborators keep the small round avatar */
+const active = isActive(m) || m.group === "close";
+const label = ({ faculty: "Faculty", current: "Current member", close: "Close collaborator", alumni: "Alumni", external: "External collaborator" } as Record<string, string>)[m.group];
 ---
 <Base title={m.name + " · CA³"} description={m.bio || [m.role, m.org].filter(Boolean).join(", ") + " — Center for Anytime Anywhere Analytics."} image={m.photo} current="/people/">
   <SearchMeta kind="Person" title={m.name} meta={m.role} />

@@ -67,7 +67,7 @@ const SCHEMA = {
       { key: "name", type: "text", required: true, help: "Must match the spelling used in publication author lists" },
       { key: "role", type: "text", required: true },
       { key: "org", type: "text", required: true },
-      { key: "group", type: "select", required: true, options: ["faculty", "current", "alumni", "external"] },
+      { key: "group", type: "select", required: true, options: ["faculty", "current", "close", "alumni", "external"], help: "close = close collaborator, shown right under the current team" },
       { key: "since", type: "text", help: "e.g. Jan 2024" },
       { key: "bio", type: "long" },
       { key: "links", type: "pairs", help: "Label | URL — one per line" },
