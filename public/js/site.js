@@ -135,7 +135,7 @@
       const on = outEl.querySelector("[data-on]");
       if (on) on.scrollIntoView({ block: "nearest" });
     };
-    let timer, seq = 0;
+    let timer, seq = 0, tracked, lastTracked = "";
     const query = () => {
       clearTimeout(timer);
       timer = setTimeout(async () => {
@@ -157,6 +157,8 @@
         found.forEach((r) => { let g = groups.find((x) => x.k === r.kind); if (!g) groups.push((g = { k: r.kind, rows: [] })); g.rows.push(r); });
         rows = groups.flatMap((g) => g.rows);
         sel = 0; render();
+        clearTimeout(tracked);
+        tracked = setTimeout(() => { if (q !== lastTracked && q.length > 1) { lastTracked = q; window.ca3Track && window.ca3Track("search", { search_term: q }); } }, 1200);
       }, 110);
     };
     input.addEventListener("input", query);

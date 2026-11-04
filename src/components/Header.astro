@@ -1,7 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 const { current = "", overHero = false } = Astro.props;
-const NAV = [["People", "/people/"], ["Publications", "/publications/"]];
+const NAV = [["People", "/people/"], ["Publications", "/publications/"], ["Yearbook", "/yearbook/"]];
 ---
 <header class={"hdr" + (overHero ? " over" : "")} data-over-hero={overHero ? "true" : undefined}>
   <div class="wrap">

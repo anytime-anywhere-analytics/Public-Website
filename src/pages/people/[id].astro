@@ -1,6 +1,5 @@
 ---
 import Base from "../../layouts/Base.astro";
-import WorkCard from "../../components/WorkCard.astro";
 import PubRows from "../../components/PubRows.astro";
 import SearchMeta from "../../components/SearchMeta.astro";
 import { members, pubsByAuthor, initials, isActive } from "../../lib/data";
@@ -39,5 +38,4 @@ const label = ({ faculty: "Faculty", current: "Current member", alumni: "Alumni"
       <div>{pubs.length ? <PubRows rows={pubs} /> : <p class="small">No publications recorded for this profile yet.</p>}</div>
     </div>
   </div>
-  <WorkCard />
 </Base>

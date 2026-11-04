@@ -25,6 +25,7 @@ reflects the content of that build; with no build yet, the overlay says the inde
 | `src/data/site.json` | name, tagline, contact lines, funder logos, socials, grant |
 | `src/data/members.json` | people; `group` is `faculty` / `current` / `alumni` / `external` — faculty and current members get portrait cards and the home-page dome, alumni and external collaborators a quiet text list |
 | `src/data/publications.json` | generated — see below |
+| `src/data/retreats.json` | the Yearbook: one entry per yearly retreat — `place`, `when`, two or three sentences of `text`, a group `photo`, up to three more `photos`, and `people` (names; ones that match a member link to their profile). `draft: true` marks a placeholder. Not in the Sheets CMS yet — edit the file. Photos go in `public/assets/img/retreats/`. |
 
 `pillars.json`, `testbeds.json`, `posts.json` and `stats.json` are still pulled from the
 sheet but the site no longer shows them (news and research areas were removed to keep the
@@ -153,6 +154,24 @@ at **ca3.dk** (custom domain set in the repo's Pages settings). `.github/workflo
 
 A failed pull (validation error, Apps Script down) fails the build and leaves the last good
 deploy online; the run log says why.
+
+## Analytics and the cookie banner
+
+Google Analytics 4 is wired in directly (gtag.js, no Tag Manager) by `src/components/Analytics.astro`,
+and only when `PUBLIC_GA_ID` (`G-…`) is set at build time — locally in `.env`, in CI as the repository
+**variable** `GA_ID` (*Settings → Secrets and variables → Actions → Variables*). Without it there is no
+script and no banner.
+
+- **Opt-in only.** Nothing from Google loads before the visitor clicks *Accept*: Consent Mode v2 starts
+  with everything denied, and gtag.js is injected only after consent. *Accept* and *Decline* look the
+  same; the banner never blocks the page.
+- **Changing your mind.** *Cookie settings* in the footer reopens the banner. Declining after accepting
+  switches consent off and deletes the `_ga` cookies. The choice is stored in `localStorage` for 12
+  months, then asked again; bump `VERSION` in the component to ask everyone again after a change.
+- **What is sent.** Page views, with the site section (`home`, `people`, `publications`, `yearbook`…) as
+  GA4's built-in `content_group`, and site searches as GA4's `search` event with `search_term`. Google
+  signals and ad personalisation are off.
+- **Privacy policy.** Set `PUBLIC_PRIVACY_URL` (CI variable `PRIVACY_URL`) and the banner links to it.
 
 ## Conventions worth knowing
 

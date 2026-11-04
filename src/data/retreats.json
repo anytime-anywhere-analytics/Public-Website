@@ -1,0 +1,35 @@
+[
+  {
+    "year": 2026,
+    "draft": true,
+    "place": "Place to be added",
+    "region": "",
+    "when": "2026",
+    "text": "Placeholder — one to three sentences: where we met, what we talked about, and what we did besides talking.",
+    "photo": "",
+    "photos": [],
+    "people": []
+  },
+  {
+    "year": 2025,
+    "draft": false,
+    "place": "Sandbjerg Gods",
+    "region": "Southern Jutland",
+    "when": "October 2025",
+    "text": "Our second research retreat took us to Sandbjerg Gods, a manor house in southern Jutland, for two days of energizing discussions and compelling research. Beyond talking, we hiked muddy paths, played chess late into the night in historic rooms, and some of us braved a winter bath.",
+    "photo": "/assets/img/retreats/2025.jpg",
+    "photos": ["/assets/img/retreats/2025-manor.jpg", "/assets/img/retreats/2025-walk.jpg"],
+    "people": ["Niklas Elmqvist", "Arvind Srinivasan", "Hugo Andersson", "Marianne Dammand Iversen", "Sebastian Hubenschmid", "Sungbok Shin", "Vaishali Dhanoa", "Gabriela Molina León", "Marcel Borowski", "Anton Wolter", "Duosi Dai"]
+  },
+  {
+    "year": 2024,
+    "draft": true,
+    "place": "Place to be added",
+    "region": "",
+    "when": "2024",
+    "text": "Placeholder — our first research retreat. One to three sentences: where we met, what we talked about, and what we did besides talking.",
+    "photo": "",
+    "photos": [],
+    "people": []
+  }
+]

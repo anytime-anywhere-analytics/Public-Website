@@ -2,7 +2,6 @@
 import Base from "../../layouts/Base.astro";
 import FilterRail from "../../components/FilterRail.astro";
 import RowThumb from "../../components/RowThumb.astro";
-import WorkCard from "../../components/WorkCard.astro";
 import SearchMeta from "../../components/SearchMeta.astro";
 import Authors from "../../components/Authors.astro";
 import { publications, members, counts } from "../../lib/data";
@@ -70,6 +69,5 @@ const rows = publications.slice().sort((a: any, b: any) => b.year - a.year);
       </div>
     </div>
   </div>
-  <WorkCard />
   <script src="/js/list.js" is:inline></script>
 </Base>

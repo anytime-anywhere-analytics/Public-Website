@@ -1,7 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Cover from "../../components/Cover.astro";
-import WorkCard from "../../components/WorkCard.astro";
 import Authors from "../../components/Authors.astro";
 import PubRows from "../../components/PubRows.astro";
 import SearchMeta from "../../components/SearchMeta.astro";
@@ -65,7 +64,6 @@ const videoSrc = (() => {
       </div>
     )}
   </div>
-  <WorkCard />
   {videoSrc && (
     <dialog class="modal" id="pub-video">
       <div class="sheet video">

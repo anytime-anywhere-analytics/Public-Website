@@ -3,6 +3,7 @@ import Logo from "./Logo.astro";
 import { site } from "../lib/data";
 /* only links that go somewhere: the sheet has held "#/…" placeholders here */
 const social = site.social.filter(([, href]: [string, string]) => /^https?:\/\//.test(href));
+const analytics = Boolean(import.meta.env.PUBLIC_GA_ID);
 ---
 <footer class="sitefoot">
   <ca3-grainient class="fbg" color1="#000000" color2="#3B82F6" color3="#001f52" time-speed="0.25" grain-amount="0.1" grain-scale="2" grain-animated contrast="1.5" zoom="0.9"></ca3-grainient>
@@ -10,8 +11,10 @@ const social = site.social.filter(([, href]: [string, string]) => /^https?:\/\//
     <div class="wrap">
       <div class="footcols">
         <div>
-          <div class="flogo"><Logo class="logo" /> CA³</div>
-          <div class="big">{site.tagline}</div>
+          <div class="fbrand">
+            <div class="flogo"><Logo class="logo" /> CA³</div>
+            <div class="tagline">{site.tagline}</div>
+          </div>
           <div class="funders">{site.funders.map((f: any) => <img src={f.src} alt={f.alt} />)}</div>
         </div>
         <div>
@@ -23,11 +26,13 @@ const social = site.social.filter(([, href]: [string, string]) => /^https?:\/\//
           <h4>Centre</h4>
           <a href="/people/">People</a>
           <a href="/publications/">Publications</a>
+          <a href="/yearbook/">Yearbook</a>
           <a href="/work-with-us/">Work with us</a>
         </div>
       </div>
       <div class="footlegal">
         <span>{site.domain}</span><span>{site.grant}</span>
+        {analytics && <button type="button" class="footbtn" data-consent-open>Cookie settings</button>}
       </div>
     </div>
   </div>

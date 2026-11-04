@@ -207,7 +207,7 @@ img{max-width:100%;display:block}
 
 /* listing */
 :root{--fbar-h:52px}
-.listing{display:grid;grid-template-columns:248px minmax(0,1fr);gap:clamp(24px,4vw,64px);padding-bottom:96px}
+.listing{display:grid;grid-template-columns:248px minmax(0,1fr);gap:clamp(24px,4vw,64px)}
 @media(max-width:900px){.listing{grid-template-columns:minmax(0,1fr)}}
 .filters{align-self:start;position:sticky;top:calc(var(--hdr-h) + 16px);z-index:40}
 .listtop{position:sticky;top:var(--hdr-h);z-index:38;padding:12px 0;background:color-mix(in oklab,var(--canvas) 86%,transparent);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--divider)}
@@ -365,13 +365,36 @@ img{max-width:100%;display:block}
 .who:hover .nm{color:var(--primary)}
 .who .nm{display:block;font:600 15px/1.3 var(--text);transition:color .18s}
 
+/* yearbook — one section per retreat; the year stays pinned beside it while you read */
+.yearjump{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.yb:last-child{padding-bottom:0}
+.yb{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:clamp(24px,4vw,64px);padding:clamp(48px,6vw,88px) 0;border-top:1px solid var(--divider);scroll-margin-top:var(--hdr-h)}
+.yb-side{position:sticky;top:calc(var(--hdr-h) + 32px);align-self:start}
+.yb-year{font:600 clamp(56px,7vw,100px)/.9 var(--display);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.yb-place{margin-top:18px;font:600 19px/1.3 var(--display);letter-spacing:-.01em}
+.yb-side .small{margin-top:4px}
+.yb-draft{display:inline-block;margin-top:14px;padding:5px 10px;border:1px dashed var(--ink-48);border-radius:9999px;font:600 10px/1 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-48)}
+.yb-main{max-width:760px}
+.yb-photo{aspect-ratio:4/3;border-radius:18px;box-shadow:var(--shadow-product)}
+.yb-text{margin-top:28px;max-width:62ch;font:400 clamp(18px,1.5vw,21px)/1.5 var(--text);color:var(--ink-80)}
+.yb-who{margin-top:32px}
+.yb-who ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.yb-who li>*{display:inline-flex;align-items:center;gap:8px;padding:4px 12px 4px 4px;border:1px solid var(--hairline);border-radius:9999px;font:400 14px/1 var(--text);color:var(--ink-80)}
+.yb-who a{transition:border-color .18s,color .18s}
+.yb-who a:hover{border-color:var(--primary);color:var(--primary);text-decoration:none}
+.yb-who .avatar{width:28px;height:28px;font-size:11px}
+.yb-extras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:32px}
+.yb-extras .ph{aspect-ratio:4/3;border-radius:12px}
+@media(max-width:800px){.yb{grid-template-columns:minmax(0,1fr)}.yb-side{position:static}.yb-year{font-size:clamp(52px,15vw,80px)}.yb-extras{gap:6px}}
+
 /* work card */
-.workcard{scroll-margin-top:calc(var(--hdr-h) + 24px);background:var(--parchment);border-radius:18px;padding:clamp(32px,4vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;align-items:center;margin:clamp(48px,7vw,96px) 0}
+.workcard{scroll-margin-top:calc(var(--hdr-h) + 24px);background:var(--parchment);border-radius:18px;padding:clamp(32px,4vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;align-items:center;margin:clamp(48px,7vw,96px) 0 0}
 @media(max-width:860px){.workcard{grid-template-columns:1fr}}
 .workcard .art{border-radius:14px;overflow:hidden;aspect-ratio:16/10;position:relative;box-shadow:var(--shadow-product)}
 
 /* sticky footer reveal */
 .shell{position:relative;z-index:2;background:var(--canvas);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.shell>main{padding-bottom:clamp(48px,7vw,96px)}
 .revealspace{height:var(--footer-h)}
 .sitefoot{position:fixed;left:0;right:0;bottom:0;z-index:1;height:var(--footer-h);background:var(--tile3);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .sitefoot .fbg{position:absolute;inset:0;z-index:0;opacity:.45}
@@ -385,7 +408,9 @@ img{max-width:100%;display:block}
 .sitefoot address a:hover{text-decoration-color:currentColor}
 .sitefoot .flogo{display:flex;align-items:center;gap:10px;font:600 18px/1 var(--display);color:#fff}
 .sitefoot .flogo .logo{height:36px;width:auto;flex:none}
-.sitefoot .big{font:600 clamp(26px,3vw,40px)/1.08 var(--display);letter-spacing:-.025em;max-width:18ch;margin-top:20px}
+/* logo and tagline on one line, split by a hairline */
+.sitefoot .fbrand{display:flex;align-items:center;flex-wrap:wrap;gap:12px 16px}
+.sitefoot .tagline{padding-left:16px;border-left:1px solid rgba(255,255,255,.25);font:600 clamp(17px,1.5vw,21px)/1.2 var(--display);letter-spacing:-.015em;color:rgba(255,255,255,.85)}
 .sitefoot address{font:400 14px/1.7 var(--text);font-style:normal;color:rgba(255,255,255,.6)}
 .funders{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:22px}
 .funders img{height:30px;width:auto;filter:url(#logo-on-dark);opacity:.75}
@@ -406,4 +431,13 @@ dialog.modal::backdrop{background:color-mix(in oklab,#000 45%,transparent);backd
 dialog.modal:not([open]){display:none}
 .sitefoot .fbg{background:radial-gradient(120% 120% at 20% 0%,#1d3b6b,transparent 60%),radial-gradient(100% 100% at 90% 100%,#123a52,transparent 55%)}
 .searchover[hidden]{display:none}
+/* cookie banner: a card in the corner, never a wall — the page stays usable without answering */
+.consent{position:fixed;left:16px;bottom:16px;z-index:190;width:min(440px,calc(100vw - 32px));display:grid;gap:16px;padding:20px;border-radius:18px;background:var(--surface);color:var(--ink);border:1px solid var(--hairline);box-shadow:0 20px 60px rgba(0,0,0,.25);font:400 14px/1.5 var(--text);letter-spacing:-.1px}
+.consent[hidden]{display:none}
+.consent p{color:var(--ink-80)}
+.consent strong{color:var(--ink)}
+.consent .acts{display:flex;gap:10px}
+.consent .acts .btn{flex:1;justify-content:center}
+.footbtn{font:inherit;color:rgba(255,255,255,.6);padding:0;cursor:pointer}
+.footbtn:hover{color:#fff}
 .pubrow[hidden]{display:none}

@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import SearchMeta from "../components/SearchMeta.astro";
+import { retreats, memberIdByName, members, initials } from "../lib/data";
+
+/* one page per year: the yearly retreat, its group photo, a few lines, and who was there.
+   Names that match a member link to their profile and show their portrait. */
+const photoOf = (name: string) => members.find((m: any) => m.name === name)?.photo;
+---
+<Base title="Yearbook · CA³" description="One page per year from the CA³ research retreats: where we went, what we talked about, and who was there." current="/yearbook/">
+  <SearchMeta kind="Page" />
+  <div class="wrap">
+    <div class="pagehero">
+      <div>
+        <h1>Yearbook</h1>
+        <p class="lead" style="margin-top:20px;max-width:46ch">Once a year the whole centre leaves the office for a few days. One page per year: where we went, what we talked about, and who was there.</p>
+        <nav class="yearjump" aria-label="Years">{retreats.map((r) => <a class="chip" href={"#y" + r.year}>{r.year}</a>)}</nav>
+      </div>
+    </div>
+
+    {retreats.map((r) => {
+      const extras = r.photos.filter(Boolean).slice(0, 3);
+      return (
+        <section class="yb" id={"y" + r.year}>
+          <div class="yb-side">
+            <div class="yb-year">{r.year}</div>
+            <div class="yb-place">{r.place}</div>
+            <div class="small">{[r.region, r.when].filter(Boolean).join(" · ")}</div>
+            {r.draft && <span class="yb-draft">Placeholder</span>}
+          </div>
+          <div class="yb-main">
+            <div class={"yb-photo ph" + (r.photo ? " has" : "")}>
+              {r.photo ? <img src={r.photo} alt={`The CA³ retreat ${r.year} at ${r.place}`} loading="lazy" /> : <span>Group photo — {r.year}</span>}
+            </div>
+            <p class="yb-text">{r.text}</p>
+            {r.people.length > 0 && (
+              <div class="yb-who">
+                <div class="eyebrow">Who was there · {r.people.length}</div>
+                <ul>
+                  {r.people.map((name: string) => {
+                    const face = <span class="avatar">{photoOf(name) ? <img src={photoOf(name)} alt="" loading="lazy" /> : initials(name)}</span>;
+                    return <li>{memberIdByName[name] ? <a href={"/people/" + memberIdByName[name] + "/"}>{face}{name}</a> : <span>{face}{name}</span>}</li>;
+                  })}
+                </ul>
+              </div>
+            )}
+            {extras.length > 0 && <div class="yb-extras">{extras.map((src: string) => <div class="ph has"><img src={src} alt="" loading="lazy" /></div>)}</div>}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</Base>

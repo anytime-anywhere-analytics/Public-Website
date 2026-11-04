@@ -34,6 +34,8 @@ jobs:
         env:
           CMS_URL: ${{ secrets.CMS_URL }}
           CMS_TOKEN: ${{ secrets.CMS_TOKEN }}
+          PUBLIC_GA_ID: ${{ vars.GA_ID }}
+          PUBLIC_PRIVACY_URL: ${{ vars.PRIVACY_URL }}
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
         with:

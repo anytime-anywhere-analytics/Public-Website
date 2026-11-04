@@ -39,11 +39,21 @@
     ]
   },
   {
+    "id": "vaishali-dhanoa",
+    "name": "Vaishali Dhanoa",
+    "role": "Postdoctoral Researcher",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Fall 2025",
+    "bio": "Now a researcher at JKU Linz, working on visualization for data quality and provenance.",
+    "photo": "/assets/people/dhanoa.jpg"
+  },
+  {
     "id": "marcel-borowski",
     "name": "Marcel Borowski",
     "role": "Postdoctoral Researcher",
     "org": "Aarhus University",
-    "group": "current",
+    "group": "alumni",
     "since": "Sep 2023",
     "areas": [
       "Ubiquitous Analytics",
@@ -63,7 +73,7 @@
     "name": "Biswaksen Patnaik",
     "role": "Ph.D. Student",
     "org": "University of Maryland",
-    "group": "current",
+    "group": "alumni",
     "areas": [
       "Sensing & Interaction"
     ],
@@ -81,7 +91,7 @@
     "name": "Sungbok Shin",
     "role": "Ph.D. Student",
     "org": "University of Maryland",
-    "group": "current",
+    "group": "alumni",
     "areas": [
       "Human-Centered AI"
     ],
@@ -99,7 +109,7 @@
     "name": "Pramod Chundury",
     "role": "Ph.D. Student",
     "org": "University of Maryland",
-    "group": "current",
+    "group": "alumni",
     "areas": [
       "Ubiquitous Analytics"
     ],
@@ -117,7 +127,7 @@
     "name": "Md Naimul Hoque",
     "role": "Ph.D. Student",
     "org": "University of Maryland",
-    "group": "current",
+    "group": "alumni",
     "areas": [
       "Human-Centered AI"
     ],
@@ -129,16 +139,6 @@
       ]
     ],
     "photo": "/assets/people/naimul.jpg"
-  },
-  {
-    "id": "vaishali-dhanoa",
-    "name": "Vaishali Dhanoa",
-    "role": "Postdoctoral Researcher",
-    "org": "Aarhus University",
-    "group": "current",
-    "since": "Fall 2025",
-    "bio": "Now a researcher at JKU Linz, working on visualization for data quality and provenance.",
-    "photo": "/assets/people/dhanoa.jpg"
   },
   {
     "id": "caroline-berger",
@@ -333,7 +333,8 @@
     "role": "Ph.D. Student",
     "org": "Aarhus University",
     "group": "current",
-    "since": "Feb 2024"
+    "since": "Feb 2024",
+    "photo": "/assets/people/johannes.jpg"
   },
   {
     "id": "anton-wolter",
@@ -379,6 +380,50 @@
       ]
     ],
     "photo": "/assets/people/sebastian.jpg"
+  },
+  {
+    "id": "duosi-dai",
+    "name": "Duosi Dai",
+    "role": "Ph.D. Student",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Fall 2025"
+  },
+  {
+    "id": "dieinison",
+    "name": "Dieinison",
+    "role": "Visiting Ph.D. Student from Brazil",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Fall 2025",
+    "photo": "/assets/people/dieinison.jpg"
+  },
+  {
+    "id": "hyeon-jeon",
+    "name": "Hyeon Jeon",
+    "role": "Postdoctoral Researcher",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Fall 2026",
+    "photo": "/assets/people/hyeon.jpg"
+  },
+  {
+    "id": "emeric",
+    "name": "Emeric",
+    "role": "Ph.D. Student",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "2026",
+    "photo": "/assets/people/emeric.jpg"
+  },
+  {
+    "id": "benjamin",
+    "name": "Benjamin",
+    "role": "Ph.D. Student",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "2026/2027",
+    "photo": "/assets/people/benjamin.jpg"
   },
   {
     "id": "deepthi-raghunandan",
