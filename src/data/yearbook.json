@@ -1,0 +1,57 @@
+[
+  {
+    "year": 2026,
+    "kind": "Retreat",
+    "draft": false,
+    "title": "Retreat at Kaløvig Center",
+    "place": "Rønde, East Jutland",
+    "when": "October 2026",
+    "text": "Our third research retreat took us to Kaløvig Center near Rønde for two days at the end of October. We looked back on 2026 and ahead to 2027, held sessions on research challenges, a Ph.D. dissertation, research grants, open source and industrial collaboration.",
+    "photo": "/assets/img/yearbook/2026.jpg",
+    "photos": [
+      "/assets/img/yearbook/2026-music.jpg",
+      "/assets/img/yearbook/2026-hoodies.jpg"
+    ]
+  },
+  {
+    "year": 2025,
+    "kind": "Conference",
+    "draft": false,
+    "title": "IEEE VIS 2025",
+    "place": "Vienna, Austria",
+    "when": "November 2025",
+    "link": "",
+    "text": "The centre travelled to Vienna for IEEE VIS 2025, the main conference of our field. Niklas received the 2025 VGTC Visualization Technical Achievement Award and we presented our contributions.”",
+    "photo": "/assets/img/yearbook/2025-vis.jpg",
+    "photos": [
+      "/assets/img/yearbook/2025-vis-award.jpg"
+    ]
+  },
+  {
+    "year": 2025,
+    "kind": "Retreat",
+    "draft": false,
+    "title": "Retreat at Sandbjerg Gods",
+    "place": "Southern Jutland",
+    "when": "October 2025",
+    "link": "",
+    "text": "Our second research retreat took us to Sandbjerg Gods, a manor house in southern Jutland, for two days of energizing discussions and compelling research. Beyond talking, we hiked muddy paths, played chess late into the night in historic rooms, and some of us braved a winter bath.",
+    "photo": "/assets/img/yearbook/2025.jpg",
+    "photos": [
+      "/assets/img/yearbook/2025-manor.jpg",
+      "/assets/img/yearbook/2025-walk.jpg"
+    ]
+  },
+  {
+    "year": 2024,
+    "kind": "Retreat",
+    "draft": true,
+    "title": "Retreat — place to be added",
+    "place": "",
+    "when": "2024",
+    "link": "",
+    "text": "Placeholder — our first research retreat. One to three sentences: where we met, what we talked about, and what we did besides talking.",
+    "photo": "",
+    "photos": []
+  }
+]

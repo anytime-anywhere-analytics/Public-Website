@@ -1,12 +1,15 @@
 import site from "../data/site.json";
 import members from "../data/members.json";
 import publications from "../data/publications.json";
-import retreatData from "../data/retreats.json";
+import yearbookData from "../data/yearbook.json";
 
 export { site, members, publications };
 
-/* the yearbook: one entry per yearly retreat, newest first */
-export const retreats = [...retreatData].sort((a, b) => b.year - a.year);
+/* the yearbook: entries (retreats, conferences…) grouped by year, newest year first;
+   within a year they keep the order of the file */
+export const yearbook = [...new Set(yearbookData.map((e) => e.year))]
+  .sort((a, b) => b - a)
+  .map((year) => ({ year, entries: yearbookData.filter((e) => e.year === year) }));
 
 export const memberIdByName: Record<string, string> = Object.fromEntries(members.map((m: any) => [m.name, m.id]));
 

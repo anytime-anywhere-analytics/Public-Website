@@ -365,26 +365,23 @@ img{max-width:100%;display:block}
 .who:hover .nm{color:var(--primary)}
 .who .nm{display:block;font:600 15px/1.3 var(--text);transition:color .18s}
 
-/* yearbook — one section per retreat; the year stays pinned beside it while you read */
+/* yearbook — one section per year (retreat, conferences…); the year stays pinned beside its entries while you read */
 .yearjump{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
 .yb:last-child{padding-bottom:0}
 .yb{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:clamp(24px,4vw,64px);padding:clamp(48px,6vw,88px) 0;border-top:1px solid var(--divider);scroll-margin-top:var(--hdr-h)}
 .yb-side{position:sticky;top:calc(var(--hdr-h) + 32px);align-self:start}
 .yb-year{font:600 clamp(56px,7vw,100px)/.9 var(--display);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
-.yb-place{margin-top:18px;font:600 19px/1.3 var(--display);letter-spacing:-.01em}
-.yb-side .small{margin-top:4px}
-.yb-draft{display:inline-block;margin-top:14px;padding:5px 10px;border:1px dashed var(--ink-48);border-radius:9999px;font:600 10px/1 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-48)}
+.yb-entry{scroll-margin-top:calc(var(--hdr-h) + 24px)}
+.yb-entry+.yb-entry{margin-top:clamp(56px,7vw,96px)}
+.yb-title{font-size:clamp(24px,2.2vw,32px)}
+.yb-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.yb-draft{display:inline-block;padding:5px 10px;border:1px dashed var(--ink-48);border-radius:9999px;font:600 10px/1 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-48)}
 .yb-main{max-width:760px}
-.yb-photo{aspect-ratio:4/3;border-radius:18px;box-shadow:var(--shadow-product)}
+.yb-photo{margin-top:22px;aspect-ratio:4/3;border-radius:18px;box-shadow:var(--shadow-product)}
 .yb-text{margin-top:28px;max-width:62ch;font:400 clamp(18px,1.5vw,21px)/1.5 var(--text);color:var(--ink-80)}
-.yb-who{margin-top:32px}
-.yb-who ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.yb-who li>*{display:inline-flex;align-items:center;gap:8px;padding:4px 12px 4px 4px;border:1px solid var(--hairline);border-radius:9999px;font:400 14px/1 var(--text);color:var(--ink-80)}
-.yb-who a{transition:border-color .18s,color .18s}
-.yb-who a:hover{border-color:var(--primary);color:var(--primary);text-decoration:none}
-.yb-who .avatar{width:28px;height:28px;font-size:11px}
 .yb-extras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:32px}
 .yb-extras .ph{aspect-ratio:4/3;border-radius:12px}
+.yb-extras img{object-position:50% 35%}
 @media(max-width:800px){.yb{grid-template-columns:minmax(0,1fr)}.yb-side{position:static}.yb-year{font-size:clamp(52px,15vw,80px)}.yb-extras{gap:6px}}
 
 /* work card */
