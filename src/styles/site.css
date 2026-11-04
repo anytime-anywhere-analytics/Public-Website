@@ -149,11 +149,28 @@ img{max-width:100%;display:block}
 .hero .scrollcue .lbl{font:400 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
 @keyframes cue{0%{transform:translateY(-20px)}60%,100%{transform:translateY(54px)}}
 @media(prefers-reduced-motion:reduce){.hero .scrollcue .track i{animation:none;height:100%;opacity:.5}}
-.hero .inner{align-items:center;position:relative;z-index:2;padding:calc(var(--hdr-h) + 24px) var(--gutter) calc(var(--hdr-h) + 24px)}
-.hero h1{justify-content:center;text-align:center;font-size:clamp(44px,8.2vw,116px);letter-spacing:-.035em}
-.hero .sub{justify-content:center;text-align:center;max-width:44ch;margin-top:24px;color:rgba(255,255,255,.78);font:400 clamp(17px,1.4vw,21px)/1.45 var(--text)}
-.hero .logos{justify-content:center;display:flex;gap:32px;margin-top:48px;flex-wrap:wrap}
-.hero .logos img{height:34px;width:auto;filter:invert(1) grayscale(1);}
+/* a visual hero: the captioned group photo leads; headline, one line of pitch, the director's quote and the host/funder logos beside it */
+.hero .inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);grid-template-areas:"photo pitch";gap:clamp(32px,5vw,88px);align-items:center;padding-top:calc(var(--hdr-h) + clamp(32px,6vh,80px));padding-bottom:clamp(48px,8vh,96px)}
+@media(max-width:900px){.hero .inner{grid-template-columns:minmax(0,1fr);grid-template-areas:"photo" "pitch";gap:36px}}
+.hero .photo{grid-area:photo;margin:0}
+.hero .groupshot{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#111;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.hero .groupshot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .photo figcaption{margin-top:12px;font:400 13px/1.45 var(--text);color:rgba(255,255,255,.5)}
+.hero .pitch{grid-area:pitch}
+/* one line: sized to the text column (about 2/5 of the page beside the photo, full width on phones) */
+.hero h1{font-size:clamp(28px,3.4vw,52px);letter-spacing:-.03em;white-space:nowrap}
+@media(max-width:900px){.hero h1{font-size:clamp(28px,8.4vw,52px)}}
+.hero .sub{max-width:42ch;margin-top:20px;color:rgba(255,255,255,.78);font:400 clamp(16px,1.25vw,19px)/1.5 var(--text)}
+.hero .quote{margin:40px 0 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)}
+.hero blockquote{margin:0;max-width:38ch;font:600 clamp(18px,1.5vw,22px)/1.32 var(--display);letter-spacing:-.015em;color:#fff}
+.hero .by{display:inline-flex;gap:12px;align-items:center;margin-top:16px;color:#fff}
+.hero .by:hover{text-decoration:none}
+.hero .by:hover .nm{color:#7fb8ff}
+.hero .by .avatar{width:44px;height:44px}
+.hero .by .nm{display:block;font:600 15px/1.3 var(--text);transition:color .18s}
+.hero .by .small{color:rgba(255,255,255,.6)}
+.hero .logos{display:flex;gap:clamp(24px,3vw,40px);flex-wrap:wrap;align-items:center;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)}
+.hero .logos img{height:30px;width:auto;filter:url(#logo-on-dark);opacity:.8}
 .hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,8,15,.78),rgba(6,8,15,.15) 45%,rgba(6,8,15,.9))}
 .pagehero{padding:clamp(48px,6vw,88px) 0 clamp(32px,4vw,56px);display:grid;gap:40px}
 
@@ -371,7 +388,7 @@ img{max-width:100%;display:block}
 .sitefoot .big{font:600 clamp(26px,3vw,40px)/1.08 var(--display);letter-spacing:-.025em;max-width:18ch;margin-top:20px}
 .sitefoot address{font:400 14px/1.7 var(--text);font-style:normal;color:rgba(255,255,255,.6)}
 .funders{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:22px}
-.funders img{height:30px;width:auto;filter:brightness(0) invert(1);opacity:.7}
+.funders img{height:30px;width:auto;filter:url(#logo-on-dark);opacity:.75}
 .social{display:flex;gap:18px;margin-top:20px}
 .social a{display:inline}
 .footlegal{display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-top:clamp(24px,4vh,56px);padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font:400 12px/1 var(--text);color:rgba(255,255,255,.5)}
@@ -390,7 +407,3 @@ dialog.modal:not([open]){display:none}
 .sitefoot .fbg{background:radial-gradient(120% 120% at 20% 0%,#1d3b6b,transparent 60%),radial-gradient(100% 100% at 90% 100%,#123a52,transparent 55%)}
 .searchover[hidden]{display:none}
 .pubrow[hidden]{display:none}
-
-/* short viewports: keep the hero and its scroll cue on one screen */
-@media(max-height:760px){.hero{min-height:100svh;align-items:center}.hero h1{font-size:clamp(38px,6.4vh,72px)}.hero .sub{margin-top:16px;font-size:clamp(15px,2.1vh,18px)}.hero .logos{margin-top:24px;gap:24px}.hero .logos img{height:26px}}
-@media(max-height:620px){.hero .logos{display:none}.hero .sub{display:none}}

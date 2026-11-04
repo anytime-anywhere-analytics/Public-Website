@@ -156,8 +156,11 @@ deploy online; the run log says why.
 
 ## Conventions worth knowing
 
-- **People first.** The home page puts the people dome straight under the hero, and the
-  people page leads with portrait cards. Only faculty and current members get that stage
+- **Home page order:** hero (pitch, the group photo `/assets/img/group.jpg` and the director's
+  quote) → about and the film → featured publications → the people dome → work card. A new
+  group photo goes into the Drive assets folder as `assets/img/group.jpg`; it replaces the
+  checked-in one on the next build.
+- **People first.** The people page leads with portrait cards. Only faculty and current members get that stage
   (`team` / `isActive` in `src/lib/data.ts`); alumni and collaborators are listed below
   in small type, and their profile pages keep the small round avatar.
 - **Work with us** (`src/pages/work-with-us.astro`) covers positions, industry partnerships
