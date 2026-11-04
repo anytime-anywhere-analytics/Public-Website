@@ -43,8 +43,8 @@
   {
     "year": 2024,
     "kind": "Retreat",
-    "draft": true,
-    "title": "Retreat — place to be added",
+    "draft": false,
+    "title": "The first CA3 retreat",
     "place": "",
     "when": "2024",
     "link": "",
