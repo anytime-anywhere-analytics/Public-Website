@@ -1,16 +1,25 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Cover from "../../components/Cover.astro";
-import JoinCard from "../../components/JoinCard.astro";
+import WorkCard from "../../components/WorkCard.astro";
 import Authors from "../../components/Authors.astro";
 import PubRows from "../../components/PubRows.astro";
-import { publications } from "../../lib/data";
+import SearchMeta from "../../components/SearchMeta.astro";
+import { publications, memberIdByName } from "../../lib/data";
 
 export function getStaticPaths() {
   return publications.map((p: any) => ({ params: { id: p.id }, props: { p } }));
 }
 const { p } = Astro.props;
-const related = publications.filter((x: any) => x.pillar === p.pillar && x.id !== p.id).slice(0, 3);
+/* related = other papers by the same centre members, most shared authors first, then newest */
+const ours = p.authors.filter((a: string) => memberIdByName[a]);
+const related = publications
+  .filter((x: any) => x.id !== p.id)
+  .map((x: any) => ({ x, n: x.authors.filter((a: string) => ours.includes(a)).length }))
+  .filter((r) => r.n > 0)
+  .sort((a, b) => b.n - a.n || b.x.year - a.x.year)
+  .slice(0, 3)
+  .map((r) => r.x);
 /* vidstack source id for a YouTube or Vimeo link; other hosts fall back to a plain link */
 const videoSrc = (() => {
   const u = p.video || "";
@@ -22,7 +31,7 @@ const videoSrc = (() => {
 })();
 ---
 <Base title={p.title + " · CA³"} description={p.hook || (p.abstract && p.abstract[0]) || `${(p.authors || []).join(", ")}. ${p.venue} ${p.year}.`} image={p.image} current="/publications/">
-  <div data-pagefind-meta={`kind:Publication,title:${p.title},meta:${p.venue} ${p.year}`}></div>
+  <SearchMeta kind="Publication" title={p.title} meta={`${p.venue} ${p.year}`} />
   <div class="wrap read">
     <div class="crumbs"><a href="/">Home</a><span>›</span><a href="/publications/">Publications</a><span>›</span><span>{p.year}</span></div>
     <h1 style="font-size:clamp(30px,3.6vw,50px)">{p.title}</h1>
@@ -49,23 +58,14 @@ const videoSrc = (() => {
         <Cover label={`Teaser figure — ${p.title}`} src={p.image} parallax="26" caption="Teaser figure from the paper." />
       </div>
     )}
-    {(p.pillar || p.testbed) && (
-      <div class="split" style="padding-bottom:24px">
-        <h2>Research areas</h2>
-        <div class="arealist">
-          {p.pillar && <a class="arearow" href={`/publications/?pillar=${encodeURIComponent(p.pillar)}`}>{p.pillar} <span>›</span></a>}
-          {p.testbed && <a class="arearow" href={`/publications/?testbed=${encodeURIComponent(p.testbed)}`}>{p.testbed} <span>›</span></a>}
-        </div>
-      </div>
-    )}
     {related.length > 0 && (
-      <div class="split" style="padding-top:56px">
+      <div class="split" style="padding-top:56px" data-pagefind-ignore>
         <h2>Related</h2>
         <div><PubRows rows={related} /></div>
       </div>
     )}
   </div>
-  <JoinCard />
+  <WorkCard />
   {videoSrc && (
     <dialog class="modal" id="pub-video">
       <div class="sheet video">

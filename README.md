@@ -2,8 +2,8 @@
 
 Static Astro site for the Center for Anytime Anywhere Analytics. No CMS, no client
 framework: content is JSON in `src/data/`, pages are server-rendered at build time,
-and the handful of interactions (header state, carousels, dome, dialogs, faceted lists,
-search) are plain scripts in `public/js/`.
+and the handful of interactions (header state, the people dome, the video dialog, the
+faceted publication list, search) are plain scripts in `public/js/`.
 
 ## Run
 
@@ -14,18 +14,21 @@ npm run build      # astro build, shrink heavy images, then pagefind indexes dis
 npm run preview
 ```
 
-Search only works against a **built** site — `pagefind` writes `dist/pagefind/` during
-`npm run build`. In `astro dev` the overlay opens and returns no results; that is expected.
+Search runs on a Pagefind index that `npm run build` writes to `dist/pagefind/`. `astro dev`
+serves that same folder (see `astro.config.mjs`), so local search works after one build but
+reflects the content of that build; with no build yet, the overlay says the index is missing.
 
 ## Content
 
 | File | What it holds |
 |---|---|
 | `src/data/site.json` | name, tagline, contact lines, funder logos, socials, grant |
-| `src/data/pillars.json` · `testbeds.json` | the four pillars and three testbeds (`long` is the modal copy) |
-| `src/data/members.json` | people; `group` is `faculty` / `current` / `alumni` / `external` |
+| `src/data/members.json` | people; `group` is `faculty` / `current` / `alumni` / `external` — faculty and current members get portrait cards and the home-page dome, alumni and external collaborators a quiet text list |
 | `src/data/publications.json` | generated — see below |
-| `src/data/posts.json` | news; `kind: "short"` opens in a dialog, `kind: "long"` gets its own page; `by` must match a member name to link the byline |
+
+`pillars.json`, `testbeds.json`, `posts.json` and `stats.json` are still pulled from the
+sheet but the site no longer shows them (news and research areas were removed to keep the
+focus on people). Members' `areas` and publications' `pillar` / `testbed` are likewise unused.
 
 ### Publications come from the AU research portal
 
@@ -153,31 +156,36 @@ deploy online; the run log says why.
 
 ## Conventions worth knowing
 
-- **No standalone research page.** Pillars and testbeds live on the home page; their
-  "all publications" links and the dialog "Selected work" links point at filtered lists.
-- **List rows** (publications, news) carry a square cover on the right via `RowThumb`;
+- **People first.** The home page puts the people dome straight under the hero, and the
+  people page leads with portrait cards. Only faculty and current members get that stage
+  (`team` / `isActive` in `src/lib/data.ts`); alumni and collaborators are listed below
+  in small type, and their profile pages keep the small round avatar.
+- **Work with us** (`src/pages/work-with-us.astro`) covers positions, industry partnerships
+  and research collaboration; its copy lives in that file, not the sheet. The header button
+  and the `WorkCard` at the foot of most pages link there.
+- **List rows** (publications) carry a square cover on the right via `RowThumb`;
   with no image the space is held empty and the hover state still shows the black
   arrow overlay.
 - **Publications hero** is `GridMotion` — rotated rows of figures that slide with the
-  pointer; **People hero** is `Spiral`, a draggable/scroll-driven helix of portraits.
-  Both are server-rendered markup driven by `public/js/site.js`.
+  pointer; server-rendered markup driven by `public/js/site.js`.
 - **Filters** are a sidebar at ≥900px and a collapsible, headroom-aware sticky bar below
   that (`FilterRail`): it hides on scroll down, returns on scroll up, and stays put while open.
 - **One header.** Transparent-over-hero on the home page (`overHero` prop on `Base`),
   solid frosted everywhere else. There is no second nav bar.
 - **No scrollbars.** Native scrollbars are hidden; vertical progress is the accent bar at
-  the top of the viewport, horizontal carousel progress is the accent rail under each rail,
-  and modal sheets get their own accent strip pinned to the top of the sheet.
+  the top of the viewport.
 - **Gradual blur** (`GBlur`) layers masked `backdrop-filter` divs at section seams —
   under the publications hero and the people dome.
 - **Dark mode** follows `prefers-color-scheme` through the token block at the top of
   `src/styles/site.css`. Nothing else should hardcode a colour.
-- **Research-area links** go to `/publications/?pillar=…` or `?testbed=…`; `public/js/list.js`
-  reads those params and pre-checks the matching facet.
+- **Pre-filtered links.** `/publications/?author=…` (or `?year=`, `?venue=`) arrives with that
+  facet checked; `public/js/list.js` reads the params.
 - **Selects** use `appearance: base-select` with `::picker(select)` styling, and fall back
   to a custom arrow where that is unsupported.
-- **Pagefind metadata** is set per page with `data-pagefind-meta="kind:…,title:…,meta:…"`;
-  the search overlay groups results by `kind`.
+- **Pagefind metadata** is set per page with `<SearchMeta kind=… title=… meta=… />` (one element
+  per key — Pagefind does not split a comma list, and titles contain commas); the search
+  overlay groups results by `kind`. Blocks repeated across pages (the work card, the dome,
+  "Related" papers) carry `data-pagefind-ignore` so they do not make every page match.
 - Images sit in a `.ph` frame; with no image the frame shows a label saying what belongs
   there (today only the publications hero, for papers without a figure).
 - **Heavy images are shrunk at build time.** `scripts/optimize-images.mjs` re-encodes any

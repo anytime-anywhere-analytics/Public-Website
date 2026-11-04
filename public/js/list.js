@@ -1,6 +1,6 @@
-/* Faceted list behaviour for /publications/ and /people/.
+/* Faceted list behaviour for /publications/.
    Rows are server-rendered with data-* facets; this filters, sorts, and pages them,
-   and reads ?pillar= / ?testbed= off the URL so research-area links arrive pre-filtered. */
+   and reads facet params (e.g. ?author=) off the URL so links can arrive pre-filtered. */
 (() => {
   const root = document.querySelector("[data-list]");
   if (!root) return;

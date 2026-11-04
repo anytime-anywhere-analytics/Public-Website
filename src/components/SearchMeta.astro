@@ -1,0 +1,11 @@
+---
+/* Pagefind result fields for this page. One element per key: Pagefind does not split
+   "kind:…,title:…" on commas, and titles contain commas anyway. data-pagefind-ignore keeps
+   the text out of the index while the metadata is still read. */
+const { kind, title, meta } = Astro.props;
+---
+<div hidden data-pagefind-ignore>
+  {kind && <span data-pagefind-meta="kind">{kind}</span>}
+  {title && <span data-pagefind-meta="title">{title}</span>}
+  {meta && <span data-pagefind-meta="meta">{meta}</span>}
+</div>

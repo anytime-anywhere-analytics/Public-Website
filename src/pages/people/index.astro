@@ -1,75 +1,49 @@
 ---
 import Base from "../../layouts/Base.astro";
-import Spiral from "../../components/Spiral.astro";
-import GBlur from "../../components/GBlur.astro";
-import FilterRail from "../../components/FilterRail.astro";
-import JoinCard from "../../components/JoinCard.astro";
-import { members, GROUPS, counts, initials } from "../../lib/data";
+import WorkCard from "../../components/WorkCard.astro";
+import SearchMeta from "../../components/SearchMeta.astro";
+import { members, team, initials } from "../../lib/data";
 
-const glabel = Object.fromEntries(GROUPS);
-const areaOptions = counts(members.flatMap((m: any) => (m.areas || []).map((a: string) => ({ a }))), (x: any) => x.a);
-const spiralItems = members.map((m: any) => ({ id: m.id, label: m.name, href: "/people/" + m.id + "/", image: m.photo }));
+/* the current team gets portrait cards; alumni and collaborators a quiet text list.
+   Under those headings a role of just "Alumna" or "External Collaborator" says nothing, so it is dropped. */
+const past = [
+  { id: "alumni", title: "Alumni", people: members.filter((m: any) => m.group === "alumni") },
+  { id: "collaborators", title: "External collaborators", people: members.filter((m: any) => m.group === "external") },
+];
+const redundant = /^(alumn(a|us|i)|external collaborator)$/i;
+const detail = (m: any) => [redundant.test(m.role || "") ? "" : m.role, m.org].filter(Boolean).join(" · ");
 ---
-<Base title="People · CA³" description="Faculty, researchers, students, alumni and collaborators of the Center for Anytime Anywhere Analytics at Aarhus University." current="/people/">
+<Base title="People · CA³" description="The faculty, postdocs and Ph.D. students of the Center for Anytime Anywhere Analytics at Aarhus University, with its alumni and collaborators." current="/people/">
+  <SearchMeta kind="Page" />
   <div class="wrap">
-    <div class="pagehero two">
+    <div class="pagehero">
       <div>
         <h1>People</h1>
-        <p class="lead" style="margin-top:20px;max-width:40ch">The centre is a small standing group in Aarhus and a wide network of collaborators.</p>
-        <p class="small" style="margin-top:18px">Drag the helix, or scroll — every card opens a profile.</p>
-      </div>
-      <div style="height:min(440px,54vh);position:relative">
-        <Spiral items={spiralItems} />
-        <GBlur position="top" height="4.5rem" strength={2.2} layers={5} />
-        <GBlur position="bottom" height="4.5rem" strength={2.2} layers={5} />
+        <p class="lead" style="margin-top:20px;max-width:44ch">The centre is its people: faculty, postdocs and Ph.D. students working on analytics that leaves the desk.</p>
       </div>
     </div>
-    <div class="listing" data-list data-per="12" data-noun="researchers">
-      <FilterRail>
-        <div class="fgroup">
-          <h4>Group</h4>
-          {GROUPS.map(([k, l]) => (
-            <label class="frow">
-              <input type="checkbox" data-facet="group" value={l} />
-              <span>{l}</span><span class="ct">{members.filter((m: any) => m.group === k).length}</span>
-            </label>
-          ))}
-        </div>
-        <div class="fgroup">
-          <h4>Research area</h4>
-          {areaOptions.map((o) => (
-            <label class="frow">
-              <input type="checkbox" data-facet="area" value={o.k} />
-              <span>{o.k}</span><span class="ct">{o.n}</span>
-            </label>
-          ))}
-        </div>
-      </FilterRail>
-      <div>
-        <div class="listtop">
-          <label class="searchfield" style="max-width:280px;flex:1;height:36px">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg>
-            <input data-filter placeholder="Filter this list" style="border:0;outline:none;font:inherit;color:var(--ink);background:none;width:100%" />
-          </label>
-          <span class="count" data-count></span>
-        </div>
-        <div data-active style="display:flex;gap:8px;flex-wrap:wrap;padding:14px 0"></div>
-        <div class="peoplegrid" style="padding-top:20px">
-          {members.map((m: any) => (
-            <div class="pcard" data-row data-group={glabel[m.group]} data-area={(m.areas || []).join("|")} data-text={m.name + " " + m.role + " " + m.org}>
-              <div class="avatar">{m.photo ? <img src={m.photo} alt="" loading="lazy" /> : initials(m.name)}</div>
-              <div>
-                <a class="nm" href={"/people/" + m.id + "/"}>{m.name}</a>
-                <div class="small" style="margin-top:4px">{m.role}</div>
-                <div class="small" style="color:var(--ink-48)">{m.org}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div class="pager" data-pager></div>
-      </div>
+    <div class="team">
+      {team.map((m: any) => (
+        <a class="tcard" href={"/people/" + m.id + "/"}>
+          <div class="portrait">{m.photo ? <img src={m.photo} alt="" loading="lazy" /> : <span class="ini">{initials(m.name)}</span>}</div>
+          <h3>{m.name}</h3>
+          <div class="small">{m.role}</div>
+          <div class="small">{m.org}</div>
+        </a>
+      ))}
+    </div>
+    <div class="past">
+      {past.filter((g) => g.people.length).map((g) => (
+        <section id={g.id}>
+          <h2 class="eyebrow">{g.title} <span class="ct">{g.people.length}</span></h2>
+          <ul class="plist">
+            {g.people.map((m: any) => (
+              <li><a href={"/people/" + m.id + "/"}>{m.name}</a>{detail(m) && <span>{detail(m)}</span>}</li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </div>
   </div>
-  <JoinCard />
-  <script src="/js/list.js" is:inline></script>
+  <WorkCard />
 </Base>

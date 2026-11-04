@@ -1,5 +1,5 @@
 /* CA³ client layer — no framework. Header state, scroll progress, parallax,
-   glide covers, carousel rails, dialogs, the people dome, and Pagefind search. */
+   glide covers, dialogs, the people dome, and Pagefind search. */
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -43,30 +43,8 @@
     }
   }
 
-  /* ── carousels ───────────────────────────────────────────── */
-  $$("[data-carousel]").forEach((el) => {
-    const rail = el.nextElementSibling, bar = rail && rail.querySelector(".railprog i");
-    const sync = () => {
-      if (!bar) return;
-      const max = el.scrollWidth - el.clientWidth, frac = Math.max(0.18, el.clientWidth / el.scrollWidth);
-      bar.style.transform = `translateX(${(max > 0 ? el.scrollLeft / max : 0) * (1 / frac - 1) * 100}%) scaleX(${frac})`;
-    };
-    el.addEventListener("scroll", sync, { passive: true });
-    addEventListener("resize", sync);
-    sync();
-    rail && $$("[data-rail]", rail).forEach((b) => b.addEventListener("click", () => {
-      el.scrollBy({ left: +b.dataset.rail * (el.firstElementChild.offsetWidth + 20), behavior: "smooth" });
-    }));
-  });
-
-  /* ── dialogs (topic cards, short news posts) ─────────────── */
+  /* ── dialogs (publication video) ─────────────────────────── */
   document.addEventListener("click", (e) => {
-    /* short news rows are real links; with JS they open in place instead */
-    const row = e.target.closest("[data-post-modal]");
-    if (row && !e.metaKey && !e.ctrlKey && !e.shiftKey) {
-      const d = document.getElementById(row.dataset.postModal);
-      if (d) { e.preventDefault(); d.showModal(); document.body.style.overflow = "hidden"; return; }
-    }
     const open = e.target.closest("[data-dialog-open]");
     if (open) { const d = document.getElementById(open.dataset.dialogOpen); if (d) { d.showModal(); document.body.style.overflow = "hidden"; } }
     const close = e.target.closest("[data-dialog-close]");
@@ -75,13 +53,6 @@
   $$("dialog.modal").forEach((d) => {
     d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
     d.addEventListener("close", () => { document.body.style.overflow = ""; });
-    const sheet = d.querySelector("[data-sheet]"), bar = sheet && sheet.querySelector(".sheetprog");
-    const sub = sheet && sheet.querySelector(".sheettop"), head = sheet && sheet.querySelector(".mhead");
-    sheet && sheet.addEventListener("scroll", () => {
-      const h = sheet.scrollHeight - sheet.clientHeight;
-      bar.style.width = ((h > 0 ? sheet.scrollTop / h : 0) * 100).toFixed(2) + "%";
-      if (sub) sub.classList.toggle("on", sheet.scrollTop > (head ? head.offsetHeight - 72 : 120));
-    }, { passive: true });
   });
 
   /* ── people dome ─────────────────────────────────────────── */
@@ -132,11 +103,16 @@
   const over = $("[data-search-overlay]"), input = $("[data-search-input]"),
         outEl = $("[data-search-results]"), sugg = $("[data-search-suggested]");
   if (over) {
-    let pf = null, sel = 0, rows = [];
+    let pf = null, sel = 0, rows = [], groups = [], missing = false;
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     const load = async () => {
       if (pf) return pf;
       try { pf = await import("/pagefind/pagefind.js"); await pf.init(); }
-      catch { pf = { search: async () => ({ results: [] }) }; }
+      catch {
+        /* no index: `astro dev` before any `npm run build`, or a failed deploy */
+        console.warn("Search index not found at /pagefind/ — run `npm run build` to create it.");
+        missing = true; pf = { search: async () => ({ results: [] }) };
+      }
       return pf;
     };
     const open = () => {
@@ -145,30 +121,41 @@
     };
     const close = () => { over.hidden = true; document.body.style.overflow = ""; };
     const render = () => {
-      if (!rows.length) { outEl.innerHTML = input.value.trim() ? `<div class="sgroup"><h4>No results</h4><p class="small">Nothing matches “${input.value}”.</p></div>` : ""; return; }
-      const groups = [];
-      rows.forEach((r) => { let g = groups.find((x) => x.k === r.kind); if (!g) groups.push((g = { k: r.kind, rows: [] })); g.rows.push(r); });
-      outEl.innerHTML = groups.map((g) => `<div class="sgroup"><h4>${g.k}</h4>${g.rows.map((r) => {
+      if (!rows.length) {
+        const q = input.value.trim();
+        outEl.innerHTML = !q ? "" : missing
+          ? `<div class="sgroup"><h4>Search unavailable</h4><p class="small">The search index has not been built. Run <code>npm run build</code> once, then search works here too.</p></div>`
+          : `<div class="sgroup"><h4>No results</h4><p class="small">Nothing matches “${esc(q)}”.</p></div>`;
+        return;
+      }
+      outEl.innerHTML = groups.map((g) => `<div class="sgroup"><h4>${esc(g.k)}</h4>${g.rows.map((r) => {
         const i = rows.indexOf(r);
-        return `<a class="sres" href="${r.href}"${i === sel ? " data-on" : ""}><span class="k">${r.kind}</span><span class="t">${r.title}</span><span class="m">${r.meta || ""}</span></a>`;
+        return `<a class="sres" href="${esc(r.href)}"${i === sel ? " data-on" : ""}><span class="k">${esc(r.kind)}</span><span class="t">${esc(r.title)}</span><span class="m">${esc(r.meta)}</span></a>`;
       }).join("")}</div>`).join("");
+      const on = outEl.querySelector("[data-on]");
+      if (on) on.scrollIntoView({ block: "nearest" });
     };
-    let timer;
+    let timer, seq = 0;
     const query = () => {
       clearTimeout(timer);
       timer = setTimeout(async () => {
-        const q = input.value.trim();
+        const q = input.value.trim(), mine = ++seq;
         sugg.hidden = !!q;
         if (!q) { rows = []; render(); return; }
         const api = await load();
         const res = await api.search(q);
         const data = await Promise.all(res.results.slice(0, 24).map((x) => x.data()));
-        rows = data.map((d) => ({
+        if (mine !== seq) return; // a newer keystroke already answered
+        const found = data.map((d) => ({
           kind: (d.meta && d.meta.kind) || "Page",
           title: (d.meta && d.meta.title) || d.url,
           meta: (d.meta && d.meta.meta) || "",
           href: d.url,
         }));
+        /* group by kind in order of best hit; rows follow the on-screen order so arrow keys walk down the list */
+        groups = [];
+        found.forEach((r) => { let g = groups.find((x) => x.k === r.kind); if (!g) groups.push((g = { k: r.kind, rows: [] })); g.rows.push(r); });
+        rows = groups.flatMap((g) => g.rows);
         sel = 0; render();
       }, 110);
     };
@@ -177,7 +164,7 @@
     $$("[data-search-open]").forEach((b) => b.addEventListener("click", open));
     $$("[data-search-close]").forEach((b) => b.addEventListener("click", close));
     addEventListener("keydown", (e) => {
-      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !/input|textarea/i.test(document.activeElement.tagName))) { e.preventDefault(); open(); return; }
+      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !/input|textarea|select/i.test(document.activeElement.tagName))) { e.preventDefault(); open(); return; }
       if (over.hidden) return;
       if (e.key === "Escape") close();
       if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(sel + 1, rows.length - 1); render(); }
@@ -200,7 +187,7 @@
     rail.addEventListener("change", sync);
     rail.addEventListener("click", (e) => { if (e.target.closest("[data-clear]")) setTimeout(sync, 0); });
     sync();
-    /* facet groups fold; a group arriving with a selection (from a ?pillar= link) starts open */
+    /* facet groups fold; a group arriving with a selection (from an ?author= link) starts open */
     $$("[data-fgroup]", rail).forEach((g) => {
       const t = $("[data-fgroup-toggle]", g);
       if ($$("[data-facet]", g).some((b) => b.checked)) g.classList.add("open");
@@ -228,77 +215,5 @@
       requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }
-
-  /* ── infinite spiral (people hero) ───────────────────────── */
-  const sp = $("[data-spiral]");
-  if (sp) {
-    const cards = $$(".sitem", sp);
-    const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
-    const modulo = (v, d) => ((v % d) + d) % d;
-    const smooth = (a, b, v) => { const x = clamp((v - a) / (b - a || 1), 0, 1); return x * x * (3 - 2 * x); };
-    const speed = 0.5, vspace = 58, radius = 170, perspective = 1000, perTurn = 7, centerScale = 1.2, edgeFade = 0.3, edgeBlur = 6;
-    const cw = 104, ch = 104;
-    let prog = 0, target = 0, auto = 0, hovered = false, visible = true, dragging = false, lastY = 0, moved = false;
-    let box = sp.getBoundingClientRect(), prev = performance.now(), lastScroll = scrollY;
-    new ResizeObserver(() => { box = sp.getBoundingClientRect(); }).observe(sp);
-    new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(sp);
-    addEventListener("scroll", () => {
-      const d = scrollY - lastScroll; lastScroll = scrollY;
-      if (!visible || !d) return;
-      target += clamp((d * (speed / 0.55)) / Math.max(vspace * 2, 1), -1.5, 1.5);
-    }, { passive: true });
-    sp.addEventListener("mouseenter", () => { hovered = true; });
-    sp.addEventListener("mouseleave", () => { hovered = false; });
-    /* listeners on window, never pointer capture, so a tile stays the click target:
-       a tap opens the profile, a real drag (>8px) turns the helix and swallows the click */
-    let startPt = { x: 0, y: 0 };
-    const onSpMove = (e) => {
-      if (!dragging) return;
-      const d = e.clientY - lastY; lastY = e.clientY;
-      if (Math.hypot(e.clientX - startPt.x, e.clientY - startPt.y) > 8) moved = true;
-      target -= d / vspace;
-    };
-    const stop = () => {
-      dragging = false;
-      removeEventListener("pointermove", onSpMove); removeEventListener("pointerup", stop); removeEventListener("pointercancel", stop);
-    };
-    sp.addEventListener("pointerdown", (e) => {
-      if (e.button) return;
-      dragging = true; moved = false; startPt = { x: e.clientX, y: e.clientY }; lastY = e.clientY; target = prog;
-      addEventListener("pointermove", onSpMove); addEventListener("pointerup", stop); addEventListener("pointercancel", stop);
-    });
-    sp.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
-    sp.addEventListener("dragstart", (e) => e.preventDefault());
-    const render = (t) => {
-      const dt = Math.min((t - prev) / 1000, 0.05); prev = t;
-      const want = visible && !reduce && !(dragging || hovered) ? speed : 0;
-      auto += (want - auto) * (1 - Math.exp(-dt * 7));
-      target += auto * dt;
-      prog += (target - prog) * (1 - Math.exp(-dt * (dragging ? 22 : 11)));
-      const count = cards.length, half = count / 2;
-      const w = Math.max(box.width, 1), hh = Math.max(box.height, 1);
-      const fit = Math.min(1, w / (cw * 2.8), hh / (ch * 2.35));
-      const r = Math.min(radius, Math.max(72, w * 0.36)) * fit;
-      const fadeStart = clamp(1 - edgeFade, 0, 0.98), turnSize = Math.max(perTurn, 1);
-      cards.forEach((card, i) => {
-        const off = modulo(i - prog + half, count) - half;
-        const edge = Math.min(Math.abs(off) / Math.max(half, 1), 1);
-        const opacity = 1 - smooth(fadeStart, 1, edge);
-        const focus = 1 - Math.min(Math.abs(off) / Math.max(turnSize * 0.65, 1), 1);
-        const rad = (off * (360 / turnSize) * Math.PI) / 180;
-        const x = Math.sin(rad) * r, z = Math.cos(rad) * r;
-        const depthScale = clamp(perspective / Math.max(perspective - z, 1), 0.72, 1.45);
-        const scale = (1 + (centerScale - 1) * focus) * fit * depthScale;
-        const blur = edgeBlur * smooth(0.35, 1, edge);
-        card.style.transform = `translate(-50%,-50%) translate3d(${x}px,${off * vspace * fit}px,0) scale(${scale})`;
-        card.style.opacity = opacity.toFixed(3);
-        card.style.filter = blur > 0.01 ? `blur(${blur.toFixed(2)}px)` : "none";
-        card.style.zIndex = String(Math.round(((z / Math.max(r, 1) + 1) / 2) * 100000) + i);
-        card.style.pointerEvents = opacity > 0.25 ? "auto" : "none";
-      });
-      requestAnimationFrame(render);
-    };
-    requestAnimationFrame(render);
   }
 })();

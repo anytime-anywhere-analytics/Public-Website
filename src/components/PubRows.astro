@@ -8,7 +8,7 @@ const { rows } = Astro.props;
     <div class="pbody">
       <a class="t" href={"/publications/" + p.id + "/"}>{p.title}</a>
       <Authors names={p.authors} />
-      <div class="small">{p.venue} · {p.year}{p.pillar ? " · " + p.pillar : ""}</div>
+      <div class="small">{p.venue} · {p.year}</div>
     </div>
     <RowThumb src={p.image} href={"/publications/" + p.id + "/"} />
   </div>

@@ -1,23 +1,20 @@
 ---
 import Base from "../layouts/Base.astro";
-import TopicRail from "../components/TopicRail.astro";
-import NewsList from "../components/NewsList.astro";
 import DomeGallery from "../components/DomeGallery.astro";
-import Cover from "../components/Cover.astro";
 import GBlur from "../components/GBlur.astro";
-import JoinCard from "../components/JoinCard.astro";
+import WorkCard from "../components/WorkCard.astro";
+import SearchMeta from "../components/SearchMeta.astro";
 import Authors from "../components/Authors.astro";
-import { site, pillars, testbeds, members, posts, publications, stats, featured, byDate, initials } from "../lib/data";
+import { site, members, team, featured, initials } from "../lib/data";
 
 const feat = featured();
 const director = members.find((m: any) => m.id === "niklas-elmqvist");
 const [big, ...rest] = feat;
-const domePeople = [
-  ...members.filter((m: any) => m.group === "faculty" || m.group === "current"),
-  ...members.filter((m: any) => m.group === "alumni" || m.group === "external"),
-];
+const alumni = members.filter((m: any) => m.group === "alumni").length;
+const external = members.filter((m: any) => m.group === "external").length;
 ---
 <Base title="CA³ · Center for Anytime Anywhere Analytics" description="We research ubiquitous and immersive analytics — how data analysis behaves once it leaves the desk and enters the contexts where decisions are actually made." current="/" overHero={true}>
+  <SearchMeta kind="Page" title="Home" />
   <section class="hero">
     <ca3-prismatic animation-type="hover" intensity="2.5" speed="0.5" distort="1" hover-dampness="0.25" ray-count="0" mix-blend-mode="lighten" colors="#006aff,#0028c7,#0086ff"></ca3-prismatic>
     <div class="scrim"></div>
@@ -25,11 +22,25 @@ const domePeople = [
       <h1 style="margin-top:20px">Data just got<br />situated.</h1>
       <p class="sub">We research ubiquitous and immersive analytics — how data analysis behaves once it leaves the desk and enters the contexts where decisions are actually made.</p>
       <div style="justify-content:center;display:flex;gap:12px;margin-top:32px;flex-wrap:wrap">
-        <a class="btn" href="#pillars">Our research</a>
+        <a class="btn" href="/people/">Meet the team</a>
         <a class="btn ghost" href="/publications/" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)">Publications</a>
       </div>
       <div class="logos">{site.funders.map((f: any) => <img src={f.src} alt={f.alt} />)}</div>
     </div>
+  </section>
+
+  <section class="tile dark" id="people" style="padding-bottom:clamp(40px,5vw,72px);background-color:#252525;">
+    <div class="wrap">
+      <div class="sechead">
+        <div><div class="eyebrow">The centre</div><h2 style="margin-top:12px">The people doing it</h2></div>
+        <a href="/people/" class="nowrap">Meet the team →</a>
+      </div>
+    </div>
+    <div style="position:relative">
+      <DomeGallery people={team} segments={16} />
+      <GBlur position="bottom" height="5rem" strength={2} layers={5} />
+    </div>
+ 
   </section>
 
   <section class="tile">
@@ -65,26 +76,6 @@ const domePeople = [
     </div>
   </section>
 
-  <section class="tile dark" id="pillars">
-    <div class="wrap">
-      <div class="sechead">
-        <div><div class="eyebrow">Four pillars</div><h2 style="margin-top:12px">Our research pillars</h2></div>
-        <a href="/publications/" class="nowrap">All publications →</a>
-      </div>
-      <TopicRail items={pillars} kind="Pillar" />
-    </div>
-  </section>
-
-  <section class="tile parchment">
-    <div class="wrap">
-      <div class="sechead">
-        <div><div class="eyebrow">Three testbeds</div><h2 style="margin-top:12px">Where we deploy</h2></div>
-        <a href="/publications/" class="nowrap">All publications →</a>
-      </div>
-      <TopicRail items={testbeds} kind="Testbed" />
-    </div>
-  </section>
-
   <section class="tile">
     <div class="wrap">
       <div class="sechead"><h2>Featured publications</h2><a href="/publications/" class="nowrap">See all →</a></div>
@@ -113,33 +104,8 @@ const domePeople = [
     </div>
   </section>
 
-  <section class="tile dark" style="padding-bottom:clamp(40px,5vw,72px);background-color:#252525;">
-    <div class="wrap">
-      <div class="sechead">
-        <div><div class="eyebrow">The centre</div><h2 style="margin-top:12px">The people doing it</h2></div>
-        <a href="/people/" class="nowrap">Meet everyone →</a>
-      </div>
-    </div>
-    <div style="position:relative">
-      <DomeGallery people={domePeople} />
-      <GBlur position="bottom" height="5rem" strength={2} layers={5} />
-    </div>
-    <div class="wrap" style="margin-top:40px">
-      <div class="stats">{stats.map((s: any) => <div class="stat"><div class="n">{s.l === "Publications" ? publications.length : s.n}</div><div class="l">{s.l}</div></div>)}</div>
-    </div>
-  </section>
 
-  <section class="tile">
-    <div class="wrap">
-      <div class="sechead">
-        <div><div class="eyebrow">Latest</div><h2 style="margin-top:12px">News &amp; updates</h2></div>
-        <a href="/news/" class="nowrap">All updates →</a>
-      </div>
-      <NewsList posts={byDate(posts).slice(0, 6)} />
-    </div>
-  </section>
-
-  <JoinCard />
+  <WorkCard />
 </Base>
 
 <script>

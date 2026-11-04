@@ -1,0 +1,99 @@
+---
+import Base from "../layouts/Base.astro";
+import SearchMeta from "../components/SearchMeta.astro";
+import { site, members, team, initials } from "../lib/data";
+
+const email = site.contact.find((l: string) => /@/.test(l));
+const address = site.contact.filter((l: string) => !/@/.test(l));
+const mail = (subject: string) => `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+const director = members.find((m: any) => m.id === "niklas-elmqvist");
+/* a few of the groups we already work with, taken from the collaborator list so it stays current */
+const partners = [...new Set(members.filter((m: any) => m.group === "external").map((m: any) => m.org.split(",")[0]))].slice(0, 4);
+
+const ways = [
+  {
+    eyebrow: "Careers",
+    title: "Join the team",
+    body: [
+      "We recruit Ph.D. students and postdocs in visualization, human-centred AI and extended reality. Open calls are posted on Aarhus University's vacancies page.",
+      "If nothing fits right now, write anyway — a CV and a paragraph on what you would like to work on is enough to start the conversation.",
+    ],
+    actions: [
+      { label: "Open positions at AU ↗", href: "https://international.au.dk/about/profile/vacant-positions", dark: true, external: true },
+      { label: "Ask about a position", href: mail("Position at CA³") },
+    ],
+  },
+  {
+    eyebrow: "Industry",
+    title: "Partner with us",
+    body: [
+      "The hardest analysis problems rarely happen at a desk — they happen on a production line, in a lab, out in the field. If your organisation has data that needs to be understood where the work is done, we would like to explore it with you.",
+      "That can take the shape of a joint research project, a student project, or an industrial Ph.D.",
+    ],
+    actions: [{ label: "Start a conversation", href: mail("Industry collaboration"), dark: true }],
+  },
+  {
+    eyebrow: "Research",
+    title: "Research together",
+    body: [
+      `We write papers and grants with groups at ${partners.join(", ")} and elsewhere.`,
+      "Researchers who want to collaborate, co-supervise or visit are welcome to get in touch.",
+    ],
+    actions: [
+      { label: "Propose a collaboration", href: mail("Research collaboration"), dark: true },
+      { label: "Our collaborators", href: "/people/#collaborators" },
+    ],
+  },
+];
+---
+<Base title="Work with us · CA³" description="Positions, industry partnerships and research collaborations at the Center for Anytime Anywhere Analytics, Aarhus University." current="/work-with-us/">
+  <SearchMeta kind="Page" />
+  <div class="wrap">
+    <div class="pagehero">
+      <div>
+        <h1>Work with us</h1>
+        <p class="lead" style="margin-top:20px;max-width:46ch">We work with students, researchers, companies and public organisations who want data analysis to happen where decisions are made.</p>
+      </div>
+    </div>
+
+    <div class="ways">
+      {ways.map((w) => (
+        <section class="way">
+          <div class="eyebrow">{w.eyebrow}</div>
+          <h2>{w.title}</h2>
+          {w.body.map((t) => <p>{t}</p>)}
+          <div class="acts">
+            {w.actions.map((a: any) => <a class={"btn sm" + (a.dark ? " dark" : " ghost")} href={a.href} {...(a.external ? { target: "_blank", rel: "noreferrer" } : {})}>{a.label}</a>)}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div style="padding-top:clamp(64px,8vw,112px)">
+      <div class="sechead"><h2>Who you would work with</h2><a href="/people/" class="nowrap">Meet the team →</a></div>
+      <div class="team compact" data-pagefind-ignore>
+        {team.map((m: any) => (
+          <a class="tcard" href={"/people/" + m.id + "/"}>
+            <div class="portrait">{m.photo ? <img src={m.photo} alt="" loading="lazy" /> : <span class="ini">{initials(m.name)}</span>}</div>
+            <h3>{m.name}</h3>
+            <div class="small">{m.role}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="split" style="padding:clamp(64px,8vw,112px) 0">
+      <h2>Get in touch</h2>
+      <div class="contact">
+        {director && (
+          <a class="who" href={"/people/" + director.id + "/"}>
+            <span class="avatar">{director.photo ? <img src={director.photo} alt="" /> : initials(director.name)}</span>
+            <span><span class="nm">{director.name}</span><span class="small">{director.role}</span></span>
+          </a>
+        )}
+        <p>Write to the centre at <a href={"mailto:" + email}>{email}</a> — say a little about who you are and what you have in mind, and we will route it to the right person.</p>
+        <address class="small">{address.map((l: string) => <>{l}<br /></>)}</address>
+      </div>
+    </div>
+  </div>
+</Base>

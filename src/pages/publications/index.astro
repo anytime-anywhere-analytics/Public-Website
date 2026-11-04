@@ -4,7 +4,8 @@ import GridMotion from "../../components/GridMotion.astro";
 import GBlur from "../../components/GBlur.astro";
 import FilterRail from "../../components/FilterRail.astro";
 import RowThumb from "../../components/RowThumb.astro";
-import JoinCard from "../../components/JoinCard.astro";
+import WorkCard from "../../components/WorkCard.astro";
+import SearchMeta from "../../components/SearchMeta.astro";
 import Authors from "../../components/Authors.astro";
 import { publications, members, counts } from "../../lib/data";
 
@@ -14,16 +15,15 @@ const perAuthor: Record<string, number> = {};
 publications.forEach((p: any) => p.authors.forEach((a: string) => { perAuthor[a] = (perAuthor[a] || 0) + 1; }));
 const authorOptions = members.filter((m: any) => perAuthor[m.name]).map((m: any) => ({ k: m.name, n: perAuthor[m.name] }));
 const facets = [
-  { key: "pillar", title: "Research pillar", open: true, options: counts(publications, (p: any) => p.pillar) },
-  { key: "testbed", title: "Testbed", open: true, options: counts(publications, (p: any) => p.testbed) },
-  { key: "author", title: "Author", open: false, options: authorOptions },
-  { key: "year", title: "Year", open: false, options: counts(publications, (p: any) => p.year).reverse() },
+  { key: "author", title: "Author", open: true, options: authorOptions },
+  { key: "year", title: "Year", open: true, options: counts(publications, (p: any) => p.year).reverse() },
   { key: "venue", title: "Venue", open: false, options: counts(publications, (p: any) => p.venue) },
 ];
 const rows = publications.slice().sort((a: any, b: any) => b.year - a.year);
 const tiles = publications.map((p: any) => ({ label: p.title, image: p.image }));
 ---
-<Base title="Publications · CA³" description="Papers from the Center for Anytime Anywhere Analytics on ubiquitous, immersive and situated visualization and analytics, filterable by pillar and testbed." current="/publications/">
+<Base title="Publications · CA³" description="Papers from the Center for Anytime Anywhere Analytics on ubiquitous, immersive and situated visualization and analytics, filterable by author, year and venue." current="/publications/">
+  <SearchMeta kind="Page" />
   <section class="herowall">
     <div class="wallbg"><GridMotion tiles={tiles} /></div>
     <div class="hscrim"></div>
@@ -64,11 +64,11 @@ const tiles = publications.map((p: any) => ({ label: p.title, image: p.image }))
         </div>
         <div data-active style="display:flex;gap:8px;flex-wrap:wrap;padding:14px 0"></div>
         {rows.map((p: any) => (
-          <div class="pubrow" data-row data-pillar={p.pillar || ""} data-testbed={p.testbed || ""} data-year={String(p.year)} data-venue={p.venue} data-author={p.authors.join("|")} data-title={p.title} data-text={p.title + " " + p.authors.join(" ")}>
+          <div class="pubrow" data-row data-year={String(p.year)} data-venue={p.venue} data-author={p.authors.join("|")} data-title={p.title} data-text={p.title + " " + p.authors.join(" ")}>
             <div class="pbody">
               <a class="t" href={"/publications/" + p.id + "/"}>{p.title}</a>
               <Authors names={p.authors} />
-              <div class="small">{p.venue} · {p.year}{p.pillar ? " · " + p.pillar : ""}</div>
+              <div class="small">{p.venue} · {p.year}</div>
             </div>
             <RowThumb src={p.image} href={"/publications/" + p.id + "/"} />
           </div>
@@ -77,6 +77,6 @@ const tiles = publications.map((p: any) => ({ label: p.title, image: p.image }))
       </div>
     </div>
   </div>
-  <JoinCard />
+  <WorkCard />
   <script src="/js/list.js" is:inline></script>
 </Base>

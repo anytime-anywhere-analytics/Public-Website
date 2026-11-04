@@ -6,7 +6,7 @@ const tiles: { x: number; y: number; p: any }[] = [];
 for (let c = 0; c < segments; c++) (c % 2 === 0 ? evenY : oddY).forEach((y) => tiles.push({ x: c * 2, y, p: null as any }));
 tiles.forEach((t, i) => { t.p = people[i % people.length]; });
 ---
-<div class="dome" data-dome data-segments={segments}>
+<div class="dome" data-dome data-segments={segments} data-pagefind-ignore>
   <div class="stage">
     <div class="sphere">
       {tiles.map((t) => (
