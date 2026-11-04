@@ -23,9 +23,7 @@
     "link": "",
     "text": "The centre travelled to Vienna for IEEE VIS 2025, the main conference of our field. Niklas received the 2025 VGTC Visualization Technical Achievement Award and we presented our contributions.”",
     "photo": "/assets/img/yearbook/2025-vis.jpg",
-    "photos": [
-      "/assets/img/yearbook/2025-vis-award.jpg"
-    ]
+    "photos": ["/assets/img/yearbook/2025-vis-award.jpg"]
   },
   {
     "year": 2025,
@@ -50,7 +48,7 @@
     "place": "",
     "when": "2024",
     "link": "",
-    "text": "Placeholder — our first research retreat. One to three sentences: where we met, what we talked about, and what we did besides talking.",
+    "text": "In our first research retreat of the CA3 center we had visitors from the CAVI center and formed goals of our research going forward.",
     "photo": "/assets/img/yearbook/2024.jpg",
     "photos": []
   }

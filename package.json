@@ -4,15 +4,10 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/fetch-sheets.mjs --if-configured && node scripts/fetch-drive-assets.mjs --if-configured",
     "build": "astro build && node scripts/optimize-images.mjs && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "sync:sheets": "node scripts/fetch-sheets.mjs",
-    "sync:assets": "node scripts/fetch-drive-assets.mjs",
-    "push:sheets": "node scripts/push-sheets.mjs",
-    "sync:pure": "node scripts/fetch-pure.mjs && node scripts/push-sheets.mjs publications --if-configured",
-    "test:cms": "node scripts/test-cms.mjs"
+    "sync:pure": "node scripts/fetch-pure.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

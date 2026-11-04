@@ -25,10 +25,12 @@ reflects the content of that build; with no build yet, the overlay says the inde
 | `src/data/site.json` | name, tagline, contact lines, funder logos, socials, grant |
 | `src/data/members.json` | people; `group` is `faculty` / `current` / `close` / `alumni` / `external` — faculty and current members get portrait cards and the home-page dome, close collaborators smaller portrait cards right under them, alumni and external collaborators a quiet text list |
 | `src/data/publications.json` | generated — see below |
-| `src/data/yearbook.json` | the Yearbook: one entry per moment — the yearly retreat, a conference… — with `year`, `kind` ("Retreat", "Conference"), `title`, `place`, `when`, an optional `link` (e.g. the venue), two or three sentences of `text`, a main `photo`, and up to three more `photos`. Entries are grouped by year on the page and keep the file's order within a year (newest first). `draft: true` marks a placeholder. Not in the Sheets CMS yet — edit the file. Photos go in `public/assets/img/yearbook/`. |
+| `src/data/yearbook.json` | the Yearbook: one entry per moment — the yearly retreat, a conference… — with `year`, `kind` ("Retreat", "Conference"), `title`, `place`, `when`, an optional `link` (e.g. the venue), two or three sentences of `text`, a main `photo`, and up to three more `photos`. Entries are grouped by year on the page and keep the file's order within a year (newest first). `draft: true` marks a placeholder. Photos go in `public/assets/img/yearbook/`. |
 
-Images the site no longer uses are kept in [`archive/`](archive/) rather than deleted; that folder
-is not built or deployed.
+To change content, edit these files (and add images under `public/assets/`: `people/` for
+portraits, `img/` for figures and the home-page `group.jpg`, `img/yearbook/` for the Yearbook)
+and push to `main`. Images the site no longer uses are kept in [`archive/`](archive/) rather
+than deleted; that folder is not built or deployed.
 
 ### Publications come from the AU research portal
 
@@ -40,116 +42,21 @@ node scripts/fetch-pure.mjs --pages 2
 The script walks `pure.au.dk/portal/en/persons/elm@cs.au.dk/publications/?page=N`,
 opens every publication's own portal page for the abstract / venue / DOI / authors,
 carries the hand-curated fields (`id`, `featured`, `hook`, `image`, `pdf`, `video`) over
-from the existing `publications.json`, and rewrites it. When the
-Sheets CMS is configured, `npm run sync:pure` ends by pushing the result into the
-**Publications** tab (upsert by `id`; non-empty curated cells in the sheet win), so the
-next rebuild does not undo it.
+from the existing `publications.json`, and rewrites it. Review the diff and commit it.
 
 Pure is rate-limited and occasionally blocks datacentre IPs — run the sync from a
 machine that can reach the portal.
 
-## Google Sheets CMS
+## Hosting
 
-Day-to-day content lives in one Google Sheet — **CA³ Site Content** — with a tab per
-data file: `Site`, `Members`, `Publications`. (The Yearbook is a file in the repo for now.)
-Column headers are the JSON keys; a note on each header says the format. Every build
-(`prebuild`) pulls the sheet and rewrites `src/data/*.json`, so a daily rebuild picks
-up whatever was edited. `src/data/*.json` stays checked in as the fallback and the
-diff record.
+The site is served by GitHub Pages at **ca3.dk** (custom domain set in the repo's Pages
+settings). `.github/workflows/deploy.yml` builds every pull request as a check (no deploy),
+and builds and deploys on every push to `main` and on demand (*Actions → Build and deploy →
+Run workflow*). A failed build leaves the last good deploy online; the run log says why.
 
-Cell conventions — the form in the sheet enforces them, and header notes repeat them:
-
-| Type | In the cell |
-|---|---|
-| list (`authors`, `keywords`, `contact`) | one item per line |
-| paragraphs (`abstract`) | paragraphs separated by a blank line |
-| pairs (`links`, `social`, `funders`) | `Label \| URL`, one per line |
-| `group` / `type` | dropdowns |
-| empty cell | key omitted (list fields become `[]`) |
-
-Nested keys use dots (`film.still`). A column whose header starts with
-`_` is ignored, so notes can live there.
-
-### One-time setup
-
-1. Open the sheet → **Extensions → Apps Script**. Delete the default `Code.gs`, then add
-   the three files from [`cms/`](cms/): `Code.gs`, `Form.html`, `Import.html` (names must
-   match). In *Project Settings* tick "Show appsscript.json" and paste
-   [`cms/appsscript.json`](cms/appsscript.json). Save.
-2. Reload the sheet. A **CA³ CMS** menu appears. Run **Set up tabs** (authorise when asked)
-   — it creates the tabs, headers, dropdowns and formatting without touching data.
-3. **CA³ CMS → Import JSON files…** and pick `site.json`, `members.json` and `publications.json`. This
-   seeds the tabs with the current site content.
-4. **CA³ CMS → Set API token…** — leave blank to generate one. Keep it; the site needs it.
-5. **Deploy → New deployment → Web app**, *Execute as: Me*, *Who has access: Anyone*.
-   Copy the `…/exec` URL. (Nobody can read the sheet through it without the token.)
-6. Give the site the two values, locally in `.env` (see `.env.example`) and in the host's
-   build environment:
-
-   ```
-   CMS_URL=https://script.google.com/macros/s/…/exec
-   CMS_TOKEN=…
-   ```
-
-After editing `Code.gs` later, **Deploy → Manage deployments → ✎ → Version: New** — the
-URL stays the same. Data edits never need a redeploy.
-
-### Editing
-
-- Type straight into the cells, or use **CA³ CMS → Add row…** / **Edit selected row…**
-  for a form with the right control per field (dropdowns, multi-line boxes) and
-  an auto-filled `id`. Ids are the URL slugs — keep them stable once published.
-- **Validate** reports missing required fields, duplicate ids, and duplicate `featured` ranks.
-- **Preview JSON for this tab** shows exactly what the site will receive.
-- The `Site` tab is key/value; everything else is one row per record.
-
-### How a build reads it
-
-```bash
-npm run sync:sheets     # pull now and rewrite src/data/*.json
-npm run sync:assets     # mirror the Drive assets folder into public/assets/
-npm run build           # prebuild runs both pulls when CMS_URL/CMS_TOKEN are set
-npm run push:sheets publications   # push a local JSON file into the sheet (upsert by id)
-npm run test:cms        # round-trip every record through the sheet encoding, offline
-```
-
-`fetch-sheets.mjs` checks every tab before writing anything: a list that came back empty
-or lost more than half its rows (`--force` overrides), or any row missing a required
-field, fails the build with nothing written, so the last good deploy stays up. Other
-validation issues (duplicate featured rank…) are printed as warnings.
-
-### Images in Google Drive
-
-Next to the sheet in Drive is a folder called **assets**. Its tree mirrors `public/assets/`
-on the site, so a file dropped at `assets/people/niklas.jpg` is served as
-`/assets/people/niklas.jpg` — which is exactly what goes in a `photo` / `image` cell.
-
-- `assets/people/` — portraits · `assets/img/` — publication figures, the home-page group
-  photo (`group.jpg`) · `assets/img/yearbook/` — Yearbook photos. Lowercase names, no spaces.
-- `npm run sync:assets` (also part of `prebuild`) asks the script for the folder listing,
-  makes each file link-viewable, and downloads new or changed files into `public/assets/`.
-  A Drive file wins over a checked-in file with the same path; files that exist only in the
-  repo (logo, hero still, `joinus.png`…) stay as they are.
-- It then checks every `/assets/…` reference in the content and warns about ones that
-  resolve to nothing, so a typo in a cell is caught at build time rather than as a blank
-  placeholder on the site.
-- **CA³ CMS → Open the images folder** in the sheet links to the folder.
-
-### Hosting and the daily rebuild
-
-The site is served by GitHub Pages from `anytime-anywhere-analytics/anytime-anywhere-analytics.github.io`
-at **ca3.dk** (custom domain set in the repo's Pages settings). `.github/workflows/deploy.yml`:
-
-- builds every pull request as a check (no deploy);
-- builds and deploys on every push to `main`, daily at 04:00 UTC, and on demand
-  (*Actions → Build and deploy → Run workflow*) — the daily run is what publishes sheet and
-  Drive edits;
-- reads `CMS_URL` and `CMS_TOKEN` from the repository secrets
-  (*Settings → Secrets and variables → Actions*). Without them the build uses the checked-in
-  `src/data/*.json` and `public/assets/`.
-
-A failed pull (validation error, Apps Script down) fails the build and leaves the last good
-deploy online; the run log says why.
+The site used to pull members and publications from a Google Sheet ("CA³ Site Content") and
+photos from a Drive folder at build time. That was removed; the Apps Script and sync scripts
+are in the git history before the commit that removed them.
 
 ## Analytics and the cookie banner
 
@@ -172,14 +79,13 @@ script and no banner.
 ## Conventions worth knowing
 
 - **Home page order:** hero (pitch, the group photo `/assets/img/group.jpg` and the director's
-  quote) → about and the film → featured publications → the people dome → work card. A new
-  group photo goes into the Drive assets folder as `assets/img/group.jpg`; it replaces the
-  checked-in one on the next build.
+  quote) → about and the film → featured publications → the people dome → work card. To change
+  the group photo, overwrite `public/assets/img/group.jpg`.
 - **People first.** The people page leads with portrait cards. Only faculty and current members get that stage
   (`team` / `isActive` in `src/lib/data.ts`); alumni and collaborators are listed below
   in small type, and their profile pages keep the small round avatar.
 - **Work with us** (`src/pages/work-with-us.astro`) covers positions, industry partnerships
-  and research collaboration; its copy lives in that file, not the sheet. The header button
+  and research collaboration; its copy lives in that file. The header button
   and the `WorkCard` at the foot of most pages link there.
 - **List rows** (publications) carry a square cover on the right via `RowThumb`;
   with no image the space is held empty and the hover state still shows the black
@@ -212,7 +118,7 @@ script and no banner.
   there (e.g. a Yearbook placeholder's group photo).
 - **Heavy images are shrunk at build time.** `scripts/optimize-images.mjs` re-encodes any
   `.png`/`.jpg` over 300 KB in `dist/assets/` as a ≤1600px WebP and repoints the built pages
-  at it, so a 5 MB PNG dropped into Drive costs ~200 KB on the page. Sources stay untouched;
+  at it, so a 5 MB PNG costs ~200 KB on the page. Sources stay untouched;
   `og:image` keeps the original because some link-preview crawlers reject WebP.
 - **Head metadata** comes from `Base`: pass `description` and `image` (used for link previews,
   defaulting to `/assets/img/share-image.jpg`). Long descriptions are clipped to 160 chars.

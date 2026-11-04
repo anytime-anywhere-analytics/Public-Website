@@ -1,7 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 import { site } from "../lib/data";
-/* only links that go somewhere: the sheet has held "#/…" placeholders here */
+/* only links that go somewhere: "#/…" placeholders in site.json are skipped */
 const social = site.social.filter(([, href]: [string, string]) => /^https?:\/\//.test(href));
 const analytics = Boolean(import.meta.env.PUBLIC_GA_ID);
 ---

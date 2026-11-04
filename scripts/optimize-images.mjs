@@ -3,12 +3,12 @@
  *
  *   node scripts/optimize-images.mjs            # optimise dist/
  *
- * Content images are referenced by path from the sheet, and editors drop whatever they
- * have into Drive — often multi-megabyte PNGs. Every .png/.jpg under dist/assets/ larger
+ * Photos tend to arrive as whatever the camera or phone produced — often multi-megabyte
+ * PNGs. Every .png/.jpg under dist/assets/ larger
  * than LIMIT is resized to fit MAX px and re-encoded as WebP next to the original, and
  * root-relative references in the built HTML/CSS ("/assets/img/rp1.png") are pointed at
  * the .webp. Absolute URLs (og:image) keep the original, since some link-preview
- * crawlers still reject WebP. Sources in public/ and Drive are never touched.
+ * crawlers still reject WebP. Sources in public/ are never touched.
  */
 import { readdir, readFile, writeFile, stat } from "node:fs/promises";
 import { join, relative, sep } from "node:path";

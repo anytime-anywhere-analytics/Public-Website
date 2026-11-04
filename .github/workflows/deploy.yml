@@ -1,14 +1,11 @@
 name: Build and deploy
 
-# The build pulls the Google Sheet CMS and the Drive assets folder (npm prebuild), so the
-# daily run is what publishes content edits. If the pull fails validation the build fails
-# and the last good deploy stays up.
+# Content is the checked-in src/data/*.json and public/assets/, so a push to main is what
+# publishes an edit. Pull requests are built as a check without deploying.
 on:
   push:
     branches: [main]
   pull_request:
-  schedule:
-    - cron: "0 4 * * *" # daily, 05:00/06:00 Copenhagen
   workflow_dispatch:
 
 permissions:
@@ -32,8 +29,6 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          CMS_URL: ${{ secrets.CMS_URL }}
-          CMS_TOKEN: ${{ secrets.CMS_TOKEN }}
           PUBLIC_GA_ID: ${{ vars.GA_ID }}
           PUBLIC_PRIVACY_URL: ${{ vars.PRIVACY_URL }}
       - uses: actions/upload-pages-artifact@v3
