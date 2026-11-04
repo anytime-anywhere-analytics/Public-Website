@@ -1,0 +1,41 @@
+---
+import Base from "../../layouts/Base.astro";
+import PubRows from "../../components/PubRows.astro";
+import SearchMeta from "../../components/SearchMeta.astro";
+import { members, pubsByAuthor, initials, isActive } from "../../lib/data";
+
+export function getStaticPaths() {
+  return members.map((m: any) => ({ params: { id: m.id }, props: { m } }));
+}
+const { m } = Astro.props;
+const pubs = pubsByAuthor(m.name);
+/* the team and close collaborators get a large portrait; alumni and external collaborators keep the small round avatar */
+const active = isActive(m) || m.group === "close";
+const label = ({ faculty: "Faculty", current: "Current member", close: "Close collaborator", alumni: "Alumni", external: "External collaborator" } as Record<string, string>)[m.group];
+---
+<Base title={m.name + " · CA³"} description={m.bio || [m.role, m.org].filter(Boolean).join(", ") + " — Center for Anytime Anywhere Analytics."} image={m.photo} current="/people/">
+  <SearchMeta kind="Person" title={m.name} meta={m.role} />
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Home</a><span>›</span><a href="/people/">People</a><span>›</span><span>{m.name}</span></div>
+    <div class={"profile" + (active ? "" : " quiet")}>
+      {active
+        ? <div class="portrait">{m.photo ? <img src={m.photo} alt="" /> : <span class="ini">{initials(m.name)}</span>}</div>
+        : <div class="avatar lg">{m.photo ? <img src={m.photo} alt="" /> : initials(m.name)}</div>}
+      <div>
+        {label && <div class="eyebrow" style="margin-bottom:14px">{label}</div>}
+        <h1>{m.name}</h1>
+        <div class="small" style="margin-top:10px">{m.role} · {m.org}{m.since ? " · since " + m.since : ""}</div>
+        {m.bio && <p style="margin-top:20px;max-width:62ch;color:var(--ink-80)">{m.bio}</p>}
+        {(m.links || []).length > 0 && (
+          <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
+            {m.links.map(([l, h]: [string, string]) => <a class="btn ghost sm" href={h} target="_blank" rel="noreferrer">{l} ↗</a>)}
+          </div>
+        )}
+      </div>
+    </div>
+    <div class="split" style="padding:72px 0 0">
+      <h2>Authored publications</h2>
+      <div>{pubs.length ? <PubRows rows={pubs} /> : <p class="small">No publications recorded for this profile yet.</p>}</div>
+    </div>
+  </div>
+</Base>

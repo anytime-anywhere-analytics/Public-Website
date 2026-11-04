@@ -1,0 +1,73 @@
+---
+import Base from "../../layouts/Base.astro";
+import FilterRail from "../../components/FilterRail.astro";
+import RowThumb from "../../components/RowThumb.astro";
+import SearchMeta from "../../components/SearchMeta.astro";
+import Authors from "../../components/Authors.astro";
+import { publications, members, counts } from "../../lib/data";
+
+/* authors are limited to centre members so the list stays short; ?author= arrives
+   from people pages already selected */
+const perAuthor: Record<string, number> = {};
+publications.forEach((p: any) => p.authors.forEach((a: string) => { perAuthor[a] = (perAuthor[a] || 0) + 1; }));
+const authorOptions = members.filter((m: any) => perAuthor[m.name]).map((m: any) => ({ k: m.name, n: perAuthor[m.name] }));
+const facets = [
+  { key: "author", title: "Author", open: true, options: authorOptions },
+  { key: "year", title: "Year", open: true, options: counts(publications, (p: any) => p.year).reverse() },
+  { key: "venue", title: "Venue", open: false, options: counts(publications, (p: any) => p.venue) },
+];
+const rows = publications.slice().sort((a: any, b: any) => b.year - a.year);
+---
+<Base title="Publications · CA³" description="Papers from the Center for Anytime Anywhere Analytics on ubiquitous, immersive and situated visualization and analytics, filterable by author, year and venue." current="/publications/">
+  <SearchMeta kind="Page" />
+  <div class="wrap">
+    <div class="pagehero">
+      <div>
+        <h1>Publications</h1>
+        <p class="lead" style="margin-top:20px;max-width:44ch">One ongoing argument, in {publications.length} instalments: analysis belongs wherever the decision is.</p>
+      </div>
+    </div>
+    <div class="listing" data-list data-per="8" data-noun="publications">
+      <FilterRail>
+        {facets.map((f) => (
+          <div class={"fgroup" + (f.open ? " open" : "")} data-fgroup>
+            <h4><button type="button" data-fgroup-toggle aria-expanded={f.open ? "true" : "false"}>{f.title}<span class="caret">⌄</span></button></h4>
+            <div class="fopts">
+              {f.options.map((o) => (
+                <label class="frow">
+                  <input type="checkbox" data-facet={f.key} value={String(o.k)} />
+                  <span>{o.k}</span><span class="ct">{o.n}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+        ))}
+      </FilterRail>
+      <div>
+        <div class="listtop">
+          <select class="sel" data-sort aria-label="Sort by">
+            <option>Year, descending</option><option>Year, ascending</option><option>Title</option>
+          </select>
+          <label class="searchfield" style="max-width:280px;flex:1;height:36px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg>
+            <input data-filter placeholder="Filter this list" style="border:0;outline:none;font:inherit;color:var(--ink);background:none;width:100%" />
+          </label>
+          <span class="count" data-count></span>
+        </div>
+        <div data-active style="display:flex;gap:8px;flex-wrap:wrap;padding:14px 0"></div>
+        {rows.map((p: any) => (
+          <div class="pubrow" data-row data-year={String(p.year)} data-venue={p.venue} data-author={p.authors.join("|")} data-title={p.title} data-text={p.title + " " + p.authors.join(" ")}>
+            <div class="pbody">
+              <a class="t" href={"/publications/" + p.id + "/"}>{p.title}</a>
+              <Authors names={p.authors} />
+              <div class="small">{p.venue} · {p.year}</div>
+            </div>
+            <RowThumb src={p.image} href={"/publications/" + p.id + "/"} />
+          </div>
+        ))}
+        <div class="pager" data-pager></div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/list.js" is:inline></script>
+</Base>

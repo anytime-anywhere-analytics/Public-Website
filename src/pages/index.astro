@@ -1,0 +1,132 @@
+---
+import Base from "../layouts/Base.astro";
+import DomeGallery from "../components/DomeGallery.astro";
+import GBlur from "../components/GBlur.astro";
+import WorkCard from "../components/WorkCard.astro";
+import SearchMeta from "../components/SearchMeta.astro";
+import Authors from "../components/Authors.astro";
+import { site, members, team, featured, initials } from "../lib/data";
+
+const feat = featured();
+const director = members.find((m: any) => m.id === "niklas-elmqvist");
+const [big, ...rest] = feat;
+---
+<Base title="CA³ · Center for Anytime Anywhere Analytics" description="We research ubiquitous and immersive analytics — how data analysis behaves once it leaves the desk and enters the contexts where decisions are actually made." current="/" overHero={true}>
+  <SearchMeta kind="Page" title="Home" />
+  <section class="hero">
+    <ca3-prismatic animation-type="hover" intensity="2.5" speed="0.5" distort="1" hover-dampness="0.25" ray-count="0" mix-blend-mode="lighten" colors="#006aff,#0028c7,#0086ff"></ca3-prismatic>
+    <div class="scrim"></div>
+    <div class="inner wrap">
+      {/* to replace it, drop a new assets/img/group.jpg into the Drive assets folder */}
+      <figure class="photo">
+        <div class="groupshot"><img src="/assets/img/group.jpg" alt="The CA³ team at the 2025 research retreat at Sandbjerg Gods" /></div>
+        <figcaption>The team at our second research retreat, Sandbjerg Gods, October 2025.</figcaption>
+      </figure>
+      <div class="pitch">
+        <h1>Data just got situated.</h1>
+        <p class="sub">We research ubiquitous and immersive analytics — how data analysis behaves once it leaves the desk and enters the contexts where decisions are actually made.</p>
+        <figure class="quote">
+          <blockquote>“The work we do is about how everywhere data collection can let people understand their world anywhere, and anytime.”</blockquote>
+          {director && (
+            <figcaption>
+              <a class="by" href={"/people/" + director.id + "/"}>
+                <span class="avatar">{director.photo ? <img src={director.photo} alt="" /> : initials(director.name)}</span>
+                <span><span class="nm">{director.name}</span><span class="small">{director.role}</span></span>
+              </a>
+            </figcaption>
+          )}
+        </figure>
+        <div class="logos">{site.funders.map((f: any) => <img src={f.src} alt={f.alt} />)}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile" id="about">
+    <div class="wrap split">
+      <div><div class="eyebrow">About us</div><h2 style="margin-top:12px">Augmenting human cognition</h2></div>
+      <div>
+        <p class="lead">The Center for Anytime Anywhere Analytics researches ubiquitous and immersive analytics at the Department of Computer Science, Aarhus University.</p>
+        <p style="margin-top:20px;color:var(--ink-80);max-width:62ch">We explore ways in which data analysis can be embedded into the contexts and devices people already use — leveraging ever-present mobile devices and immersive technologies to augment human cognition and drive faster, better-informed decisions in testbeds across science, manufacturing, and education.</p>
+        <p class="small" style="margin-top:20px">{site.grant}</p>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:48px">
+      <div class="film">
+        <media-player class="film-player" title="CA³ — the film" src={"vimeo/" + site.film.vimeoId} poster={site.film.still} load="play" playsinline>
+          {/* the poster attribute alone renders nothing; <media-poster> draws it until playback starts */}
+          <media-provider><media-poster class="vds-poster" alt="Niklas Elmqvist in the CA³ film"></media-poster></media-provider>
+          <media-video-layout></media-video-layout>
+        </media-player>
+      </div>
+      <div class="cap">A three-minute film on what the centre does, and why the desk is the wrong place for it.</div>
+    </div>
+  </section>
+
+  <section class="tile parchment">
+    <div class="wrap">
+      <div class="sechead"><h2>Featured publications</h2><a href="/publications/" class="nowrap">See all →</a></div>
+      <div class="featbig">
+        <div class="card">
+          {big.image && <a class="thumb" href={"/publications/" + big.id + "/"}><div class="ph has" data-parallax="28"><img src={big.image} alt="" loading="lazy" decoding="async" /></div></a>}
+          <div class="tag">{big.venue} {big.year}</div>
+          <a href={"/publications/" + big.id + "/"}><h3 style="font-size:clamp(22px,2vw,30px)">{big.title}</h3></a>
+          <p class="small" style="max-width:54ch">{big.hook}</p>
+          <Authors names={big.authors} />
+        </div>
+        <div class="featlist">
+          {rest.map((p: any) => (
+            <div class="fl">
+              <div>
+                <div class="tag">{p.venue} {p.year}</div>
+                <a href={"/publications/" + p.id + "/"}><h3 style="font-size:19px;margin-top:8px">{p.title}</h3></a>
+                <p class="small" style="margin-top:8px">{p.hook}</p>
+                <Authors names={p.authors} />
+              </div>
+              {p.image && <a href={"/publications/" + p.id + "/"}><div class="ph has"><img src={p.image} alt="" loading="lazy" decoding="async" /></div></a>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile" id="people" style="padding-bottom:clamp(40px,5vw,72px)">
+    <div class="wrap">
+      <div class="sechead">
+        <div><h2>From anywhere, together.</h2><p class="lead" style="margin-top:14px">Researchers from around the world, working side by side in Aarhus.</p></div>
+        <a href="/people/" class="nowrap">Meet the team →</a>
+      </div>
+    </div>
+    <div style="position:relative">
+      <DomeGallery people={team} segments={16} />
+      <GBlur position="bottom" height="5rem" strength={2} layers={5} />
+    </div>
+  </section>
+
+
+</Base>
+
+<script>
+  import "vidstack/player/styles/default/theme.css";
+  import "vidstack/player/styles/default/layouts/video.css";
+  import "vidstack/player";
+  import "vidstack/player/layouts/default";
+  import "vidstack/player/ui";
+  import { isVimeoProvider } from "vidstack";
+  import type { MediaPlayerElement } from "vidstack/elements";
+
+  // Vidstack 1.15 sends `h=null` to player.vimeo.com for videos without an
+  // unlisted hash, which Vimeo rejects. Drop the param before the iframe loads.
+  document.querySelectorAll<MediaPlayerElement>("media-player").forEach((player) => {
+    player.addEventListener("provider-change", (e) => {
+      const provider = e.detail;
+      if (!isVimeoProvider(provider)) return;
+      const buildParams = provider.buildParams.bind(provider);
+      provider.buildParams = () => {
+        const params = buildParams() as Record<string, unknown>;
+        if (params.h == null) delete params.h;
+        return params as ReturnType<typeof buildParams>;
+      };
+    });
+  });
+</script>
