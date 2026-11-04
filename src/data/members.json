@@ -15,6 +15,53 @@
     "photo": "/assets/people/niklas.jpg"
   },
   {
+    "id": "gabriela-molina-leon",
+    "name": "Gabriela Molina León",
+    "role": "Postdoctoral Researcher",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Oct 2024",
+    "links": [["Personal site", "https://gmleon.github.io/"]],
+    "photo": "/assets/people/gaby.jpg"
+  },
+  {
+    "id": "vaishali-dhanoa",
+    "name": "Vaishali Dhanoa",
+    "role": "Postdoctoral Researcher",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Fall 2025",
+    "bio": "Now a researcher at JKU Linz, working on visualization for data quality and provenance.",
+    "photo": "/assets/people/vaishali.jpg"
+  },
+  {
+    "id": "hyeon-jeon",
+    "name": "Hyeon Jeon",
+    "role": "Postdoctoral Researcher",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Fall 2026",
+    "photo": "/assets/people/hyeon.jpg"
+  },
+  {
+    "id": "sebastian-hubenschmid",
+    "name": "Sebastian Hubenschmid",
+    "role": "Postdoctoral Researcher",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Jun 2025",
+    "links": [["Personal site", "https://sebi.sh/"]],
+    "photo": "/assets/people/sebastian.jpg"
+  },
+  {
+    "id": "duosi-dai",
+    "name": "Duosi Dai",
+    "role": "Ph.D. Student",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Fall 2025"
+  },
+  {
     "id": "arvind-srinivasan",
     "name": "Arvind Srinivasan",
     "role": "Ph.D. Student",
@@ -26,14 +73,13 @@
     "links": [["Personal site", "https://arvind.one/"]]
   },
   {
-    "id": "vaishali-dhanoa",
-    "name": "Vaishali Dhanoa",
-    "role": "Postdoctoral Researcher",
+    "id": "johannes-ellemose",
+    "name": "Johannes Ellemose",
+    "role": "Ph.D. Student",
     "org": "Aarhus University",
     "group": "current",
-    "since": "Fall 2025",
-    "bio": "Now a researcher at JKU Linz, working on visualization for data quality and provenance.",
-    "photo": "/assets/people/vaishali.jpg"
+    "since": "Feb 2024",
+    "photo": "/assets/people/johannes.jpg"
   },
   {
     "id": "marcel-borowski",
@@ -238,53 +284,6 @@
     "since": "Fall 2025"
   },
   {
-    "id": "johannes-ellemose",
-    "name": "Johannes Ellemose",
-    "role": "Ph.D. Student",
-    "org": "Aarhus University",
-    "group": "current",
-    "since": "Feb 2024",
-    "photo": "/assets/people/johannes.jpg"
-  },
-  {
-    "id": "anton-wolter",
-    "name": "Anton Wolter",
-    "role": "Ph.D. Student",
-    "org": "Aarhus University",
-    "group": "current",
-    "since": "Oct 2024",
-    "links": [["Personal site", "https://www.antonwolter.de"]],
-    "photo": "/assets/people/anton.jpg"
-  },
-  {
-    "id": "gabriela-molina-leon",
-    "name": "Gabriela Molina León",
-    "role": "Postdoctoral Researcher",
-    "org": "Aarhus University",
-    "group": "current",
-    "since": "Oct 2024",
-    "links": [["Personal site", "https://gmleon.github.io/"]],
-    "photo": "/assets/people/gaby.jpg"
-  },
-  {
-    "id": "sebastian-hubenschmid",
-    "name": "Sebastian Hubenschmid",
-    "role": "Postdoctoral Researcher",
-    "org": "Aarhus University",
-    "group": "current",
-    "since": "Jun 2025",
-    "links": [["Personal site", "https://sebi.sh/"]],
-    "photo": "/assets/people/sebastian.jpg"
-  },
-  {
-    "id": "duosi-dai",
-    "name": "Duosi Dai",
-    "role": "Ph.D. Student",
-    "org": "Aarhus University",
-    "group": "current",
-    "since": "Fall 2025"
-  },
-  {
     "id": "dieinison",
     "name": "Dieinison",
     "role": "Visiting Ph.D. Student from Brazil",
@@ -292,15 +291,6 @@
     "group": "current",
     "since": "Fall 2025",
     "photo": "/assets/people/dieinison.jpg"
-  },
-  {
-    "id": "hyeon-jeon",
-    "name": "Hyeon Jeon",
-    "role": "Postdoctoral Researcher",
-    "org": "Aarhus University",
-    "group": "current",
-    "since": "Fall 2026",
-    "photo": "/assets/people/hyeon.jpg"
   },
   {
     "id": "emeric",
@@ -319,6 +309,16 @@
     "group": "current",
     "since": "2026/2027",
     "photo": "/assets/people/benjamin.jpg"
+  },
+  {
+    "id": "anton-wolter",
+    "name": "Anton Wolter",
+    "role": "Ph.D. Student",
+    "org": "Aarhus University",
+    "group": "current",
+    "since": "Oct 2024",
+    "links": [["Personal site", "https://www.antonwolter.de"]],
+    "photo": "/assets/people/anton.jpg"
   },
   {
     "id": "deepthi-raghunandan",
