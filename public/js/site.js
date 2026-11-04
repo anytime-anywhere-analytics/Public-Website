@@ -195,25 +195,4 @@
       t && t.addEventListener("click", () => { const o = g.classList.toggle("open"); t.setAttribute("aria-expanded", String(o)); });
     });
   }
-
-  /* ── grid motion hero ────────────────────────────────────── */
-  const gm = $("[data-gmotion]");
-  if (gm) {
-    const rows = $$("[data-gmrow]", gm), inertia = [0.6, 0.4, 0.3, 0.2], cur = [];
-    let mxf = 0.5;
-    addEventListener("pointermove", (e) => {
-      const r = gm.getBoundingClientRect();
-      mxf = Math.max(0, Math.min(1, (e.clientX - r.left) / Math.max(r.width, 1)));
-    }, { passive: true });
-    const step = () => {
-      rows.forEach((el, i) => {
-        const dir = i % 2 === 0 ? 1 : -1;
-        const want = reduce ? 0 : (mxf * 300 - 150) * dir;
-        cur[i] = (cur[i] || 0) + (want - (cur[i] || 0)) * (0.055 + inertia[i % inertia.length] * 0.06);
-        el.style.transform = `translate3d(${cur[i].toFixed(2)}px,0,0)`;
-      });
-      requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
 })();

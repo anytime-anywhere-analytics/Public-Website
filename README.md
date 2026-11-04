@@ -166,8 +166,12 @@ deploy online; the run log says why.
 - **List rows** (publications) carry a square cover on the right via `RowThumb`;
   with no image the space is held empty and the hover state still shows the black
   arrow overlay.
-- **Publications hero** is `GridMotion` — rotated rows of figures that slide with the
-  pointer; server-rendered markup driven by `public/js/site.js`.
+- **Page heroes** on People, Publications and Work with us are plain: a title and one lead
+  line. The publications list does not lean on teaser figures, since most papers have none yet.
+- **Logo.** `Logo.astro` is a simplified version of the ca3.dk logo: its triangles and the three
+  chevrons (the "A"s of Anytime / Anywhere / Analytics), without the lettering and with heavier
+  chevrons so it holds up at 30px. It draws in `currentColor` (`--logo`: AU blue in light mode);
+  `public/assets/ca3-mark.svg` is the same mark as a standalone file.
 - **Filters** are a sidebar at ≥900px and a collapsible, headroom-aware sticky bar below
   that (`FilterRail`): it hides on scroll down, returns on scroll up, and stays put while open.
 - **One header.** Transparent-over-hero on the home page (`overHero` prop on `Base`),
@@ -175,7 +179,7 @@ deploy online; the run log says why.
 - **No scrollbars.** Native scrollbars are hidden; vertical progress is the accent bar at
   the top of the viewport.
 - **Gradual blur** (`GBlur`) layers masked `backdrop-filter` divs at section seams —
-  under the publications hero and the people dome.
+  under the people dome.
 - **Dark mode** follows `prefers-color-scheme` through the token block at the top of
   `src/styles/site.css`. Nothing else should hardcode a colour.
 - **Pre-filtered links.** `/publications/?author=…` (or `?year=`, `?venue=`) arrives with that

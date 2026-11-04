@@ -1,7 +1,5 @@
 ---
 import Base from "../../layouts/Base.astro";
-import GridMotion from "../../components/GridMotion.astro";
-import GBlur from "../../components/GBlur.astro";
 import FilterRail from "../../components/FilterRail.astro";
 import RowThumb from "../../components/RowThumb.astro";
 import WorkCard from "../../components/WorkCard.astro";
@@ -20,22 +18,17 @@ const facets = [
   { key: "venue", title: "Venue", open: false, options: counts(publications, (p: any) => p.venue) },
 ];
 const rows = publications.slice().sort((a: any, b: any) => b.year - a.year);
-const tiles = publications.map((p: any) => ({ label: p.title, image: p.image }));
 ---
 <Base title="Publications · CA³" description="Papers from the Center for Anytime Anywhere Analytics on ubiquitous, immersive and situated visualization and analytics, filterable by author, year and venue." current="/publications/">
   <SearchMeta kind="Page" />
-  <section class="herowall">
-    <div class="wallbg"><GridMotion tiles={tiles} /></div>
-    <div class="hscrim"></div>
-    <div class="inner">
-      <div class="eyebrow" style="color:rgba(255,255,255,.6)">{publications.length} papers</div>
-      <h1 style="margin-top:16px">Publications</h1>
-      <p class="lead" style="margin-top:18px;max-width:42ch">One ongoing argument, in {publications.length} instalments: analysis belongs wherever the decision is.</p>
-    </div>
-    <GBlur position="bottom" height="7rem" strength={2.4} layers={6} />
-  </section>
   <div class="wrap">
-    <div class="listing" data-list data-per="8" data-noun="publications" style="padding-top:clamp(32px,4vw,56px)">
+    <div class="pagehero">
+      <div>
+        <h1>Publications</h1>
+        <p class="lead" style="margin-top:20px;max-width:44ch">One ongoing argument, in {publications.length} instalments: analysis belongs wherever the decision is.</p>
+      </div>
+    </div>
+    <div class="listing" data-list data-per="8" data-noun="publications">
       <FilterRail>
         {facets.map((f) => (
           <div class={"fgroup" + (f.open ? " open" : "")} data-fgroup>

@@ -1,4 +1,5 @@
 ---
+import Logo from "./Logo.astro";
 import { site } from "../lib/data";
 ---
 <footer class="sitefoot">
@@ -7,7 +8,7 @@ import { site } from "../lib/data";
     <div class="wrap">
       <div class="footcols">
         <div>
-          <div class="flogo"><span class="mark">CA</span> CA³</div>
+          <div class="flogo"><Logo class="logo" /> CA³</div>
           <div class="big">{site.tagline}</div>
           <div class="funders">{site.funders.map((f: any) => <img src={f.src} alt={f.alt} />)}</div>
         </div>

@@ -5,6 +5,7 @@
 --hairline:#e0e0e0;--divider:#f0f0f0;--chip:rgba(210,210,215,.64);
 --hdr-bg:rgba(255,255,255,.72);--hdr-ink:#1d1d1f;--hdr-line:rgba(0,0,0,.08);--field:rgba(0,0,0,.05);
 --ph-a:#ececed;--ph-b:#f6f6f7;--ph-ink:#7a7a7a;
+--logo:#003D73;
 --display:"SF Pro Display",-apple-system,system-ui,"Figtree",sans-serif;
 --text:"SF Pro Text",-apple-system,system-ui,"Figtree",sans-serif;
 --mono:ui-monospace,"SF Mono",Menlo,monospace;
@@ -17,6 +18,7 @@
 --hairline:#2c2c2e;--divider:#232326;--chip:rgba(90,90,96,.5);
 --hdr-bg:rgba(12,12,14,.72);--hdr-ink:#f5f5f7;--hdr-line:rgba(255,255,255,.1);--field:rgba(255,255,255,.08);
 --ph-a:#1e1f24;--ph-b:#25262c;--ph-ink:#8b8d96;
+--logo:#f5f5f7;
 --shadow-product:rgba(0,0,0,.6) 3px 5px 30px}}
 *{box-sizing:border-box}
 html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;background:var(--canvas)}
@@ -58,7 +60,8 @@ img{max-width:100%;display:block}
 .hdr .wrap{display:flex;align-items:center;gap:6px;height:100%}
 .hdr .brand{display:flex;align-items:center;gap:9px;margin-right:auto;color:inherit!important;font:600 16px/1 var(--display);letter-spacing:-.01em}
 .hdr .brand:hover{opacity:.75}
-.hdr .brand .mark{width:22px;height:22px;border:1.5px solid currentColor;border-radius:5px;display:grid;place-items:center;font:600 10px/1 var(--text);letter-spacing:0}
+.hdr .brand .logo{height:30px;width:auto;flex:none;color:var(--logo);transition:color .35s}
+.hdr.over .brand .logo{color:#fff}
 .hdr .brand em{font-style:normal;font-weight:400;opacity:.62;letter-spacing:-.2px;font-size:14px}
 .hdr nav{display:flex;gap:2px;align-items:center}
 .hdr nav a{font:400 14px/1.29 var(--text);letter-spacing:-.224px;color:inherit;padding:8px 13px;border-radius:9999px;opacity:.82}
@@ -364,7 +367,7 @@ img{max-width:100%;display:block}
 .sitefoot address a{text-decoration:underline;text-decoration-color:color-mix(in oklab,currentColor 30%,transparent)}
 .sitefoot address a:hover{text-decoration-color:currentColor}
 .sitefoot .flogo{display:flex;align-items:center;gap:10px;font:600 18px/1 var(--display);color:#fff}
-.sitefoot .flogo .mark{width:26px;height:26px;border:1.5px solid #fff;border-radius:6px;display:grid;place-items:center;font:600 11px/1 var(--text)}
+.sitefoot .flogo .logo{height:36px;width:auto;flex:none}
 .sitefoot .big{font:600 clamp(26px,3vw,40px)/1.08 var(--display);letter-spacing:-.025em;max-width:18ch;margin-top:20px}
 .sitefoot address{font:400 14px/1.7 var(--text);font-style:normal;color:rgba(255,255,255,.6)}
 .funders{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:22px}
@@ -374,28 +377,11 @@ img{max-width:100%;display:block}
 .footlegal{display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-top:clamp(24px,4vh,56px);padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font:400 12px/1 var(--text);color:rgba(255,255,255,.5)}
 .footlegal a{display:inline;color:rgba(255,255,255,.6)}
 
-/* ── grid motion (publications hero) ─────────────────────── */
-.gmotion{position:absolute;inset:0;overflow:hidden;display:grid;place-items:center}
-.gmgrid{position:relative;width:170%;height:190%;display:grid;gap:14px;grid-template-columns:100%;transform-origin:center;z-index:1}
-.gmrow{display:grid;gap:14px;will-change:transform}
-.gmitem{position:relative}
-.gmin{position:relative;width:100%;height:100%;overflow:hidden;border-radius:12px;background:#111;box-shadow:0 12px 30px rgba(0,0,0,.35)}
-.gmin>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.gmin .ph span{font-size:9px;letter-spacing:.1em;opacity:.75}
-
 /* ── gradual blur (layered backdrop dissolve) ────────────── */
 .gblur{position:absolute;left:0;right:0;pointer-events:none;isolation:isolate;z-index:3}
 .gblur.bottom{bottom:0}
 .gblur.top{top:0}
 .gblur i{position:absolute;inset:0;display:block}
-
-/* page hero variants */
-.herowall{position:relative;min-height:min(58vh,520px);margin-top:calc(-1*var(--hdr-h));background:#06080f;color:#fff;overflow:hidden;display:grid;align-items:end}
-.herowall .wallbg{position:absolute;inset:0;z-index:0}
-.herowall .inner{position:relative;z-index:5;padding:calc(var(--hdr-h) + 72px) var(--gutter) clamp(32px,5vw,64px);max-width:var(--maxw);margin:0 auto;width:100%}
-.herowall h1{font-size:clamp(40px,6.4vw,84px)}
-.herowall .lead{color:rgba(255,255,255,.78)}
-.herowall .hscrim{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(6,8,15,.72),rgba(6,8,15,.25) 38%,rgba(6,8,15,.92))}
 
 /* ── Astro additions: native <dialog> modals + footer backdrop ───────── */
 dialog.modal{border:0;padding:0;width:100%;height:100%;max-width:none;max-height:none;background:color-mix(in oklab,#000 45%,transparent)}
