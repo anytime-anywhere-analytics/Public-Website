@@ -1,7 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 const { current = "", overHero = false } = Astro.props;
-const NAV = [["People", "/people/"], ["Publications", "/publications/"], ["Yearbook", "/yearbook/"]];
+const NAV = [["People", "/people/"], ["Publications", "/publications/"], ["Yearbook", "/yearbook/"], ["Work with us", "/work-with-us/"]];
 ---
 <header class={"hdr" + (overHero ? " over" : "")} data-over-hero={overHero ? "true" : undefined}>
   <div class="wrap">
@@ -11,6 +11,5 @@ const NAV = [["People", "/people/"], ["Publications", "/publications/"], ["Yearb
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg>
       <span>Search</span><kbd>⌘K</kbd>
     </button>
-    <a class="workbtn" href="/work-with-us/" aria-current={current === "/work-with-us/" ? "page" : undefined}>Work with us</a>
   </div>
 </header>

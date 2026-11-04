@@ -192,8 +192,8 @@ script and no banner.
   line. The publications list does not lean on teaser figures, since most papers have none yet.
 - **Logo.** `Logo.astro` is a simplified version of the ca3.dk logo: its triangles and the three
   chevrons (the "A"s of Anytime / Anywhere / Analytics), without the lettering and with heavier
-  chevrons so it holds up at 30px. It draws in `currentColor` (`--logo`: AU blue in light mode);
-  `public/assets/ca3-mark.svg` is the same mark as a standalone file.
+  chevrons so it holds up at 30px. It draws in `currentColor` (`--logo`): Aarhus University navy
+  `#003d73`, which is also the site's primary colour; white in dark mode, over the hero and in the footer. `public/assets/ca3-mark.svg` is the same mark as a standalone file.
 - **Filters** are a sidebar at ≥900px and a collapsible, headroom-aware sticky bar below
   that (`FilterRail`): it hides on scroll down, returns on scroll up, and stays put while open.
 - **One header.** Transparent-over-hero on the home page (`overHero` prop on `Base`),

@@ -6,8 +6,11 @@ import { members, team, initials } from "../../lib/data";
 
 /* the current team gets portrait cards; alumni and collaborators a quiet text list.
    Under those headings a role of just "Alumna" or "External Collaborator" says nothing, so it is dropped. */
+/* alumni read as a directory: by surname, then full name */
+const surname = (name: string) => name.trim().split(/\s+/).pop() || name;
+const bySurname = (a: any, b: any) => surname(a.name).localeCompare(surname(b.name), "en") || a.name.localeCompare(b.name, "en");
 const past = [
-  { id: "alumni", title: "Alumni", people: members.filter((m: any) => m.group === "alumni") },
+  { id: "alumni", title: "Alumni", people: members.filter((m: any) => m.group === "alumni").sort(bySurname) },
   { id: "collaborators", title: "External collaborators", people: members.filter((m: any) => m.group === "external") },
 ];
 const redundant = /^(alumn(a|us|i)|external collaborator)$/i;
