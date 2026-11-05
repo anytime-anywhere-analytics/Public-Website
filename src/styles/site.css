@@ -130,7 +130,8 @@ img{max-width:100%;display:block}
 .sechead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;margin-bottom:40px}
 
 /* hero */
-.hero{position:relative;min-height:100svh;margin-top:calc(-1*var(--hdr-h));display:grid;align-items:center;background:#06080f;color:#fff;overflow:hidden}
+/* isolation keeps the burst's mix-blend-mode from turning the whole .shell into a blend group */
+.hero{position:relative;min-height:100svh;margin-top:calc(-1*var(--hdr-h));display:grid;align-items:center;background:#06080f;color:#fff;overflow:hidden;isolation:isolate}
 /* a visual hero: the captioned group photo leads; headline, one line of pitch, the director's quote and the host/funder logos beside it */
 .hero .inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);grid-template-areas:"photo pitch";gap:clamp(32px,5vw,88px);align-items:center;padding-top:calc(var(--hdr-h) + clamp(32px,6vh,80px));padding-bottom:clamp(48px,8vh,96px)}
 @media(max-width:900px){.hero .inner{grid-template-columns:minmax(0,1fr);grid-template-areas:"photo" "pitch";gap:36px}}

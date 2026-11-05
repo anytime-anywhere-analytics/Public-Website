@@ -70,11 +70,16 @@
       dome.style.setProperty("--segx", segments);
       apply();
     }).observe(dome);
+    let raf = 0;
     const step = () => {
       if (!dragging) { vel *= 0.955; rot.y = (rot.y + vel + (reduce ? 0 : 0.018)) % 360; apply(); }
-      requestAnimationFrame(step);
+      raf = requestAnimationFrame(step);
     };
-    requestAnimationFrame(step);
+    /* spin only while on screen: each frame re-composites ~64 3D tiles and the blur strip over them */
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { if (!raf) raf = requestAnimationFrame(step); }
+      else { cancelAnimationFrame(raf); raf = 0; }
+    }).observe(dome);
     const onMove = (e) => {
       if (!dragging) return;
       const dx = e.clientX - start.px, dy = e.clientY - start.py;

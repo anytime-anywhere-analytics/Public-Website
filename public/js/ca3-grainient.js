@@ -1,7 +1,7 @@
 // <ca3-grainient> — full-bleed WebGL2 grainy gradient background (port of React Bits' Grainient, no deps).
 // Attributes mirror the React props: color1 color2 color3 time-speed color-balance warp-strength warp-frequency
 // warp-speed warp-amplitude blend-angle blend-softness rotation-amount noise-scale grain-amount grain-scale
-// grain-animated contrast gamma saturation center-x center-y zoom light-mode.
+// grain-animated contrast gamma saturation center-x center-y zoom light-mode, plus reveal (selector; see below).
 class CA3Grainient extends HTMLElement {
   connectedCallback() {
     if (this._init) return; this._init = true;
@@ -9,7 +9,7 @@ class CA3Grainient extends HTMLElement {
     const c = document.createElement("canvas");
     c.style.cssText = "width:100%;height:100%;display:block";
     this.appendChild(c);
-    const gl = c.getContext("webgl2", { antialias: false, alpha: true });
+    const gl = c.getContext("webgl2", { antialias: false, alpha: true, depth: false, stencil: false, powerPreference: "low-power" });
     if (!gl) { this.removeChild(c); return; } // CSS fallback gradient on .fbg stays visible
     const vs = `#version 300 es
 in vec2 position;void main(){gl_Position=vec4(position,0.,1.);}`;
@@ -99,15 +99,21 @@ void main(){
       gl.viewport(0, 0, c.width, c.height); gl.uniform2f(uR, c.width, c.height); draw();
     };
     new ResizeObserver(size).observe(c); size();
-    // Pause when scrolled offscreen or the tab is hidden.
-    let raf = 0, vis = true, pageVis = !document.hidden;
+    // Pause when scrolled offscreen or the tab is hidden. A fixed background the page slides over is always
+    // "in view" to an IntersectionObserver, so `reveal` names the element whose visibility uncovers it.
+    // Drawn at ~30 fps: the gradient drifts slowly and the animated grain reads as film grain at that rate.
+    let raf = 0, vis = false, pageVis = !document.hidden, drawn = 0;
     const t0 = performance.now();
-    const frame = () => { gl.uniform1f(uT, (performance.now() - t0) / 1000); draw(); raf = requestAnimationFrame(frame); };
+    const frame = (now) => {
+      raf = requestAnimationFrame(frame);
+      if (now - drawn < 1000 / 30 - 4) return;
+      drawn = now; gl.uniform1f(uT, (now - t0) / 1000); draw();
+    };
     const start = () => { if (!still && vis && pageVis && !raf) raf = requestAnimationFrame(frame); };
     const stop = () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } };
-    new IntersectionObserver((e) => { vis = e[0].isIntersecting; vis ? start() : stop(); }).observe(this);
+    const sel = this.getAttribute("reveal");
+    new IntersectionObserver((e) => { vis = e[0].isIntersecting; vis ? start() : stop(); }).observe((sel && document.querySelector(sel)) || this);
     document.addEventListener("visibilitychange", () => { pageVis = !document.hidden; pageVis ? start() : stop(); });
-    start();
   }
 }
 customElements.define("ca3-grainient", CA3Grainient);

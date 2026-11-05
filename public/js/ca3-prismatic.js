@@ -11,14 +11,14 @@ class CA3Prismatic extends HTMLElement {
     const blend = this.getAttribute("mix-blend-mode") || "lighten";
     if (!this.hasAttribute("light-mode") && blend !== "none") c.style.mixBlendMode = blend;
     this.appendChild(c);
-    const gl = c.getContext("webgl2", { antialias: false, alpha: false });
+    const gl = c.getContext("webgl2", { antialias: false, alpha: false, depth: false, stencil: false, powerPreference: "low-power" });
     if (!gl) { this.removeChild(c); this.style.background = "radial-gradient(120% 90% at 50% 40%,#101a34,#05070f)"; return; }
     const vs = `#version 300 es
 in vec2 position;void main(){gl_Position=vec4(position,0.,1.);}`;
     const fs = `#version 300 es
 precision highp float;precision highp int;
 out vec4 fragColor;
-uniform vec2 uResolution;uniform float uTime,uIntensity,uSpeed,uDistort,uNoiseAmount,uLightMode;
+uniform vec2 uResolution;uniform float uTime,uIntensity,uSpeed,uDistort,uNoiseAmount,uLightMode,uGrain;
 uniform int uAnimType,uColorCount,uRayCount;uniform vec2 uMouse,uOffset;uniform sampler2D uGradient;
 float hash21(vec2 p){p=floor(p);float f=52.9829189*fract(dot(p,vec2(0.065,0.005)));return fract(f);}
 mat2 rot30(){return mat2(0.8,-0.5,0.5,0.8);}
@@ -36,7 +36,7 @@ vec2 rot2(vec2 v,float a){float s=sin(a),c=cos(a);return mat2(c,-s,s,c)*v;}
 float bendAngle(vec3 q,float t){return 0.8*sin(q.x*0.55+t*0.6)+0.7*sin(q.y*0.50-t*0.5)+0.6*sin(q.z*0.60+t*0.7);}
 void main(){
  vec2 frag=gl_FragCoord.xy;float t=uTime*uSpeed;float jitterAmp=0.1*clamp(uNoiseAmount,0.0,1.0);
- vec3 dir=rayDir(frag,uResolution,uOffset,1.0);float marchT=0.0;vec3 col=vec3(0.0);float n=layeredNoise(frag);
+ vec3 dir=rayDir(frag,uResolution,uOffset,1.0);float marchT=0.0;vec3 col=vec3(0.0);float n=0.5+(layeredNoise(frag)-0.5)*uGrain;
  vec4 c=cos(t*0.2+vec4(0.0,33.0,11.0,0.0));mat2 M2=mat2(c.x,c.y,c.z,c.w);float amp=clamp(uDistort,0.0,50.0)*0.15;
  mat3 rot3dMat=mat3(1.0);if(uAnimType==1){vec3 ang=vec3(t*0.31,t*0.21,t*0.17);rot3dMat=rotZ(ang.z)*rotY(ang.y)*rotX(ang.x);}
  mat3 hoverMat=mat3(1.0);if(uAnimType==2){vec2 m=uMouse*2.0-1.0;vec3 ang=vec3(m.y*0.6,m.x*0.6,0.0);hoverMat=rotY(ang.y)*rotX(ang.x);}
@@ -49,9 +49,9 @@ void main(){
   vec3 Pb=Pl;Pb.xz=rot2(Pb.xz,a1);Pb.xy=rot2(Pb.xy,a2);
   float rayPattern=smoothstep(0.5,0.7,sin(Pb.x+cos(Pb.y)*cos(Pb.z))*sin(Pb.z+sin(Pb.y)*cos(Pb.x+t)));
   if(uRayCount>0){float ang=atan(Pb.y,Pb.x);float comb=0.5+0.5*cos(float(uRayCount)*ang);comb=pow(comb,3.0);rayPattern*=smoothstep(0.15,0.95,comb);}
-  vec3 spectralDefault=1.0+vec3(cos(marchT*3.0+0.0),cos(marchT*3.0+1.0),cos(marchT*3.0+2.0));
-  float saw=fract(marchT*0.25);float tRay=saw*saw*(3.0-2.0*saw);vec3 userGradient=2.0*sampleGradient(tRay);
-  vec3 spectral=(uColorCount>0)?userGradient:spectralDefault;
+  vec3 spectral;
+  if(uColorCount>0){float saw=fract(marchT*0.25);float tRay=saw*saw*(3.0-2.0*saw);spectral=2.0*sampleGradient(tRay);}
+  else spectral=1.0+vec3(cos(marchT*3.0+0.0),cos(marchT*3.0+1.0),cos(marchT*3.0+2.0));
   vec3 base=(0.05/(0.4+stepLen))*smoothstep(5.0,0.0,rad)*spectral;
   col+=base*rayPattern;marchT+=stepLen;
  }
@@ -88,38 +88,60 @@ void main(){
     gl.uniform1f(U("uNoiseAmount"), 0.8);
     gl.uniform1i(U("uRayCount"), Math.max(0, Math.floor(num("ray-count", 0))));
     gl.uniform1f(U("uLightMode"), this.hasAttribute("light-mode") ? 1 : 0);
-    gl.uniform2f(U("uOffset"), num("offset-x", 0), num("offset-y", 0));
-    const uR = U("uResolution"), uT = U("uTime"), uM = U("uMouse");
+    const uR = U("uResolution"), uT = U("uTime"), uM = U("uMouse"), uO = U("uOffset"), uG = U("uGrain");
+    const ox = num("offset-x", 0), oy = num("offset-y", 0);
     const hoverDamp = Math.max(0, Math.min(1, num("hover-dampness", 0)));
     const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const draw = () => gl.drawArrays(gl.TRIANGLES, 0, 3);
+    // Cost is the 44-step march per buffer pixel: at full Retina DPR it saturates integrated GPUs, and the
+    // system compositor with them. The burst is soft and sits under a scrim, so the buffer is held to ≤1 px per
+    // CSS px and ~1.2 MP and the compositor upscales it; `q` shrinks it further where frames still run long.
+    const KEY = "ca3-prismatic-q", MIN_Q = 0.35;
+    let q = 1;
+    try { q = Math.min(1, Math.max(MIN_Q, +sessionStorage.getItem(KEY) || 1)); } catch {}
     const size = () => {
-      const d = Math.min(devicePixelRatio || 1, 2);
-      c.width = Math.max(1, Math.round(c.clientWidth * d)); c.height = Math.max(1, Math.round(c.clientHeight * d));
-      gl.viewport(0, 0, c.width, c.height); gl.uniform2f(uR, c.width, c.height); draw();
+      const w = c.clientWidth, h = c.clientHeight;
+      const s = q * Math.min(devicePixelRatio || 1, 1, Math.sqrt(1.2e6 / Math.max(1, w * h)));
+      c.width = Math.max(1, Math.round(w * s)); c.height = Math.max(1, Math.round(h * s));
+      gl.viewport(0, 0, c.width, c.height); gl.uniform2f(uR, c.width, c.height); gl.uniform2f(uO, ox * s, oy * s);
+      // Step jitter is per buffer pixel; when one spans k screen pixels, 1/k of it keeps the grain as fine as at full res.
+      gl.uniform1f(uG, Math.min(1, s / (devicePixelRatio || 1))); draw();
     };
+    gl.uniform2f(uM, 0.5, 0.5);
     new ResizeObserver(size).observe(c); size();
+    let raf = 0, vis = false, last = 0, drawn = 0, acc = 0, probe = 0, base = 100, n = 0, slow = 0;
     // Pointer is tracked on the window because the hero's scrim/text sit above this element.
     const tgt = [0.5, 0.5], sm = [0.5, 0.5];
     if (animType === 2) addEventListener("pointermove", (e) => {
+      if (!raf) return;
       const r = this.getBoundingClientRect();
       tgt[0] = Math.min(Math.max((e.clientX - r.left) / Math.max(r.width, 1), 0), 1);
       tgt[1] = Math.min(Math.max((e.clientY - r.top) / Math.max(r.height, 1), 0), 1);
     }, { passive: true });
-    let vis = true;
-    new IntersectionObserver((e) => { vis = e[0].isIntersecting; }, { threshold: 0.01 }).observe(this);
-    let last = performance.now(), acc = 0;
+    // Adaptive quality. After each (re)start, eight undrawn frames measure the display's frame interval (its
+    // refresh, or a browser's 30 fps power-saving cap). Drawing is capped near 60 fps; whenever most of 20 drawn
+    // frames run over 1.4× the expected interval the GPU is the bottleneck, and `q` drops 30 % (halving the pixels).
     const frame = (now) => {
-      const dt = Math.max(0, now - last) * 0.001; last = now;
-      if (!this.hasAttribute("paused")) acc += dt;
-      if (vis && !document.hidden) {
-        const alpha = 1 - Math.exp(-dt / (0.02 + hoverDamp * 0.5));
-        sm[0] += (tgt[0] - sm[0]) * alpha; sm[1] += (tgt[1] - sm[1]) * alpha;
-        gl.uniform2f(uM, sm[0], sm[1]); gl.uniform1f(uT, acc); draw();
+      raf = requestAnimationFrame(frame);
+      const dt = last ? Math.min(now - last, 100) : 0; last = now;
+      if (!this.hasAttribute("paused")) acc += dt / 1000;
+      const alpha = 1 - Math.exp(-dt / (20 + hoverDamp * 500));
+      sm[0] += (tgt[0] - sm[0]) * alpha; sm[1] += (tgt[1] - sm[1]) * alpha;
+      if (probe < 8) { if (dt) base = Math.min(base, dt); probe++; drawn = now; return; }
+      const gap = now - drawn;
+      if (gap < 1000 / 60 - 3) return;
+      drawn = now;
+      if (gap > Math.max(base, 1000 / 60) * 1.4) slow++;
+      if (++n === 20) {
+        if (slow > 12 && q > MIN_Q) { q = Math.max(MIN_Q, q * 0.7); size(); try { sessionStorage.setItem(KEY, q); } catch {} }
+        n = slow = 0;
       }
-      if (!still) requestAnimationFrame(frame);
+      gl.uniform2f(uM, sm[0], sm[1]); gl.uniform1f(uT, acc); draw();
     };
-    frame(last);
+    const start = () => { if (!still && vis && !document.hidden && !raf) { last = probe = n = slow = 0; base = 100; raf = requestAnimationFrame(frame); } };
+    const stop = () => { cancelAnimationFrame(raf); raf = 0; };
+    new IntersectionObserver((e) => { vis = e[0].isIntersecting; vis ? start() : stop(); }).observe(this);
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
   }
 }
 customElements.define("ca3-prismatic", CA3Prismatic);
