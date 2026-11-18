@@ -49,7 +49,9 @@
     "name": "Duosi Dai",
     "role": "Ph.D. Student",
     "org": "Aarhus University",
-    "group": "current"
+    "group": "current",
+    "photo": "/assets/people/duosi-dai.png",
+    "links": [["Personal Website", "https://duosi-dai.github.io/"]]
   },
   {
     "id": "arvind-srinivasan",
