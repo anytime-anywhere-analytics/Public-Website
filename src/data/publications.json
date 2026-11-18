@@ -274,6 +274,21 @@
     ]
   },
   {
+    "id": "visualization-autocomplete",
+    "type": "jrnl",
+    "title": "Visualization Autocomplete: Visualization Authoring via Stepwise Design Recommendations",
+    "authors": [
+      "Hyeon Jeon",
+      "Sungbok Shin",
+      "Niklas Elmqvist"
+    ],
+    "venue": "IEEE TVCG",
+    "year": 2026,
+    "pdf": "https://arxiv.org/pdf/2607.15608",
+    "abstract": [],
+    "keywords": []
+  },
+  {
     "id": "agentic-visualization",
     "type": "jrnl",
     "title": "Agentic Visualization: Extracting Agent-based Design Patterns from Visualization Systems",
